@@ -4,7 +4,15 @@ destination: ./_site
 baseurl: "" # The subpath of your site. Use "" if you're hosting a blog at the root level.
 url: "http://linuxsimba.com" # the base hostname & protocol for your site
 title: "LinuxSimba"
-
+social_media_btn:
+  - name: 'twitter'
+    url: 'https://twitter.com/intent/follow?original_referer=http%3A%2F%2Flinuxsimb.com&amp;region=follow_link&amp;screen_name=skamithik&amp;tw_p=followbutton'
+    title: 'Follow Me (@skamithik) on Twitter'
+    id: 'twitter_btn'
+  - name: 'linkedin'
+    url: 'https://www.linkedin.com/profile/view?id=147021940'
+    title: 'Connect with me on LinkedIn'
+    id: 'linkedin_btn'
 # This is used by feed.xml. Uncomment if you want to use it.
 # description: "..."
 
