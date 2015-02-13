@@ -1,4 +1,4 @@
-source: .
+source: ./_source
 destination: ./_site
 
 baseurl: "" # The subpath of your site. Use "" if you're hosting a blog at the root level.
