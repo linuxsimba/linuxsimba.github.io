@@ -2,7 +2,7 @@
 # More info at https://github.com/guard/guard#readme
 
 ## Uncomment and set this to only include directories you want to watch
-directories %w(_source)
+# directories %w(app lib config test spec features)
 
 ## Uncomment to clear the screen before every task
 # clearing :on
@@ -24,5 +24,11 @@ directories %w(_source)
 # and, you'll have to watch "config/Guardfile" instead of "Guardfile"
 
 guard 'livereload' do
-  watch(/_source\/.*/)
+  watch(%r{_source/.*})
+end
+
+ignore /_site/
+
+guard 'jekyll' do
+  watch /.*/
 end
