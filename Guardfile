@@ -22,13 +22,11 @@
 #  $ ln -s config/Guardfile .
 #
 # and, you'll have to watch "config/Guardfile" instead of "Guardfile"
-
-guard 'livereload' do
-  watch(%r{_source/.*})
+guard 'jekyll-plus', :serve => true do
+  watch(%r{_source/.+})
+  ignore /_site/
 end
 
-ignore /_site/
-
-guard 'jekyll' do
-  watch /.*/
-end
+#guard 'livereload' do
+#  watch(%r{_site/.+})
+#end
