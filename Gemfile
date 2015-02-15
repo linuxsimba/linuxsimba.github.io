@@ -5,3 +5,5 @@ gem "therubyracer"
 gem "guard", "=2.8.0"
 gem 'guard-livereload'
 gem 'guard-jekyll-plus'
+gem 'jekyll-last-modified-at'
+
