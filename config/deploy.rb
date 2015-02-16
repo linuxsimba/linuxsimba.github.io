@@ -6,7 +6,7 @@ set :rvm_ruby_version, '2.2.0'
 set :application, 'linuxsimba'
 set :repo_url, 'http://github.com/skamithi/linuxsimba.git'
 set :branch, 'master'
-set :rvm_map_bins, fetch(:rvm_map_bins, []).push('jekyll')
+#set :rvm_map_bins, fetch(:rvm_map_bins, []).push('jekyll')
 # Default branch is :master
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }.call
 
@@ -42,7 +42,7 @@ namespace :deploy do
   task :update_jekyll do
     on roles(:app) do
       within "#{deploy_to}/current" do
-        execute :jekyll, "build"
+        execute :bundle, "exec jekyll build"
       end
     end
   end

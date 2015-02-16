@@ -63,14 +63,16 @@ set :repo_url, 'http://github.com/skamithi/linuxsimba.git'
 set :branch, 'master'
 # executes jekyll with 'bundle exec'. 
 # Tried 'bundler_bins'. Didn't work.
-set :rvm_map_bins, fetch(:rvm_map_bins, []).push('jekyll')
+# tried rvm_map_bins. only works in vagrant env not prod
+# so disabled till I figure out why
+# set :rvm_map_bins, fetch(:rvm_map_bins, []).push('jekyll')
 
 namespace :deploy do
 
   task :update_jekyll do
     on roles(:app) do
       within "#{deploy_to}/current" do
-        execute :jekyll, "build"
+        execute :bundle, "exec jekyll build"
       end
     end
   end
