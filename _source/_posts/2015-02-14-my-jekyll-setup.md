@@ -11,8 +11,7 @@ Here are the relevant sections of my Capistrano, Nginx and Vagrant setup that I 
 ```
 
 server {
-        listen 80 default_server;
-        listen [::]:80 default_server ipv6only=on;
+        listen 80;
 
         root /home/vagrant/blog/current/_site;
         index index.html index.htm;
