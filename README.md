@@ -1,6 +1,6 @@
 # README
 
-Go to the website...when its ready :)
+My [personal blog](http://linuxsimba.com) of Linux based technology that interests me.
 
 ### License
 
