@@ -4,10 +4,10 @@ All you need to know about me is on
 Well.. there 2 things I really don't like, that are worth mentioning 
 
 First, is people asking me _"Where is your accent from?"_. As if they don't have an
-accent.
+accent!
 
 Second, is the fact that I live in the richest country in the world, but a lot
 of its children get a crappy education. In this area, I say Capitalism has
-failed.
+failed!
 
-Enough politics, hope you enjoy my posts! 
+Enough politics, hope you enjoy my posts.
