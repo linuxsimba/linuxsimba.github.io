@@ -111,9 +111,9 @@ Vagrant.configure(2) do |config|
 192.168.33.10 linuxsimba.com
 ```
 
-Before executing [Capistrano](http://capistranorb.com/), I copied the public key of my host PC user to the `/home/vagrant/.ssh/authorized_keys` file on the Vagrant VM. Configured I could `ssh vagrant@192.168.33.10`.
+Before executing [Capistrano](http://capistranorb.com/), I copied the public key of my host PC user to the `/home/vagrant/.ssh/authorized_keys` file on the Vagrant VM. Then, I confirmed the passwordless ssh setting by using `ssh vagrant@192.168.33.10`.
 
-Then, to run capistrano I use the command
+To run [Capistrano](http://capistranorb.com/), I use the command
 `$ bundle exec cap vagrant deploy`
 
 

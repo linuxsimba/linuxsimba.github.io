@@ -14,7 +14,8 @@ $font-size-h3: floor(($font-size-base * 1));
 $font-size-h4: floor(($font-size-base * 1));
 $font-size-h5: floor(($font-size-base * 1));
 $font-size-h6: floor(($font-size-base * 1));
-$blockquote-font-size: floor(($font-size-base * 1.25));
+$blockquote-font-size: floor(($font-size-base * 0.9));
+$blockquote-bg-color: rgba(128,128,128,0.05);
 $line-height-base: 1.8;
 $headings-line-height: 1.3;
 
@@ -71,6 +72,11 @@ h2 {
 h3 {
   text-transform: uppercase;
   margin-bottom: $line-height-computed * 0.25;
+}
+
+blockquote {
+  background-color: $blockquote-bg-color;
+  font-size: $blockquote-font-size;
 }
 
 .lead {
