@@ -19,6 +19,6 @@ Inotify](http://linux.die.net/man/7/inotify). So, the host never sees
 these events. Therefore, [Guard](http://guardgem.org/) never does anything when I change the file it should be
 "watching".
 3. **`git reset --hard` when I had important work I had not stashed**  
-On this day, I truely was not thinking. I lost a lot of time and was very
+On this day, I truly was not thinking. I lost a lot of time and was very
 frustrated regenerating the "important work".  I now remember - `git
 stash` is your friend!
