@@ -1,5 +1,5 @@
 ---
-title: "Jekyll and Capistrano and RVM"
+title: "Jekyll, Capistrano and RVM"
 ---
 
 Decided to use [Jekyll](http://jekyllrb.com/) to host my blog posts. Its really

@@ -3,3 +3,4 @@ _site
 *.swp
 .capistrano
 *~
+config/deploy/prod.rb
