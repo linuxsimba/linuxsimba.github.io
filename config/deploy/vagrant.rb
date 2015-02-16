@@ -5,6 +5,7 @@
 # property set.  Don't declare `role :all`, it's a meta role.
 
 role :app, %w{vagrant@192.168.33.10}
+set :deploy_to, "/home/vagrant/blog"
 
 
 # Extended Server Syntax

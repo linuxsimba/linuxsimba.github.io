@@ -11,7 +11,7 @@ set :rvm_map_bins, fetch(:rvm_map_bins, []).push('jekyll')
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }.call
 
 # Default deploy_to directory is /var/www/my_app_name
-set :deploy_to, "/home/vagrant/blog"
+#set :deploy_to, "/home/vagrant/blog"
 
 # Default value for :scm is :git
 # set :scm, :git
