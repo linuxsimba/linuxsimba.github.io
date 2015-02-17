@@ -3,7 +3,7 @@ title: Checking Server IPv6 status
 ---
 
 In an [earlier post]({% post_url 2015-02-15-ipv6-blog-ip %}), I setup IPv6 on
-the server hosting this blog. I figured how to verify the IPv6 setup.
+the server hosting this blog. I figured out how to verify the IPv6 setup.
 
 ### Checking that DNS has IPv6 hostname 
 ```
@@ -24,14 +24,14 @@ I found success in deploying [PhantomJS](http://phantomjs.org/), a headless
 browser, normally used for website testing.
 
 * First I installed [NVM](https://github.com/creationix/nvm) 
-which I used t install [Node](http://nodejs.org) 
+which I used to install [Node](http://nodejs.org) 
 * Then installed [PhantomJS](http://phantomjs.org) using NPM. 
 `npm install -g phantomjs`
 * The following [script](https://gist.github.com/skamithi/6cb7e26975eb3ee472eb) then grabs IPv6 connectivity results from
 [ipv6-test.com](http://ipv6-test.com)  
 
 ```
-$ phantomjs ipv6-test-js
+$ phantomjs ipv6-test.js
 'waitFor()' finished in 655ms.
 
   IPv6
