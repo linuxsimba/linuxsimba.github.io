@@ -1,5 +1,6 @@
 ---
 title: Unit Testing Ansible Modules Part 1
+published: false
 ---
 
 I love [Ansible](http://ansible.com). I started creating Ansible modules for

@@ -9,7 +9,8 @@ layout: default
 <div class="post-content">
   {{ content }}
 </div>
-<span class='text-muted'>Last modified on {% last_modified_at %}</span>
+{% include share-page.html %}
+<span class='last-modified-at text-muted'>Last modified on {% last_modified_at %}</span>
 <div class="post-footer">
   {% include post-footer.html %}
 </div>

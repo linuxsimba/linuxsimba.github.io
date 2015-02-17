@@ -1,6 +1,9 @@
 // Add your own custom CSS here.
 @import "pygments-tomorrow";
 
+$blockquote-font-size: floor(($font-size-base * 0.9));
+$blockquote-bg-color: rgba(128,128,128,0.05);
+$share-page-bg-color: rgba(128,128,128,0.1);
 .post-content img,
 .post-excerpt-home img,
 .post-nav img {
@@ -11,4 +14,69 @@
 .post-nav table {
   @extend .table;
   @extend .table-bordered;
+}
+
+.last-modified-at {
+  font-size: 0.7em;
+}
+
+.social-icons a:hover,
+.social-icons a:visited{
+  text-decoration: none;
+}
+.social-icons a {
+  outline: 0;
+}
+
+blockquote {
+  background-color: $blockquote-bg-color;
+  font-size: $blockquote-font-size;
+}
+
+.share-page .icon-circle .fa {
+  border-radius: 50%;
+}
+.share-page {
+  font-family: "Montserrat","Helvetica Neue",Arial,sans-serif;
+  margin-bottom: 10px;
+  background-color: $share-page-bg-color;
+  width: 200px;
+  padding: 5px;
+}
+
+.share-page a {
+  padding-left: 10px;
+}
+
+.share-page .fa {
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  color: rgba(255,255,255,0.8);
+  font-size: 1.2em;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+.share-page .fa-facebook {
+  background-color: #3C599F;
+}
+
+.share-page .fa-google-plus {
+  background-color: #CF3D2E;
+}
+
+.share-page .fa-twitter {
+  background-color: #32CCFE;
+}
+
+.share-page .fa:hover, .share-page .fa:active {
+  color: #FFF;
+  -webkit-box-shadow: 1px 1px 3px #333;
+  -moz-box-shadow: 1px 1px 3px #333;
+  box-shadow: 1px 1px 3px #333;
 }
