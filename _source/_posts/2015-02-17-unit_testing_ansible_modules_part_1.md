@@ -2,7 +2,9 @@
 title: Unit Testing Ansible Modules Part 1
 ---
 
-I love [Ansible](http://ansible.com). I started creating Ansible modules for [Cumulus Networks](http://cumulusnetworks.com) about a year ago.
+I love [Ansible](http://ansible.com). I started creating Ansible modules for
+[Cumulus
+Networks](http://github.com/CumulusNetworks/cumulus-linux-ansible-modules) about a year ago.
 
 Unit testing [Ansible](http://ansible.com) modules is important to me. I
 realized writing unit tests reduced the time I spent performing integration
