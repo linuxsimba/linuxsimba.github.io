@@ -28,5 +28,5 @@ guard 'jekyll-plus', :serve => true do
 end
 
 guard 'livereload' do
-  watch(%r{.+})
+  watch(%r{_source/.+})
 end

@@ -1,6 +1,5 @@
 ---
 title: Unit Testing Ansible Modules Part 1
-published: false
 ---
 
 I love [Ansible](http://ansible.com). I started creating Ansible modules for
@@ -53,19 +52,28 @@ Having wrongly configured routing is a bad thing for any network.
 
 Below is the `main()` function. Notice that `main()` is split out
 
-<script src="https://gist.github.com/skamithi/a8ee451d6faf0e28ad5c.js"></script>
+{% gist skamithi/a8ee451d6faf0e28ad5c %}
 
 ### What to perform unit testing on?
-1. main()
-	- Check AnsibleModule variable inputs. In case someone fat fingered something. 
-	- Perform basic integration test. That is, if route check fails, run the `exit_json()` function. If it passes run the `fail_json` function.
+1. **main()**
+	- *Check AnsibleModule variable inputs*. In my experience I fat finger stuff in the `main()` function all the time. This adds a basic sanity check to ensure 
+I don't make any mistakes with the module arguments. 
+This kind of error is easily detected in live system testing. 
+I feel it saves me time during live testing to have this unit test in place.
+	- *Perform basic integration test*. That is, if route check fails, run the `exit_json()` function. 
+If it passes run the `fail_json` function. When making changes in the `main()`, 
+I sometimes mess up the exit logic. This makes sure to catch any errors in the basic outcome logic of the module
 
-2. check\_if\_route_exists()
-	- Mock ip route calls and if the route exists, return true
-	- Mock ip route calls and if the route doesn't exist, function should return false
-	- Mock the timeout, and ensure it returns false if the timeout is reached
+2. **check\_if\_route_exists()**
+  - *Mock ip route calls* and if the route exists, return true
+  - *Mock the timeout*, and ensure it returns false if the timeout is reached  
+  
+3. **Test that the ip route call is correct** 
+  - This ensures that future modifications of the module 
+don't accidentally change the important system calls of
+this module.
 
-The next blog post goes into test details and how I performed mocking.
+The [next blog post]({% post_url 2015-02-18-unit_testing_ansible_modules_part_2 %}) goes into test details and how I performed mocking.
 
 Unit tests eliminated a lot of the common coding errors I would otherwise
 encounter during integration testing on real switches. It truly has saved me a
