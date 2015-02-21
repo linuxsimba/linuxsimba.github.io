@@ -3,21 +3,22 @@ title: Unit Testing Ansible Modules Part 2
 ---
 
 In [part 1]({% post_url 2015-02-17-unit_testing_ansible_modules_part_1 %}), 
-I went over the basic module structure of a simple module, and a summary of the unit tests I would execute. 
+I went over the module structure of a simple module, and a summary of the unit tests I would execute. 
 In this post, I cover the actual [nose](https://nose.readthedocs.org/en/latest/) tests.
 
-## Test module arguments
+## 1. Test module arguments
 
 {% gist skamithi/68907267a14e45015daa %}
 
 
 Mocking is important to unit testing 
 Ansible modules. It took me a while and several videos to understand how 
-[Python Mock](http://mock.readthedocs.org/en/latest/patch.html) works.
+[Python Mock](http://mock.readthedocs.org/en/latest/patch.html) works. Do not
+pull your hair out if you do not get it the first time around.
 
 `mock.patch` has a quirk that took a while to get used to. Notice that `check_if_route_exists` and `AnsibleModule` is mocked in that order. But in the `test_module_args` call, variables holding those mocks are in reverse order. the order is reversed, that is `mock_modules` first, followed by `mock_route_check`..Weird!
 
-## Test Exit functionality
+## 2. Test Exit functionality
 
 {% gist skamithi/aa57667544c305e8044d %}
 

@@ -17,7 +17,7 @@ where modules required to not have a suffix.
 Looks like in 1.8.0 and higher, you can name python modules with the `.py` suffix. Makes
 testing modules easier now.
 
-This is the tree structure of the module files
+This is the tree structure of the module directory
 > Do not forget the empty `__init__.py` in the library folder. otherwise the tests will fail.
 
 ```
