@@ -49,5 +49,5 @@ OK
 
 ```
 
-The code is all available on my [Github blog
-site]('https://github.com/skamithi/linuxsimba/asample_configs/ansible_testing')
+The code is all available on my [Github blog site]
+(https://github.com/skamithi/linuxsimba/tree/master/sample_code/ansible_testing)
