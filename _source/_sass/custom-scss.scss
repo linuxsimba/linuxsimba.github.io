@@ -4,6 +4,10 @@
 $blockquote-font-size: floor(($font-size-base * 0.9));
 $blockquote-bg-color: rgba(128,128,128,0.05);
 $share-page-bg-color: rgba(128,128,128,0.1);
+
+body {
+ color: black;
+}
 .post-content img,
 .post-excerpt-home img,
 .post-nav img {
