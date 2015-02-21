@@ -1,9 +1,9 @@
 import mock
-import dev_modules.prefix_check as prefix_check
+import library.prefix_check as prefix_check
 from nose.tools import assert_equals, set_trace
 
-@mock.patch('dev_modules.prefix_check.check_if_route_exists')
-@mock.patch('dev_modules.prefix_check.AnsibleModule')
+@mock.patch('library.prefix_check.check_if_route_exists')
+@mock.patch('library.prefix_check.AnsibleModule')
 def test_module_args(mock_module,
                      mock_route_check):
     """
@@ -16,8 +16,8 @@ def test_module_args(mock_module,
           'timeout': {'type': 'int', 'default': 5},
         })
 
-@mock.patch('dev_modules.prefix_check.check_if_route_exists')
-@mock.patch('dev_modules.prefix_check.AnsibleModule')
+@mock.patch('library.prefix_check.check_if_route_exists')
+@mock.patch('library.prefix_check.AnsibleModule')
 def test_main_exit_functionality_success(mock_module,
                      mock_route_check):
     """
@@ -41,8 +41,8 @@ def test_main_exit_functionality_success(mock_module,
     # AnsibleModule.fail_json should not be called
     assert_equals(instance.fail_json.call_count, 0)
 
-@mock.patch('dev_modules.prefix_check.check_if_route_exists')
-@mock.patch('dev_modules.prefix_check.AnsibleModule')
+@mock.patch('library.prefix_check.check_if_route_exists')
+@mock.patch('library.prefix_check.AnsibleModule')
 def test_main_exit_functionality_failure(mock_module,
                      mock_loop_route_check):
     """
@@ -64,8 +64,8 @@ def test_main_exit_functionality_failure(mock_module,
         msg='Route not Found. Check Routing Configuration')
 
 
-@mock.patch('dev_modules.prefix_check.single_route_check_run')
-@mock.patch('dev_modules.prefix_check.AnsibleModule')
+@mock.patch('library.prefix_check.single_route_check_run')
+@mock.patch('library.prefix_check.AnsibleModule')
 def test_route_check_route_found(mock_module, mock_single_run):
     """
     prefix_check - test action when prefix is found
@@ -77,8 +77,8 @@ def test_route_check_route_found(mock_module, mock_single_run):
     assert_equals(result, True)
 
 
-@mock.patch('dev_modules.prefix_check.single_route_check_run')
-@mock.patch('dev_modules.prefix_check.AnsibleModule')
+@mock.patch('library.prefix_check.single_route_check_run')
+@mock.patch('library.prefix_check.AnsibleModule')
 def test_route_check_route_found(mock_module, mock_single_run):
     """
     prefix_check - test action when prefix is found
@@ -90,9 +90,9 @@ def test_route_check_route_found(mock_module, mock_single_run):
     assert_equals(result, True)
 
 
-@mock.patch('dev_modules.prefix_check.time.sleep')
-@mock.patch('dev_modules.prefix_check.single_route_check_run')
-@mock.patch('dev_modules.prefix_check.AnsibleModule')
+@mock.patch('library.prefix_check.time.sleep')
+@mock.patch('library.prefix_check.single_route_check_run')
+@mock.patch('library.prefix_check.AnsibleModule')
 def test_route_check_route_timeout_occurs(mock_module,
         mock_single_run, mock_sleep):
     """
@@ -117,7 +117,7 @@ def test_route_check_route_timeout_occurs(mock_module,
     assert_equals(mock_sleep.call_count, poll_interval)
 
 
-@mock.patch('dev_modules.prefix_check.AnsibleModule')
+@mock.patch('library.prefix_check.AnsibleModule')
 def test_ip_route_show_execution(mock_module):
     """
     prefix_check - test ip route show execution

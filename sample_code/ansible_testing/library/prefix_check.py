@@ -1,3 +1,24 @@
+DOCUMENTATION = '''
+---
+module: prefix_check
+author: Stanley Kamithi skamithi@gmail.com
+short_description: Check route prefix
+description:
+    - Inspired by Cumulus Linux prefix_check Ansible Module. \
+Given a route prefix, check to see if route exists. \
+If the route exists, then do nothing. If route does not exist \
+the module will exit with an error.
+options:
+    prefix:
+        description:
+            - route to check.
+        required: true
+    timeout:
+        description:
+            - timeout interval. if route is not found by the \
+time timeout kicks in then exit module
+'''
+
 # handy helper for calling system calls.
 # calls AnsibleModule.run_command and prints a more appropriate message
 # exec_path - path to file to execute, with all its arguments.
