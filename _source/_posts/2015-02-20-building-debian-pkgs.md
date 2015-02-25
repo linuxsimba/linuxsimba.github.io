@@ -81,6 +81,13 @@ Because the output is so long, the complete output of a
 Its on my TODO list to understand the real power behind this
 `dpkg-buildpackage` wrapper.
 
+## What I am using for now
+
+I think for now, I'll be playing with `git-buildpackage`. My working example
+will continue to be the sflowtool package. 
+
+To build the sflowtool on a particular platform, [git clone the sflowtool repo
+I maintain](http://github.com/skamithi/sflowtool.git) and run `git-buildpackage`
 ## References
 
 [Packaging New Ubuntu Software](http://packaging.ubuntu.com/html/packaging-new-software.html)
