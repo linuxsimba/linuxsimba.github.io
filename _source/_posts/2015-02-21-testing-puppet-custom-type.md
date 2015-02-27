@@ -126,7 +126,7 @@ end
 ```
 
 
-3. [I don not credit for this one](https://github.com/garethr/garethr-digitalocean/blob/master/spec/unit/type/droplet_spec.rb). Testing presence of custom properties and
+3. [I do not take credit for this one](https://github.com/garethr/garethr-digitalocean/blob/master/spec/unit/type/droplet_spec.rb). Testing presence of custom properties and
 parameters
 
 _lib/puppet/type/mycustomtype.rb_
