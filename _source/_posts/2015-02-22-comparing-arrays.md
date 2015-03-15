@@ -1,5 +1,6 @@
 ---
 title: Comparing Arrays in Different Programming Languages
+tags: ['algorithms']
 ---
 
 Writing some ruby code where I need to compare 2 arrays and return True if

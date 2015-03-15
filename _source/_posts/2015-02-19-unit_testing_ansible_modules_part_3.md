@@ -1,8 +1,9 @@
 ---
 title: Unit Testing Ansible Modules Part 3
+tags: ['ansible', 'unit testing', 'nose']
 ---
 
-In [part 1]({% post_url 2015-02-17-unit_testing_ansible_modules_part_1 %}), 
+In [part 1]({% post_url 2015-02-17-unit_testing_ansible_modules_part_1 %}),
 I discuss the basic Ansible module structure and what I like to unit test in Ansible
 modules.
 

@@ -1,5 +1,6 @@
 ---
 title: "Jekyll, Capistrano and RVM"
+tags: ['rvm', 'jekyll']
 ---
 
 Decided to use [Jekyll](http://jekyllrb.com/) to host my blog posts. Its really
@@ -61,7 +62,7 @@ set :rvm_ruby_version, '2.2.0'
 set :application, 'linuxsimba'
 set :repo_url, 'http://github.com/skamithi/linuxsimba.git'
 set :branch, 'master'
-# executes jekyll with 'bundle exec'. 
+# executes jekyll with 'bundle exec'.
 # Tried 'bundler_bins'. Didn't work.
 # tried rvm_map_bins. only works in vagrant env not prod
 # so disabled till I figure out why
@@ -100,13 +101,13 @@ Vagrant.configure(2) do |config|
     # setup private network
      config.vm.network "private_network", ip: "192.168.33.10"
 ....
-........     
+........
 
 ```
 
 ### /etc/hosts on Host PC
 ```
-127.0.0.1 localhost 
+127.0.0.1 localhost
 # remove linuxsimba.com when done with testing.
 192.168.33.10 linuxsimba.com
 ```

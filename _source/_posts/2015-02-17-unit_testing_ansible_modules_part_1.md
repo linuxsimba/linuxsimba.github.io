@@ -1,5 +1,6 @@
 ---
 title: Unit Testing Ansible Modules Part 1
+tags: ['ansible', 'unit testing', 'nose']
 ---
 
 I started creating and maintaining [Ansible](http://ansible.com) modules for
@@ -11,7 +12,7 @@ Unit testing [Ansible](http://ansible.com) modules is important to me. I
 realized writing unit tests reduced the time I spent performing integration
 tests on real switches.
 
-I will show a simple module and discuss how I configured unit tests for it. 
+I will show a simple module and discuss how I configured unit tests for it.
 
 
 ## Module structure
@@ -44,7 +45,7 @@ one of those few examples where reporting a change doesn't make sense.
 The common use case for this module is when configuring a routing protocol on
 the switch or server, you want to confirm that the routes are been exchanged. So
 the `prefix_check` module, ensures that routing is working as expected. If the
-route is missing, then **Fail**.  
+route is missing, then **Fail**.
 
 ## Time for some code
 
@@ -54,20 +55,20 @@ Below is the `main()` function. Notice that `main()` is split out
 
 ### What to perform unit testing on?
 1. **main()**
-	- *Check AnsibleModule variable inputs*. In my experience I fat finger stuff in the `main()` function all the time. This adds a basic sanity check to ensure 
-I don't make any mistakes with the module arguments. 
-This kind of error is easily detected in live system testing. 
+	- *Check AnsibleModule variable inputs*. In my experience I fat finger stuff in the `main()` function all the time. This adds a basic sanity check to ensure
+I don't make any mistakes with the module arguments.
+This kind of error is easily detected in live system testing.
 I feel it saves me time during live testing to have this unit test in place.
-	- *Module exits correctly under different conditions*. That is, if route check fails, run the `exit_json()` function. 
-If it passes run the `fail_json` function. When making changes in the `main()`, 
+	- *Module exits correctly under different conditions*. That is, if route check fails, run the `exit_json()` function.
+If it passes run the `fail_json` function. When making changes in the `main()`,
 I sometimes mess up the exit logic. This makes sure to catch any errors in the basic outcome logic of the module
 
 2. **check\_if\_route_exists()**
   - *Mock ip route calls* and if the route exists, return true
-  - *Mock the timeout*, and ensure it returns false if the timeout is reached  
-  
-3. **Test that the ip route call is correct** 
-  - This ensures that future modifications of the module 
+  - *Mock the timeout*, and ensure it returns false if the timeout is reached
+
+3. **Test that the ip route call is correct**
+  - This ensures that future modifications of the module
 don't accidentally change the important system calls of
 this module.
 

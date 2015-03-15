@@ -1,5 +1,6 @@
 ---
 title: Testing Puppet Custom Type and Provider
+tags: ['puppet']
 ---
 
 Recently tasked with building puppet modules using a custom type and provider.
@@ -48,9 +49,9 @@ Puppet::Type.newtype(:mycustomtype) do
 
   newproperty(:config_state) do
     desc "Reflect config state"
-    
+
     defaultto :insync
-    
+
     def retrieve
       prov = @resource.provider
       if prov && prov.respond_to?(:config_changed?)
@@ -119,7 +120,7 @@ describe mycustomtype do
         expect(provider).to receive(:update_config).once
         subject
       end
-    end   
+    end
   end
 end
 

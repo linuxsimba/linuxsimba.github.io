@@ -1,5 +1,6 @@
 ---
 title: Testing Ruby Blocks Output with Rspec3
+tags: ['rspec']
 ---
 
 Never had the pleasure before of mocking the output of a [Ruby
