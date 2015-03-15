@@ -48,7 +48,7 @@ def main():
   module = AnsibleModule(
     argument_spec=dict(
       ip=dict(required=True, type='str'),
-      mask=dict(require=True, type='str')
+      mask=dict(type='str')
     ),
     required_together=[['ip', 'mask']]
   )
