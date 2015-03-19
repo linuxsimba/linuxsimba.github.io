@@ -15,7 +15,7 @@ In a puppet custom type,  how you say, these 2 parameters are _"required togethe
 I will use the IP address and subnet mask example
 
 ```ruby
-
+require 'set'
 Puppet::Type.newtype(:ip_host_info) do
   desc 'describe basic ip host info'
   newparam(:ip) do
@@ -33,9 +33,11 @@ Puppet::Type.newtype(:ip_host_info) do
       fail Puppet::Error, 'ip address must be configured'
     end
 
-    # found an actual use case of XOR. Always wondered in college
-    # what you use XOR for :)
-    if self[:ip].nil? ^ self[:mask].nil?
+    # array of true values returns a set of only 1 true value
+    # if length is 2 it means that not all elements return true
+    # or not all elements return false
+    myset = [self[:ip].nil?, self[:mask].nil?].is_set
+    if myset.length > 1
       fail Puppet::Error, 'subnet mask and ip are required together'
     end
 ```
