@@ -76,7 +76,7 @@ create the missing bridge non-persistently*
 ```
 $ sudo brctl show
 bridge name bridge id   STP enabled interfaces
-lxcbr0    8000.fe195e4f51ff no  
+lxcbr0    8000.fe195e4f51ff no
 
 $ sudo brctl addbr lxcbr1
 
@@ -121,9 +121,9 @@ $ lxc-start -n u1 -d
 
 ```
 $ lxc-ls --fancy
-NAME  STATE    IPV4        IPV6  AUTOSTART  
+NAME  STATE    IPV4        IPV6  AUTOSTART
 ------------------------------------------
-u1    RUNNING  10.0.3.236  -     NO   
+u1    RUNNING  10.0.3.236  -     NO
 ```
 
 ### install SSH on LXC
@@ -133,7 +133,7 @@ lxc-attach -n u1 -- apt-get update
 lxc-attach -n u1 -- apt-get install openssh-server -y
 ```
 
-### Test SSH Using Ansible 
+### Test SSH Using Ansible
 
 ```
 $ ansible -m ping all
@@ -147,9 +147,9 @@ $ ansible -m ping all
 ### confirm two interfaces were configured on LXC
 
 ```
-$ lxc-attach -n u1 -- ip link show               
+$ lxc-attach -n u1 -- ip link show
 1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN mode DEFAULT
-group default 
+group default
     link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
 10: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP
 mode DEFAULT group default qlen 1000
@@ -158,11 +158,19 @@ mode DEFAULT group default qlen 1000
 mode DEFAULT group default qlen 1000
     link/ether 26:8d:9a:4c:3f:66 brd ff:ff:ff:ff:ff:ff
 
-$ brctl show                      
+$ brctl show
 bridge name bridge id   STP enabled interfaces
 lxcbr0    8000.fe195e4f51ff no    veth1E270R
               vethSPECOS
 lxcbr1    8000.fedc7b73ae49 no    vethX4YOOR
 
 ```
+
+## ON MY TODO LIST
+
+My next steps are you look into
+[vagrant-lxc](http://https://github.com/fgrehm/vagrant-lxc) and
+[libvirt-lxc](http://https://libvirt.org/drvlxc.html) providers,
+as I am a frequent user of both [Vagrant](http://www.vagrantup.com) and
+[Libvirt](http://libvirt.org)
 
