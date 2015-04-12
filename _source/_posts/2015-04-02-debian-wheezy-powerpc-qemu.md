@@ -63,7 +63,14 @@ root@debian-powerpc:~# ssh -fN -R5000:localhost:22 stanley@10.0.2.2 -p22
 $ ssh root@localhost -p 5000
 ```
 
-Will detail my [omnibus](https://github.com/chef/omnibus-chef)
-installation adventures on powerPC in a later post.
+Trying to get [omnibus](https://github.com/chef/omnibus-chef)
+to work with Debian Wheezy is hard. So far failed at getting
+dependencies compiled correctly such as
+
+* Vagrant 1.2 or higher
+* Ruby2.1  from Jessie source. Works if I use [RVM]('https://rvm.io/')
+
+I may revisit this issue when I can get Debian Jessie to load in a PPC VM.
+So far no luck.
 
 
