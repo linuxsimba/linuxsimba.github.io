@@ -166,11 +166,35 @@ lxcbr1    8000.fedc7b73ae49 no    vethX4YOOR
 
 ```
 
+### To setup a static IP for the LXC
+
+First modify the ``/etc/default/lxc-net``. Uncomment the following line
+``LXC_DHCP_CONFILE`` line.
+
+```
+# Uncomment the next line if you'd like to use a conf-file for the lxcbr0
+# dnsmasq.  For instance, you can use 'dhcp-host=mail1,10.0.3.100' to have
+# container 'mail1' always get ip address 10.0.3.100.
+LXC_DHCP_CONFILE=/etc/lxc/dnsmasq.conf
+```
+
+Then create the file ``/etc/lxc/dnsmasq.conf`` and add the line
+
+```
+dhcp-host=u1, 10.0.3.10
+```
+
+Then in my ``/etc/hosts`` I added
+
+```
+u1  10.0.3.10
+```
+
 ## ON MY TODO LIST
 
 My next steps are you look into
-[vagrant-lxc](http://https://github.com/fgrehm/vagrant-lxc) and
-[libvirt-lxc](http://https://libvirt.org/drvlxc.html) providers,
+[vagrant-lxc](https://github.com/fgrehm/vagrant-lxc) and
+[libvirt-lxc](https://libvirt.org/drvlxc.html) providers,
 as I am a frequent user of both [Vagrant](http://www.vagrantup.com) and
 [Libvirt](http://libvirt.org)
 
