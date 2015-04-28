@@ -18,7 +18,7 @@ Install it via ``pip install butterfly`` and follow the instructions on the
 
 Butterfly provides a systemd startup script, which will be great for Jessie and
 other distros running systemd. Unfortunately 14.04 still uses Upstart. Here is
-the ``/etc/init.d/butterfly`` startup script I use
+the ``/etc/init/butterfly.conf`` startup script I use
 
 ```
 # Butterfly - Python Web Terminal Emulator
