@@ -66,7 +66,7 @@ correctly reparsed the Sensu log files and I was happy.
 input {
   file {
      type => "sensu_logs"
-     path => "/home/stanley/sensu/sensu-client*"
+     path => "/home/stanley/tmp/sensu/sensu-client*"
      start_position => "beginning"
   }
 }
@@ -111,7 +111,7 @@ os.inf.net.sw.my-server.cpu\",\"standalone\":true,\"interval\":60,\"name\":\"cpu
     "@timestamp" => "2015-05-17T12:08:57.237Z",
           "type" => "browsers",
           "host" => "stanleyk-pc",
-          "path" => "/home/stanleyk/Downloads/sensu-client.log"
+          "path" => "/home/stanleyk/tmp/sensu/sensu-client.log"
 }
 
 ```
@@ -128,7 +128,7 @@ becomes like this
     "@timestamp" => "2015-05-17T12:13:13.167Z",
           "type" => "browsers",
           "host" => "stanleyk-pc",
-          "path" => "/home/stanleyk/Downloads/sensu-client.log",
+          "path" => "/home/stanleyk/tmp/sensu/sensu-client.log",
      "timestamp" => "2015-05-15T02:17:20.561814-0700",
          "level" => "info",
        "payload" => {
