@@ -75,6 +75,10 @@ filter {
   json {
      source => "message"
   }
+  grok {
+    match => { "payload" => "cpu.total.user %{NUMBER:total_user_cpu:int} %{NUMBER:total_user_cpu2:int}" }
+  }
+
 }
 output {
   elasticsearch {
@@ -121,6 +125,9 @@ Logstash then takes the value of the ``message`` hash key and applies the
 json output and outputs each json field and its value. So the output then
 becomes like this
 
+Then the ``grok`` filter takes the ``payload.check.output`` payload and takes
+the 2 numbers in the total.cpu.user field and puts it into its own fields.
+
 ```
 {
        "message" => "publishing check result",
@@ -151,14 +158,18 @@ becomes like this
                 "status" => 0
         }
     }
+    "total_user_cpu" => 844451226,
+    "total_user_cpu2" => 1431681440
+
 }
 
 ```
 
-What I don't know yet, and I will update the post, is how to take the
-``payload.check.output`` value and extract the value so that I can have a field
-called ``payload.check.output.cpu.total.user`` with a value of 844451226. Not
-sure yet why ``cpu-metrics.rb`` prints 2 values for the total user cpu entry.
+I really should put some conditionals around the ``grok`` filter because not all
+entries from the sensu logs have ``cpu.total.user`` field. When I figure that
+out, I'll update the post.
+
+
 
 These entries are feed into the output elasticsearch plugin that adds the
 entries into the elasticsearch datastore.
@@ -166,4 +177,12 @@ entries into the elasticsearch datastore.
 
 ## Viewing Data in Kibana
 
-I will update the post shortly with this info
+This [Kibana
+tutorial](https://www.timroes.de/2015/02/07/kibana-4-tutorial-part-1-introduction/)
+can help you setup Kibana.
+
+Next picture shows the graph settings and generated the time series graph.
+
+![Kibana visual example](https://lh3.googleusercontent.com/-gqwHAurYojypadhDdUCPCjl7FBRPe1zRlFBkZ60GFg=s1000
+"kibana_example_visual.png")
+
