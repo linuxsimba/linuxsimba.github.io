@@ -8,6 +8,12 @@ $share-page-bg-color: rgba(128,128,128,0.1);
 body {
  color: black;
 }
+/* Landscape phones and smaller */
+@media (max-width: 480px) {
+  pre code {
+    font-size: 10px;
+  }
+}
 .post-content img,
 .post-excerpt-home img,
 .post-nav img {

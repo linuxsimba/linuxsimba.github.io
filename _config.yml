@@ -6,8 +6,8 @@ title: "Linux Simba"
 twitter_username: 'skamithik'
 social_media_btn:
   - name: 'twitter'
-    url: "https://twitter.com/intent/follow?original_referer=http%3A%2F%2Flinuxsimb.com&amp;region=follow_link&amp;screen_name=#{twitter_username}&amp;tw_p=followbutton"
-    title: "Follow Me (@#{twitter_username}) on Twitter"
+    url: "https://twitter.com/intent/follow?original_referer=http%3A%2F%2Flinuxsimba.com&amp;region=follow_link&amp;screen_name=skamithik&amp;tw_p=followbutton"
+    title: "Follow Me (@skamithik) on Twitter"
     id: 'twitter_btn'
   - name: 'linkedin'
     url: 'https://www.linkedin.com/profile/view?id=147021940'

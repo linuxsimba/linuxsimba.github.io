@@ -3,6 +3,7 @@ Session.vim
 *.orig
 .sass-cache
 *.swp
+*.swo
 *.pyc
 .capistrano
 *~
