@@ -60,8 +60,8 @@ endsnippet
 Just typed ``br[tab]`` , at the beginning of the line under the ``br0`` port config.
 Then from the end of the document
 
-* ``Ctrl-Shift-V`` - Visual Line
-* ``/br1`` - Search to line with ``br11`` and select from the bottom of the page to that ``br1`` line
-* ``1>x`` to shift it one place so its in line with the rest of the YAML config
+* ``Ctrl-Shift-V`` - Visual Line. Start the highlight line at the bottom of the document
+* ``/br1[enter]`` - Search to line with ``br11`` and Vim selection highlighting will move from the bottom of the page to that ``br1`` line
+* ``1>x`` to shift the selection one "tab" over so its inline with the rest of the YAML config
 
 So many keystrokes to remember. But with VIM, the more you practise, the more it becomes natural.
