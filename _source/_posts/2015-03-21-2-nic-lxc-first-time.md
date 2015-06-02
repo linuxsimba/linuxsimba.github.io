@@ -63,8 +63,8 @@ interfaces to.
 # /etc/lxc/lxc-usernet
 # --------------------
 USERNAME TYPE BRIDGE COUNT
-skamithi veth lxcbr0 2
-skamithi veth lxcbr1 2
+stanley veth lxcbr0 2
+stanley veth lxcbr1 2
 
 ```
 
