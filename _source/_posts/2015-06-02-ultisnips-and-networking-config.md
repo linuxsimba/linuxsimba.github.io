@@ -6,7 +6,7 @@ tags: ['vim', 'computer_networking', 'cumulus']
 
 Cumulus Linux, as a programmatic way of entering repeatable config using [Mako](https://support.cumulusnetworks.com/hc/en-us/articles/202868023-Configuring-etc-network-interfaces-with-Mako).
 
-But I though, nah, I don't want do that. I wanted to use the [Cumulus Ansible modules](https://galaxy.ansible.com/list#/roles/1875) and  wrote variable config in the ``host_vars/[hostname]`` location
+But I though, nah, I don't want do to that. I wanted to use the [Cumulus Ansible modules](https://galaxy.ansible.com/list#/roles/1875) and  wrote variable config in the ``host_vars/[hostname]`` location
 
 So I wanted to configure 100 bridges, and I wanted to do it on a switch to switch basis. So each switch gets a different set of 100 vlans. _(its for a test for a real network)_
 
@@ -64,4 +64,8 @@ Then from the end of the document
 * ``/br1[enter]`` - Search to line with ``br11`` and Vim selection highlighting will move from the bottom of the page to that ``br1`` line
 * ``1>x`` to shift the selection one "tab" over so its inline with the rest of the YAML config
 
+I then modified the snippet as I changed each switch configuration YAML file.
+I'm sure ultisnips has a better way of handling this. I'll get on their IRC
+channel or mailer, or whatever they have to figure out a better way and
+hopefully update this blog post.
 So many keystrokes to remember. But with VIM, the more you practise, the more it becomes natural.
