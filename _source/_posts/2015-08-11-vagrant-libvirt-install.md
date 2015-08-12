@@ -81,7 +81,8 @@ vagrant-libvirt 0.0.30 built to pkg/vagrant-libvirt-0.0.30.gem.
 ```
 
 ### install the most recent version of vagrant-libvirt
-Switch back to the System Ruby, set it as the default, and install the compiled ruby gem into the vagrant environment. The gem version number isn't different for the dev version or stable version. But vagrant knows the difference.
+Switch back to the System Ruby, set it as the default, and install the compiled
+ruby gem into the vagrant environment. The gem version number is not different for the dev version or stable version. But vagrant knows the difference.
 
 ```
 $ rvm use system --default
@@ -142,7 +143,8 @@ to a [bridge with DNSMASQ and
 NAT](http://wiki.libvirt.org/page/VirtualNetworking#NAT_mode) applied.
 
 #### Topology
-![Simple breakdown of libvirt topology.](https://lh3.googleusercontent.com/i8UAYnAENii2gMtIYjlGUlbk6LxX-W2gZYL4GXtYc4o=s0
+![Simple breakdown of libvirt topology
+here](https://lh3.googleusercontent.com/LzAXNckJ9tvjMVb1MFnABPZ-B1RfQ8U0xhgdUMY05vU=s0
 "vagrant-libvirt-topology.png")
 
 #### Vagrant Configuration
