@@ -27,7 +27,7 @@ $ sudo adduser $USER libvird
 
 ### Install vagrant-libvirt
 
-vagrant libvirt provider is rapidly evolving. I would suggest compiling from source. Here goes
+vagrant libvirt provider development is rapidly evolving. I would suggest installing from source.
 
 #### install RVM to compile vagrant-libvirt
 Based on the [rvm.io](http://rvm.io) instructions its simple to install the required ruby-2.1 into your user directory
@@ -95,16 +95,20 @@ vagrant-share (1.1.4, system)
 
 ### Install Vagrant Boxes
 
-Download and install a KVM Vagrant box. I have 2 available for download.
+A Vagrant box is a tar archive with 3 files in it.
 
-* [Ubuntu 14.04.2 Minimal Install]()
-* [Debian Jessie Minimal Install]()
+* base VagrantFile
+* metadata.json
+* QCOW2 image
 
-Other KVM boxes can be found at [vagrantboxes.es](http://vagrantboxes.es). Some take forever to download. Others just do not work well. If my boxes take a long time to download please let me know and maybe sugest where I can post these for free or low cost and improve download speeds. The [main Vagrant box site](https://atlas.hashicorp.com/boxes/search)  doesn not seem to support uploading a KVM Vagrant box.
+A few native KVM Vagrant Boxes are available at
+[vagrantboxes.es](http://vagrantboxes.es).
+
+Use the `vagrant box add` command to download a box either from a local file
+system or from a URL.
 
 ```
-wget [blah] -o trusty64.box
-$ vagrant box add ./trusty64.box --name "trusty64"
+$ vagrant box add https://vagrant-kvm-boxes.s3.amazonaws.com/precise64-kvm.box --name "trusty64"
 ```
 
 Verify the box is installed
@@ -114,13 +118,32 @@ $ vagrant box list
 trusty64 (libvirt, 0)
 ```
 
+ I prefer to build my own from
+scratch. A [few people have
+blogged](https://www.google.com/search?q=vagrant%20mutate%20blog) about how to
+do this. Unfortunately none cover the case on what to do when you have
+virtualbox and KVM software installed at the same time. The two are mutually
+exclusive and you have to turn one off one, to get the other to work. Maybe I will
+blog about my steps in the near future.
+
+
 
 ### Create a 2 VM Vagrant file
 
-Create a 2 VM Vagrant file using libvirt very isolated network config. Basically this is a bridge with no DNSMASQ running or NAT applied. This type of connection is suitable for IP connectivity. LLDP/BPDUs will be consumed by the host.
+Create a 2 VM Vagrant file using libvirt, with their `eth1` addresses in a
+[very isolated network
+config](http://wiki.libvirt.org/page/VirtualNetworking#Isolated_mode). Basically
+this is a bridge with no DNSMASQ running or NAT applied. This setup is useful
+for connecting VM NICs via IP. It is not suitable for L2 config like point to
+point VM links that need BPDUs or other types of L2 protocols to flow between
+the VMs.   LLDP frames/BPDUs are consumed by the host.
+``eth0`` on the VMs is managed by vagrant code and it automatically assigns it
+to a [bridge with DNSMASQ and
+NAT](http://wiki.libvirt.org/page/VirtualNetworking#NAT_mode) applied.
 
 #### Topology
-![enter image description here](https://lh3.googleusercontent.com/mLfqQBP0gp31_5burudaA9cbV6AT1fnSJT5Zcz7dleE=s0 "vagrant-libvirt-topology.png")
+![Simple breakdown of libvirt topology.](https://lh3.googleusercontent.com/i8UAYnAENii2gMtIYjlGUlbk6LxX-W2gZYL4GXtYc4o=s0
+"vagrant-libvirt-topology.png")
 
 #### Vagrant Configuration
 
