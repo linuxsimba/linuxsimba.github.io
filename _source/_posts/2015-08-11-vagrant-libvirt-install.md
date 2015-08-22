@@ -119,13 +119,7 @@ $ vagrant box list
 trusty64 (libvirt, 0)
 ```
 
- I prefer to build my own from
-scratch. A [few people have
-blogged](https://www.google.com/search?q=vagrant%20mutate%20blog) about how to
-do this. Unfortunately none cover the case on what to do when you have
-virtualbox and KVM software installed at the same time. The two are mutually
-exclusive and you have to turn one off one, to get the other to work. Maybe I will
-blog about my steps in the near future.
+I prefer to build my own from scratch. Here is [my blog post about that subject]({% post_url 2015-08-22-building-qcow-vagrant-box %}).
 
 
 

@@ -1,0 +1,35 @@
+---
+---
+
+<div class="post-header-home">
+  <h1 class="post-title-home">
+    Libvirt Vagrant Boxes
+  </h1>
+  <ul>
+    <li>
+    <a href="/vagrantbox/ubuntu-trusty.box">Ubuntu 14.04</a>
+    </li>
+    <li>
+    <a href="/vagrantbox/debian-jessie.box">Debian Jessie</a>
+    </li>
+    <li>
+    <a href="/vagrantbox/cumulus-253.box">Cumulus Linux 2.5.3</a>
+    </li>
+  </ul>
+
+  <h1 class="post-title-home">
+    Related Articles
+  </h1>
+  <br/>
+    {% for post in site.posts %}
+    {% if post.tags contains 'vagrant' %}
+    <h2 class="post-title-home">
+      <a href="{{ post.url | prepend:site.baseurl }}">{{ post.title }}</a>
+    </h2>
+    <div class="post-excerpt-home">
+      {{ post.excerpt }}
+      <p class="text-right"><a href="{{ post.url | prepend:site.baseurl }}">Continue Reading &rarr;</a></p>
+    </div>
+    {% endif %}
+  {% endfor %}
+</div>
