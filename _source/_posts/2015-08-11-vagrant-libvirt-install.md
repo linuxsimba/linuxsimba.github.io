@@ -102,8 +102,12 @@ A Vagrant box is a tar archive with 3 files in it.
 * metadata.json
 * QCOW2 image
 
-A few native KVM Vagrant Boxes are available at
-[vagrantboxes.es](http://vagrantboxes.es).
+
+LinuxSimba provides the [Ubuntu and Jessie KVM Libvirt
+Boxes](http://linuxsimba.com/vagrant.html)
+
+A few native KVM Vagrant Boxes are also available at
+[vagrantboxes.es](http://vagrantboxes.es). But these, to me, are less reliable.
 
 Use the `vagrant box add` command to download a box either from a local file
 system or from a URL.
