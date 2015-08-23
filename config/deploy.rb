@@ -4,7 +4,7 @@ lock '3.3.5'
 set :rvm_type, :user
 set :rvm_ruby_version, '2.2.0'
 set :application, 'linuxsimba'
-set :repo_url, 'http://github.com/skamithi/linuxsimba.git'
+set :repo_url, 'http://github.com/linuxsimba/linuxsimba.git'
 set :branch, 'master'
 #set :rvm_map_bins, fetch(:rvm_map_bins, []).push('jekyll')
 # Default branch is :master
