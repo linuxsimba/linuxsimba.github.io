@@ -113,7 +113,7 @@ Use the `vagrant box add` command to download a box either from a local file
 system or from a URL.
 
 ```
-$ vagrant box add https://vagrant-kvm-boxes.s3.amazonaws.com/precise64-kvm.box --name "trusty64"
+$ vagrant box add http://linuxsimba.com/vagrant/ubuntu-trusty.box --name "trusty64"
 ```
 
 Verify the box is installed
