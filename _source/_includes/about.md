@@ -1,13 +1,7 @@
-All you need to know about me is on
-[LinkedIn](https://www.linkedin.com/profile/view?id=147021940)
+We at LinuxSimba love Linux.
 
-Well.. there 2 things I really don't like, that are worth mentioning 
+We cover aspects of Linux that are fun to explore.._(for us)_ 
 
-First, is people asking me _"Where is your accent from?"_. As if they don't have an
-accent!
+Find us on Twitter at
+[@linuxsimba](https://twitter.com/intent/follow?original_referer=http%3A%2F%2Flinuxsimba.com&region=follow_link&screen_name=linuxsimba&tw_p=followbutton&original_referer=http://linuxsimba.com/).
 
-Second, is the fact that I live in the richest country in the world, but a lot
-of its children get a crappy education. In this area, I say Capitalism has
-failed!
-
-Enough politics, hope you enjoy my posts.
