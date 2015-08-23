@@ -7,7 +7,7 @@ twitter_username: 'linuxsimba'
 social_media_btn:
   - name: 'twitter'
     url: "https://twitter.com/intent/follow?original_referer=http%3A%2F%2Flinuxsimba.com&amp;region=follow_link&amp;screen_name=linuxsimba&amp;tw_p=followbutton"
-    title: "Follow Me (@linuxsimba) on Twitter"
+    title: "Follow Us (@linuxsimba) on Twitter"
     id: 'twitter_btn'
 # This is used by feed.xml. Uncomment if you want to use it.
 # description: "..."
