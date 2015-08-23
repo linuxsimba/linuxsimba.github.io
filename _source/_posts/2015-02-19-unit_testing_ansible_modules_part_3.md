@@ -51,4 +51,4 @@ OK
 ```
 
 The code is all available on my [Github blog site]
-(https://github.com/skamithi/linuxsimba/tree/master/sample_code/ansible_testing)
+(https://github.com/linuxsimba/linuxsimba/tree/master/sample_code/ansible_testing)
