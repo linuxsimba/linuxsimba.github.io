@@ -22,7 +22,7 @@ Follow the [Ubuntu Libvirt Guide](https://help.ubuntu.com/lts/serverguide/libvir
 ```
 $ sudo apt-get update
 $ sudo apt-get install qemu-kvm libvirt-bin
-$ sudo adduser $USER libvird
+$ sudo adduser $USER libvirtd
 ```
 
 ### Install vagrant-libvirt
