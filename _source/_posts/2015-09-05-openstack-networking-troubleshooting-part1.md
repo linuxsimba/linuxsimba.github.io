@@ -3,7 +3,7 @@ title: Vlan Troubleshooting in a Openstack OVS L2 Agent Environment
 tags: ['openstack', 'neutron', 'ovs']
 ---
 
-Today I am learning OpenVSwitch and using the OpenVswitch in a virtual Openstack
+Today we are learning OpenVSwitch and using the OpenVswitch in a virtual Openstack
 topology.
 
 Got a simple question with a really long explanation.
@@ -13,7 +13,7 @@ Vlan is the VM assigned to? The solution presented is long..really long.  Will
 ask on the #openstack-neutron forum if this solution is correct. Seems very long
 and complicated.
 
-#### Log as the openstack admin
+### Log as the openstack admin
 
 ```
 [root@server1 ~]# source /root/keystonerc_admin
@@ -21,7 +21,7 @@ and complicated.
 
 ```
 
-#### Get the project ID
+### Get the project ID
 
 ```
 [root@server1 ~(keystone_admin)]# openstack project show demo
@@ -36,7 +36,7 @@ and complicated.
 
 ```
 
-#### Get the ID of the VM in question
+### Get the ID of the VM in question
 With the project ID, get the list of VMs and obtain the ID of the
 ``demo-instance-202`` VM.
 
