@@ -123,13 +123,13 @@ Vagrant.configure(2) do |config|
     node.vm.network :private_network,
       :libvirt__tunnel_type => 'udp',
       :libvirt__tunnel_port => '8000',
-      :libvirt__tunnel_source_port => '9000'
+      :libvirt__tunnel_local_port => '9000'
 
     # test1vm(eth2) ==== test2vm(eth2)
     node.vm.network :private_network,
       :libvirt__tunnel_type => 'udp',
       :libvirt__tunnel_port => '8001',
-      :libvirt__tunnel_source_port => '9001'
+      :libvirt__tunnel_local_port => '9001'
   end
    config.vm.define :test2 do |node|
     node.vm.provider :libvirt do |domain|
@@ -142,13 +142,13 @@ Vagrant.configure(2) do |config|
     node.vm.network :private_network,
       :libvirt__tunnel_type => 'udp',
       :libvirt__tunnel_port => '9000',
-      :libvirt__tunnel_source_port => '8000'
+      :libvirt__tunnel_local_port => '8000'
 
     # test2vm(eth2) ==== test1vm(eth2)
     node.vm.network :private_network,
       :libvirt__tunnel_type => 'udp',
       :libvirt__tunnel_port => '9001',
-      :libvirt__tunnel_source_port => '8001'
+      :libvirt__tunnel_local_port => '8001'
   end
 end
 
