@@ -21,72 +21,22 @@ Follow the [Ubuntu Libvirt Guide](https://help.ubuntu.com/lts/serverguide/libvir
 
 ```
 $ sudo apt-get update
-$ sudo apt-get install qemu-kvm libvirt-bin
+$ sudo apt-get install qemu-kvm libvirt-bin libvirt-dev
 $ sudo adduser $USER libvirtd
 ```
 
-### Install vagrant-libvirt
 
-vagrant libvirt provider development is rapidly evolving. I would suggest installing from source.
-
-#### install RVM to compile vagrant-libvirt
-Based on the [rvm.io](http://rvm.io) instructions its simple to install the required ruby-2.1 into your user directory
+### Git clone libvirt master branch and build gem
 
 ```
-$ sudo apt-get install curl
-$ gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
-$ \curl -sSL https://get.rvm.io | bash -s stable --ruby=2.1
+git clone https://github.com/pradels/vagrant-libvirt
+cd vagrant-libvirt
+gem build vagrant-libvirt.gemspec
 ```
-
-Close the SSH session and log back in to activate RVM. There are other ways to do this without logging out, but I found this to be easiest to do.
-
-You can confirm its working by running ``rvm list``
+### Install vagrant-libvirt gem
 
 ```
-$ rvm list
-
-rvm rubies
-
-=* ruby-2.1.5 [ x86_64 ]
-
-# => - current
-# =* - current && default
-#  * - default
-
-```
-
-#### git install vagrant-libvirt
-
-```
-$ sudo apt-get install git
-$ git clone https://github.com/pradels/vagrant-libvirt
-```
-
-#### Switch to RVM version 2.1 and compile vagrant-libvirt
-
-Install libvirt-dev and compile the libvirt vagrant provider from the latest version found on its master branch.
-
-```
-$ sudo apt-get install libvirt-dev
-$ rvm use ruby-2.1
-$ cd vagrant-libvirt
-$ bundle install
-$ bundle exec rake build
-Your Gemfile lists the gem vagrant-libvirt (>= 0) more than once.
-You should probably keep only one of them.
-While it's not a problem now, it could cause errors if you change the version of just one of them later.
-vagrant-libvirt 0.0.30 built to pkg/vagrant-libvirt-0.0.30.gem.
-
-
-```
-
-### install the most recent version of vagrant-libvirt
-Switch back to the System Ruby, set it as the default, and install the compiled
-ruby gem into the vagrant environment. The gem version number is not different for the dev version or stable version. But vagrant knows the difference.
-
-```
-$ rvm use system --default
-$ vagrant plugin install pkg/vagrant-libvirt-0.0.30.gem
+$ vagrant plugin install vagrant-libvirt-0.0.30.gem
 $ vagrant plugin list
 vagrant-libvirt (0.0.30)
   - Version Constraint: 0.0.30
