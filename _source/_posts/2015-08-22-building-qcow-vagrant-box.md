@@ -126,6 +126,8 @@ may eventually get it listed on [vagrantboxes.es](http://vagrantboxes.es)
 * [Jessie 8](http://linuxsimba.com/vagrantbox/debian-jessie.box)
 * [Cumulus Linux VM](http://linuxsimba.com/vagrantbox/cumulus-253.box)
 
+* [All Linuxsimba KVM Vagrant Boxes](http://linuxsimba.com/vagrant.html)
+
 Right click the above link and run
 
 ```
