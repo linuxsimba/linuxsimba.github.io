@@ -14,25 +14,16 @@ $ git clone https://github.com/pradels/vagrant-libvirt
 
 ```
 
-### Using the RVM ruby, install all the plugin build dependencies
+### Build the Gem
 
-Confirmed I am running the RVM ruby version, not the system version.
-
-```
-$ cd vagrant-libvirt
-$ rvm list
-$ bundle install
-```
-
-### build and install the plugin
-
-Notice that the ``vagrant plugin`` points to the vagrant executabled installed
-via ``apt-get`` or ``dpkg``
-
+Seems like any GEM version will do. Does not seem to need a newer ruby
+installed.
 
 ```
-$ bundle exec rake build
-$ /usr/bin/vagrant plugin install pkg/vagrant-libvirt-0.0.32.gem
+gem build vagrant-libvirt.gemspec
+```
+
+$ /usr/bin/vagrant plugin install vagrant-libvirt-0.0.31.gem
 
 ```
 
@@ -45,8 +36,8 @@ $ /usr/bin/vagrant plugin list
 pry (0.10.1)
 pry-byebug (3.1.0)
 rb-readline (0.5.3)
-vagrant-libvirt (0.0.30)
-  - Version Constraint: 0.0.30
+vagrant-libvirt (0.0.31)
+  - Version Constraint: 0.0.31
 vagrant-lxc (1.1.0)
 vagrant-mutate (1.0.0)
 vagrant-share (1.1.3, system)

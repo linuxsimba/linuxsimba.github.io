@@ -3,6 +3,10 @@ title: Building Libvirt-vagrant Compatible Boxes
 tags: ['qemu', 'kvm', 'libvirt', 'vagrant']
 ---
 
+> **Update 25 Sept 2015**: Just learnt about
+> [veewee](https://github.com/jedi4ever/veewee) and how to build QEMU boxes
+> using packer. So going to update this blog post soon
+
 I have found the vagrant boxes available on
 [vagrantbox.es]('http://vagrantbox.es') to be mostly unreliable. I find it
 easier to build my own using [packer](https://www.packer.io/intro),
@@ -11,6 +15,8 @@ plugin](https://github.com/sciurus/vagrant-mutate).
 
 
 > **Note**: These steps were done on Ubuntu 14.04
+
+
 
 ### Download Packer
 

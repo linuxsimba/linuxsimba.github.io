@@ -26,22 +26,17 @@ $ sudo adduser $USER libvirtd
 ```
 
 
-### Git clone libvirt master branch and build gem
-
-```
-git clone https://github.com/pradels/vagrant-libvirt
-cd vagrant-libvirt
-gem build vagrant-libvirt.gemspec
-```
 ### Install vagrant-libvirt gem
+All the Changes, I submitted,  to setup multiple VMs using the unicast UDP tunnel support is
+now in version 0.0.31 :)
+
+This step may require ``libvirt-dev`` deb package be installed.
 
 ```
-$ vagrant plugin install vagrant-libvirt-0.0.30.gem
+$ vagrant plugin install vagrant-libvirt
 $ vagrant plugin list
-vagrant-libvirt (0.0.30)
-  - Version Constraint: 0.0.30
+vagrant-libvirt (0.0.31)
 vagrant-share (1.1.4, system)
-
 ```
 
 ### Install Vagrant Boxes
