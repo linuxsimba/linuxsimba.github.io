@@ -6,14 +6,14 @@ tags: ['logstash', 'json']
 I had a need to analyze Sensu client log files in
 ``/var/log/sensu`` for historial CPU, disk and network data.
 
-Web search revealed I should give [Logstash]('https://www.elastic.co/products/logstash') a try.
+Web search revealed I should give [Logstash](https://www.elastic.co/products/logstash) a try.
 
 I decided I would try and also install ElastichSearch and Kibana. My distro
 of choice is of cause Ubuntu, in this case Ubuntu 14.04
 
 ## Install Logstash
 
-[Download Logstash deb]('https://www.elastic.co/downloads/logstash')
+[Download Logstash deb](https://www.elastic.co/downloads/logstash)
 and install it using ``dpkg``
 
 ```
@@ -25,7 +25,7 @@ called logstash from a terminal
 
 ## Install ElasticSearch
 
-[Download ElasticSearch deb]('https://www.elastic.co/downloads/elasticsearch')
+[Download ElasticSearch deb](https://www.elastic.co/downloads/elasticsearch)
 and install it using ``dpkg``
 
 ```
@@ -33,12 +33,12 @@ sudo dpkg -i elasticsearch-1.5.2.deb
 ```
 
 Elasticsearch did start as a service ``sudo service elasticsearch start``
-and I went to [http://localhost:9200]('http://localhost:9200') to confirm
+and I went to [http://localhost:9200](http://localhost:9200) to confirm
 it worked.
 
 ## Install Kibana
 
-[Download Kibana Linux tar archive]('https://www.elastic.co/downloads/kibana')
+[Download Kibana Linux tar archive](https://www.elastic.co/downloads/kibana)
 and install it using ``tar``
 
 ```
