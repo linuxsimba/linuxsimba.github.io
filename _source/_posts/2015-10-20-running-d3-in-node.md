@@ -1,5 +1,5 @@
 ---
-title: Running D3 in Node.js
+title: Running D3.js in Node.js
 tags: ['node.js', 'd3']
 ---
 
