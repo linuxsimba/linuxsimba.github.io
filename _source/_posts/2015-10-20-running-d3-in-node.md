@@ -93,5 +93,4 @@ html
     div.container
       div#map !{svgstuff}
     footer
-      != js("site")
 ```
