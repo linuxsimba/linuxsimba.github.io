@@ -4,7 +4,7 @@ tags: ['powerpc', 'qemu', 'debian']
 ---
 
 I want to build [omnibus](https://github.com/chef/omnibus-chef)  powerpc
-packages. I don't own a Mac G4 or anything like that so QEMU is my best option.
+packages. I do not own a Mac G4 or anything like that so QEMU is my best option.
 
 ### Downlaod Wheezy PowerPC VM
 
@@ -68,7 +68,7 @@ to work with Debian Wheezy is hard. So far failed at getting
 dependencies compiled correctly such as
 
 * Vagrant 1.2 or higher
-* Ruby2.1  from Jessie source. Works if I use [RVM]('https://rvm.io/')
+* Ruby2.1  from Jessie source. Works if I use [RVM](https://rvm.io/)
 
 I may revisit this issue when I can get Debian Jessie to load in a PPC VM.
 So far no luck.

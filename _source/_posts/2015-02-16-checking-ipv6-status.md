@@ -19,7 +19,7 @@ software.
 
 I tried to [recompile
 elinks with
-Javascript]('http://elinks.or.cz/documentation/html/manual.html-chunked/ch01s06.html') and failed.
+Javascript](http://elinks.or.cz/documentation/html/manual.html-chunked/ch01s06.html) and failed.
 
 I found success in deploying [PhantomJS](http://phantomjs.org/), a headless
 browser, normally used for website testing.

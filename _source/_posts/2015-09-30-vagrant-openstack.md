@@ -6,7 +6,7 @@ tags: ['vagrant', 'openstack']
 
 Finally getting around to working on the [proposed blueprint for the openstack
 ansible
-deployment]('https://blueprints.launchpad.net/openstack-ansible/+spec/deploy-with-vagrant') found on stackforge.
+deployment](https://blueprints.launchpad.net/openstack-ansible/+spec/deploy-with-vagrant) found on stackforge.
 
 I decided to settle on learning Openstack using the rackspace private cloud
 deployment because they use the LinuxBridge agent by default. Really struggle a
@@ -34,15 +34,15 @@ learn Openstack concepts well. Perhaps write some blog posts around certain
 scenarios, clearly showing how it works.
 
 The [Openstack Ansible Deployment by
-Rackspace]('https://github.com/openstack/openstack-ansible'), closely follows the latest
+Rackspace](https://github.com/openstack/openstack-ansible), closely follows the latest
 release, so it is simple to keep this testbed up to date with the latest
 features and developments in Openstack.
 
 One of the more exciting propositions is to plug switches into this environment,
 like Arista, Cumulus, Juniper. This can be easily done in libvirt.
 
-It also doesn not take much to move this config into the cloud using
-[Ravello]('https://ravellosystems.com')
+It also does not take much to move this config into the cloud using
+[Ravello](https://ravellosystems.com)
 
 After the first draft is done, I plan to work on
 

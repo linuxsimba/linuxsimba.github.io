@@ -5,7 +5,7 @@ tags: ['wireshark', 'sniffer']
 
 Just a collection of Tshark commands I frequently use at my work.
 
-I use tshark more than [wireshark]('https://www.wireshark.org/') because
+I use tshark more than [wireshark](https://www.wireshark.org/) because
 I frequently ssh to servers. Therefore, I have no GUI.
 
 One of things I am yet to spend time to fix, is how to perform captures
@@ -54,7 +54,7 @@ $ tshark -r /tmp/dhcp.pcap
 
 In this example, I show how to only view DHCP discover packets from a trace with
 all DHCP packets. Got this info from the [bootp Wireshark display
-reference]('https://www.wireshark.org/docs/dfref/b/bootp.html')
+reference](https://www.wireshark.org/docs/dfref/b/bootp.html)
 
 ```
 $ tshark -r ~/dhcp.pcap bootp.option.dhcp == 1

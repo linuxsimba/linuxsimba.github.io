@@ -8,7 +8,7 @@ tags: ['qemu', 'kvm', 'libvirt', 'vagrant']
 > using packer. So going to update this blog post soon
 
 I have found the vagrant boxes available on
-[vagrantbox.es]('http://vagrantbox.es') to be mostly unreliable. I find it
+[vagrantbox.es](http://vagrantbox.es) to be unreliable. I find it
 easier to build my own using [packer](https://www.packer.io/intro),
 [chef/bento](https://github.com/chef/bento), and the [vagrant mutate
 plugin](https://github.com/sciurus/vagrant-mutate).
