@@ -1,6 +1,6 @@
 ---
 title: Configure LXC with 2 NICs
-tags: ['lxc', 'ansible']
+tags: ['lxc']
 ---
 
 This is my first dive into LXC. I needed to configure a LXC and apply ansible on
