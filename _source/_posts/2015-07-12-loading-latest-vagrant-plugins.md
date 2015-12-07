@@ -27,7 +27,7 @@ $ vagrant plugin install vagrant-libvirt-0.0.31.gem
 
 
 Vagrant plugin status will say the plugin installed is _version constrained_. So
-this way you can tell the plugin didn not come from the main rubygem repository.
+this way you can tell the plugin did not come from the main rubygem repository.
 
 ```
 $ /usr/bin/vagrant plugin list
