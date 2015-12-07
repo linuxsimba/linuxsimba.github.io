@@ -20,12 +20,11 @@ Seems like any GEM version will do. Does not seem to need a newer ruby
 installed.
 
 ```
-gem build vagrant-libvirt.gemspec
+$ gem build vagrant-libvirt.gemspec
+
+$ vagrant plugin install vagrant-libvirt-0.0.31.gem
 ```
 
-$ /usr/bin/vagrant plugin install vagrant-libvirt-0.0.31.gem
-
-```
 
 Vagrant plugin status will say the plugin installed is _version constrained_. So
 this way you can tell the plugin didn not come from the main rubygem repository.
