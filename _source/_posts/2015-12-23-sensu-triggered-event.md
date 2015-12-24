@@ -84,3 +84,6 @@ def send_event(metric_name, options, msg, check_type='standard')
 end
 
 ```
+
+Here is an image of the alert on Uchiwa
+![Sensu Quagga](https://lh3.googleusercontent.com/-exBfP1FJFjI/Vnt4Acs5rMI/AAAAAAAAIPA/VTyB96Hv2vQ/s0/Screenshot+from+2015-12-23+23%253A42%253A38.png "sensu_quagga.png")
