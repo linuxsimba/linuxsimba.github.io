@@ -83,9 +83,12 @@ To mount the RAID array, I take a sledge hammer approach and modify [config/incl
 ## Installing the Customized Debian Live CD onto a USB Stick
 
 After installing the [github repo](http://github.com/linuxsimba/backup_server_live_cd), run
+
 ```
+
 sudo lb config
 sudo lb build
+
 ```
 
 The USB drive used was unformatted using [gparted](http://gparted.org/). I just removed all partitions and saved the changes.
