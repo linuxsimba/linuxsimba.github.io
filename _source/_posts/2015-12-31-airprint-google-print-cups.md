@@ -109,3 +109,9 @@ For those running systemd, I'm sure an equivalent systemd startup file is easy t
 ```
 sudo service gcp-cups-connector start
 ```
+
+## References
+
+* [Link to advertise CUPS printer in Avahi (AirPrint)](https://wiki.archlinux.org/index.php/Avahi)
+* [Widely referenced Airprint/Cups/Ubuntu Blog Post](https://david.gyttja.com/2010/11/11/airprint-on-ubuntu/)
+* [Google Connector](https://github.com/google/cups-connector)
