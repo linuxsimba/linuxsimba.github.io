@@ -1,5 +1,6 @@
 ---
-title: Setup CUPS on Ubuntu with AirPrint and Google Print Server Support
+title: Mobile Device Print Services for the Home using Ubuntu Server and a USB
+Printer
 tags: ['cups', 'google-print', 'airprint']
 ---
 
