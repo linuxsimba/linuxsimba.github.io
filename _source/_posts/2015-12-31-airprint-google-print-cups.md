@@ -1,6 +1,5 @@
 ---
-title: Mobile Device Print Services for the Home using Ubuntu Server and a USB
-Printer
+title: Mobile Device Print Services for the Home using Ubuntu Server and a USB Printer
 tags: ['cups', 'google-print', 'airprint']
 ---
 
