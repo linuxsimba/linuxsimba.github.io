@@ -3,12 +3,21 @@ title: Backup Server using a Customized Debian Live CD OS
 tags: ['debian', 'livecd']
 ---
 
+> NOTE (Jan 2016): There has been [some squabble in
+> Debian](https://lists.debian.org/debian-live/2015/11/msg00053.html) about the Debian Live CD project. Its
+> link was cleaned out..so the links referenced in this doc do not work. Once
+> the Debian Live CD project is spin out and it has its own website, I will
+> change my reference links. For now all the links to Debian Live CD point the epub documentation
+> I downloaded a while ago. The doc is well written. Probably one of the best
+> I have seen for an open source project.
+
 ## Goal
 Convert an old Shuttle PC with 2 1TB Disks into a Backup server and so much more.
 
 The PC only has slots for two Hard Drives, and I want to utilize the 2 1 TB disks as members in a RAID-1 Array, my only choice is to load the software needed on a USB Stick.
 
-After much research, I decided to go with the [Debian Live CD Project](http://live.debian.net)
+After much research, I decided to go with the [Debian Live CD
+Project](http://linuxsimba.com/vagrantbox/debian_live_manual.epub)
 
 ## Building the Debian Live CD Environment
 
@@ -16,8 +25,8 @@ In order to create my custom USB drive image, I first setup my Ubuntu 14.04 Lapt
 
 Debian Live CD asks you to install 2 programs
 
- * [live-build](http://live.debian.net/git/live-build.git)
- * [live-boot](http://live.debian.net/git/live-boot.git)
+ * [live-build](http://linuxsimba.com/vagrantbox/debian_live_manual.epub)
+ * [live-boot](http://linuxsimba.com/vagrantbox/debian_live_manual.epub)
 
 There is a *live-config* program as well but I was not able to build the deb package for this from the git repository.
 
