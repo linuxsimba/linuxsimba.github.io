@@ -35,7 +35,7 @@ There is a *live-config* program as well but I was not able to build the deb pac
 *live-build* contains the components to build a live system from a configuration directory.
 
 ```
-$ git clone git://live.debian.net/git/live-build.git
+$ git clone https://anonscm.debian.org/git/debian-live/live-build.git
 $ cd live-build
 $ dpkg-buildpackage -b -uc -us
 $ cd ..
@@ -45,7 +45,7 @@ $ cd ..
 *live-boot* is a collection of scripts that enables the building of USB Stick images. So I definitely need to install this
 
 ```
-$ git clone git://live.debian.net/git/live-boot.git
+$ git clone https://anonscm.debian.org/git/debian-live/live-boot.git
 $ cd live-boot
 $ dpkg-buildpackage -b -uc -us
 $ cd ..
