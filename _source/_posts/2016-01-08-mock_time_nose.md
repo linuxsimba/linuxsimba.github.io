@@ -13,7 +13,7 @@ from simple_network_rates import base
 class TestSimpleNetworkRates(object)
 
   def setup(self):
-    self.instance = bae.Base('eth1', 'sysfs', 'tx_bytes')
+    self.instance = base.Base('eth1', 'sysfs', 'tx_bytes')
 
   @mock.patch('simple_network_rates.base.Base.create_wsp_file')
   @mock.patch('simple_network_rates.base.whisper.update')
