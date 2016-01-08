@@ -20,7 +20,7 @@ class TestSimpleNetworkRates(object)
   def test_write_wsp_file(self, mock_wsp_update,
                           mock_create_wsp_file):
       <strong>with mock.patch('simple_network_rates.base.time.time') as mock_time:</strong>
-          mock_time.return_value = 1111
+          <strong>mock_time.return_value = 1111</strong>
           self.instance.write_to_wsp_file(1234)
           assert_equals(mock_create_wsp_file.call_count, 1)
           mock_wsp_update.assert_called_with('')
