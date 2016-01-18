@@ -1,12 +1,16 @@
 // Add your own custom CSS here.
 @import "pygments-tomorrow";
-
+//@import url(https://fonts.googleapis.com/css?family=Montserrat);
+//@import url(https://fonts.googleapis.com/css?family=Arvo);
+//@import url(https://fonts.googleapis.com/css?family=Walter+Turncoat);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
 $blockquote-font-size: floor(($font-size-base * 0.9));
 $blockquote-bg-color: rgba(128,128,128,0.05);
 $share-page-bg-color: rgba(128,128,128,0.1);
 
 body {
  color: black;
+  font-family: "Open Sans","Helvetica Neue",Arial,sans-serif;
 }
 /* Landscape phones and smaller */
 @media (max-width: 480px) {
