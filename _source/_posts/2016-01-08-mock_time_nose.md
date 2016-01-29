@@ -29,6 +29,7 @@ class TestSimpleNetworkRates(object)
 When I run `nosetests` I get the following result:
 
 <pre><code>
+
 =====================================================================
 FAIL: test_base.TestSimpleNetworkRates.test_write_wsp_file
 ----------------------------------------------------------------------
@@ -45,4 +46,5 @@ Traceback (most recent call last):
     raise value
 AssertionError: Expected call: update('')
 <strong>Actual call: update('/var/run/eth1_sysfs_tx_bytes.wsp', 1234, 1111)</strong>
+
 </code></pre>
