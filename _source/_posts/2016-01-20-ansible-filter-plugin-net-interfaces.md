@@ -10,7 +10,7 @@ The interface names are different depending on whether the virtual  setup uses V
 
 This was achieved using a filter plugin. There may be one already in Ansible, but I could not find it.
 
-###filter_plugins/filter_ints.py
+### filter\_plugins/filter\_ints.py
 
 ```
 #!/usr/bin/python
