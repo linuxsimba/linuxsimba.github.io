@@ -3,14 +3,12 @@ title: "Openstack Heat - Creating a Project, Networks and Server only using Heat
 tags: ['openstack', 'heat']
 ---
 
-First encountered [Openstack Heat](https://wiki.openstack.org/wiki/Heat) about 1 year ago when I performed some
+First encountered [Openstack Heat](https://wiki.openstack.org/wiki/Heat) about 1
+year ago when performing some
 testing datacenter modeling using an Openstack environment.
 
 The first goal was to figure out how to create enough VMs to understand how
-Openstack networking works in a multitenant environment.
-
-The Openstack environment at first was using the Vlan type driver, but later I
-switched to the VxLAN type driver.
+Openstack networking works in a multi Tenant/Project environment.
 
 ### The topology
 
