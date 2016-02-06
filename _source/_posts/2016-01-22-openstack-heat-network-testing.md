@@ -1,5 +1,5 @@
 ---
-title: "Openstack Heat - Creating a Project, Networks and Server only using Heat"
+title: "Creating a Project, Networks and VMs only using Heat"
 tags: ['openstack', 'heat']
 ---
 
