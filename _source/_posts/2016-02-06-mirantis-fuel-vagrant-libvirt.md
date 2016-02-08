@@ -20,7 +20,12 @@ door to build virtual setups that include the underlay like the switches (_Cumul
 external routers (_Cisco VM_)
 
 ### Download the Mirantis Fuel ISO
-Mirantis does not provide a URL for the ISO, so you have to sign up for it on the [Mirantis Fuel Download Page](https://software.mirantis.com/openstack-download-form/).
+Mirantis does not provide a URL for the ISO, so you have to sign up for it on
+the [Mirantis Fuel Download
+Page](https://software.mirantis.com/openstack-download-form/).
+
+Copy the ISO to the ``$HOME/openstack`` directory. This is where the packer
+template is assuming the ISO to be.
 
 ### Build the Mirantis Fuel Vagrant Box
 

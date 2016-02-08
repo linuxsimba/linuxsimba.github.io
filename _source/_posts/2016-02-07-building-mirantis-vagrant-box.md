@@ -1,55 +1,12 @@
 ---
-title: Building Mirantis Fuel Vagrant Box
+title: Notes on Building Mirantis Fuel Vagrant Box
 tags: ['mirantis', 'openstack', 'packer', 'vagrant']
 ---
 
+These are the notes on how the Mirantis Fuel Vagrant Box was built.
+For details on the install, go the [previous post]({% post_url 2016-02-06-mirantis-fuel-vagrant-libvirt %}).
+
 [HashiCorp's Packer](https://www.Packer.io/downloads.html) is a cool tool. Take any ISO, and in a few hours, you can transform the ISO into a Vagrant Box.
-
-### Build the Mirantis Fuel Vagrant Box
-
-* [Install Vagrant-libvirt ]({% post_url 2015-08-11-vagrant-libvirt-install %})
-
-* [Download and install Packer](https://www.Packer.io/intro/getting-started/setup.html)
-
-* Git clone the Packer repo with the Mirantis Fuel Packer build script
-
-
-```
-git clone http://github.com/linuxsimba/packer-libvirt-profiles
-```
-
-* Assign a temporary directory with at least 30GB of space. Defaults to /tmp. If
-/tmp is small then the build process will fail with space exceeded message.
-
-```
-export TMPDIR=$HOME/tmp
-```
-
-* cd into the Packer build repo and run Packer. Wait 14-45 minutes depending on
-the speed of your PC.
-
-```
-cd packer-libvirt-profiles
-packer build Packer build mirantis-7-x86_64.json
-```
-
-A vagrant libvirt box will be created in the following Packer build repo
-directory.
-
-
-<pre><code>
-==> qemu (vagrant): Creating Vagrant Box for 'libvirt' provider
-    qemu (vagrant): Copying from artifact: Packer-mirantis-7-qemu/mirantis-7
-    qemu (vagrant): Compressing: Vagrantfile
-    qemu (vagrant): Compressing: box.img
-    qemu (vagrant): Compressing: metadata.json
-Build 'qemu' finished.
-
-==> Builds finished. The artifacts of successful builds are:
---> qemu: 'libvirt' provider box: <strong>builds/mirantis-fuel-7.libvirt.box</strong>
-</code></pre>
-
-### Notes
 
 After running through the entire install of Mirantis Fuel manually using
 libvirt's [virt-manager](https://virt-manager.org/), _and screen capturing the
