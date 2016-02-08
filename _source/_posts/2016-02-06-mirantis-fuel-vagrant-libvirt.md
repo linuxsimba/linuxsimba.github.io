@@ -10,7 +10,7 @@ this virtual environment. Working through somes issues. Got a [couple of blog
 posts](/mirantis.html) documenting what problems encountered so far.
 
 [Mirantis Fuel](https://wiki.openstack.org/wiki/Fuel) is a bare-metal installer
-for OpenStack. Mirantis provides a way virtualize the [setup using
+for OpenStack. Mirantis provides a way to virtualize the [setup using
 VirtualBox](https://docs.mirantis.com/openstack/fuel/fuel-6.1/virtualbox.html).
 Decided to virtualize Mirantis Fuel using
 [vagrant-libvirt](https://github.com/pradels/vagrant-libvirt). Using a Vagrant
@@ -96,19 +96,29 @@ vagrant up --no-parallel
 
 
 Using the [example
-Vagrantfile](http://github.com/linuxsimba/packer-libvirt-profiles/blob/master/vagrantfile_examples/Vagrantfile.mirantis) the test virtual setup looks like this.
+Vagrantfile](http://github.com/linuxsimba/packer-libvirt-profiles/blob/master/vagrantfile_examples/Vagrantfile.mirantis)
+the test virtual setup looks the topology shown above.
 It has a back-to-back connection between the first server and the 2nd server.
+
+Used a back-to-back connection for simplicity because Mirantis with VLAN
+segmentation configures the non-admin NIC as a trunk with VLANS for storage,
+management and Openstack projects. In the near future switches will be put
+between the servers to develop a more complex network.
+
 The topology takes advantage of the [libvirt PXE boot
 feature](https://libvirt.org/formatdomain.html#elementsNICSBoot). So the Server
-nodes come up in vagrant but the disks are empty. After bringing up the setup,
-the server nodes cannot be controlled by vagrant. Use ``virsh`` commands
-instead.
+nodes come up in vagrant but the disks are empty. Vagrant can only halt or start
+a PXE enabled Vagrant instance. Use ``virsh`` commands instead for any other
+commands.
+
+> Would be interesting to know how PXE booting works with the Vagrant-Virtualbox provider.
 
 Run vagrant with ``no-parallel`` because the Fuel master needs to be up and
 running first, to become a PXE and DHCP server for the openstack server nodes.
 
 It will take a while for the Fuel master to load, because it has to install
-docker containers. On my Intel I5 server it took about 20 minutes to complete.
+docker containers. On my Intel I5 server it took about 40 minutes to complete.
+About 20 minutes was needed to setup the APT mirror.
 
 A port forward setting is configured in Vagrant, to access the Fuel GUI when
 ``vagrant up`` has completed.
