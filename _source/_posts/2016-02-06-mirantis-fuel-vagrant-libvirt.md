@@ -5,7 +5,7 @@ tags:
   - openstack
 ---
 
-> **07 Feb 2016**: Still unable to build a Mirantis Openstack setup in
+> **07 Feb 2016**: Currently unable to complete a Mirantis Openstack setup in
 this virtual environment. There is a timeout error during installation of
 OpenStack. It is probably something similar discovered when virtualizing with
 the [Rackspace openstack-ansible]({% post_url 2015-09-30-vagrant-openstack %}) project. The [error can be found on
