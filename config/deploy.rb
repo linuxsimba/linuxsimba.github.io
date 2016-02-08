@@ -2,7 +2,7 @@
 lock '3.3.5'
 
 set :rvm_type, :user
-set :rvm_ruby_version, '2.2.0'
+set :rvm_ruby_version, '2.2'
 set :application, 'linuxsimba'
 set :repo_url, 'http://github.com/linuxsimba/linuxsimba.git'
 set :branch, 'master'
