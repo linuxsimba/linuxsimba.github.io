@@ -4,9 +4,9 @@ tags: ['mirantis', 'openstack', 'packer', 'vagrant']
 ---
 
 These are the notes on how the Mirantis Fuel Vagrant Box was built.
-For details on the install, go the [previous post]({% post_url 2016-02-06-mirantis-fuel-vagrant-libvirt %}).
+For details on the install, go to the [previous post]({% post_url 2016-02-06-mirantis-fuel-vagrant-libvirt %}).
 
-[HashiCorp's Packer](https://www.Packer.io/downloads.html) is a cool tool. Take any ISO, and in a few hours, you can transform the ISO into a Vagrant Box.
+[HashiCorp's packer](https://www.packer.io/downloads.html) is a cool tool. Take any ISO, and in a few hours, you can transform the ISO into a Vagrant Box.
 
 After running through the entire install of Mirantis Fuel manually using
 libvirt's [virt-manager](https://virt-manager.org/), _and screen capturing the
@@ -19,31 +19,31 @@ were relevant to the Vagrant Box creation.
 ```
 
 ``isolinux/isolinux.cfg`` defined what the kernel boot commands are by default.
-Packer was configured to delete this as it hard codes the IP address of the eth0
+packer was configured to delete this as it hard codes the IP address of the eth0
 interface. It has some undesirable effects during the Vagrant Box build process.
-Packer was configured to amend some of the boot command variables, so the final
-boot command looked like this. All interactivity was disabled as well by setting
+packer was configured to amend the boot command variables, so the final
+boot command looked like this. All Fuel menu interactivity was disabled as well by setting
 the ``showmenu`` option to ``no``.
 
 ```
 vmlinuz initrd=initrd.img hostname=fuel.domain.tld showmenu=no admin_interface=eth1 dhcp_interface=eth0 text ks=http://10.0.2.2/mirantis-7/ks.cfg
 ```
 
-The ``HTTPIP`` and ``HTTPPort`` config is Packer magic. When Packer executes it creates
+The ``HTTPIP`` and ``HTTPPort`` config is packer magic. When packer executes it creates
 a temporary HTTP server that the QEMU VM can access to get to its kickstart
-config in the ``http`` directory of the Packer build repo.
+config in the ``http`` directory of the packer build repo.
 
 
 ``ks.cfg``, the kickstart file, was amended to add a Vagrant Box user, delete
 the code that configures what Fuel calls the `admin_interface`.
 
-The [centos-6](https://github.com/chef/bento/blob/master/centos-6.7-x86_64.json) Packer build script was used as the starting point for the
-mirantis Fuel Packer build script.
+The [centos-6](https://github.com/chef/bento/blob/master/centos-6.7-x86_64.json) packer build script was used as the starting point for the
+mirantis Fuel packer build script.
 
-When all was configured, the following ``Packer`` command was executed, and on a
+When all was configured, the following ``packer`` command was executed, and on a
 Intel I5, 4 GB server, it took about 30 minutes to complete.
 
-The final box image for Mirantis-7 Fuel Vagrant Box was about 4.7GB. Packer
+The final box image for Mirantis-7 Fuel Vagrant Box was about 4.7GB. packer
 does some compression and removal of _unnecessary_ packages.
 
 The [linuxsimba packer template repo](http://github.com/linuxsimba/packer-libvirt-profiles
@@ -60,7 +60,8 @@ The script to generate the docker containers is run as a Vagrantfile provision
 script during a ``vagrant up`` run.
 
 The Vagrant Box therefore, is relatively small in size,  and easier to distribute
-than one that is loaded with all the Fuel docker containers.
+than one that is loaded with all the Fuel docker containers. The box size is
+about 4.7GB.
 
 
 > Not sure if the Vagrant Box can be [posted on this site](/vagrant.html). I am going to
