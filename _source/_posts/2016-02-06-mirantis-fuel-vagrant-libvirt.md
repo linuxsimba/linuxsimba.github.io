@@ -5,11 +5,9 @@ tags:
   - openstack
 ---
 
-> **07 Feb 2016**: Currently unable to complete a Mirantis Openstack setup in
-this virtual environment. There is a timeout error during installation of
-OpenStack. It is probably something similar discovered when virtualizing with
-the [Rackspace openstack-ansible]({% post_url 2015-09-30-vagrant-openstack %}) project. The [error can be found on
-gist](https://gist.github.com/linuxsimba/df2cd86bff3802cf28a1)
+> **08 Feb 2016**: Currently unable to complete a Mirantis Openstack setup in
+this virtual environment. Working through somes issues. Got a [couple of blog
+posts](/mirantis.html) documenting what problems encountered so far.
 
 [Mirantis Fuel](https://wiki.openstack.org/wiki/Fuel) is a bare-metal installer
 for OpenStack. Mirantis provides a way virtualize the [setup using
