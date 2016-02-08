@@ -5,6 +5,14 @@ tags:
   - openstack
 ---
 
+>Ran into a few problems along the way. But the setup, nearly completed.
+The OS and Openstack installation took a really long time. Like 1 hour.
+Got a [couple of blog posts](/mirantis.html) documenting what problems were
+encountered. Hopefully this last problem is all that is left. Its an error
+saying the setup cannot find its public VIPs. So a redesign of the topology is
+required. Thought the current simplified topology would be enough to complete an install
+but it needs just a little more.
+
 
 [Mirantis Fuel](https://wiki.openstack.org/wiki/Fuel) is a bare-metal installer
 for OpenStack. Mirantis provides a way to virtualize the [setup using
@@ -127,10 +135,6 @@ The username and password is _admin/admin_.
 In the Fuel GUI ensure that the 2nd interface _(eth1)_ is configured as the public,
 storage, management and private interface. Pictures of this can be found [here](/mirantis_pics.html)
 
-Ran into a few problems along the way. But got the setup up and running.
-the OS and Openstack installation took a really long time. Like 1 hour.
-Got a [couple of blog posts](/mirantis.html) documenting what problems were
-encountered.
 
 ### References
 
