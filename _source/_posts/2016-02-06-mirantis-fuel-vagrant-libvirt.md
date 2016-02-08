@@ -5,9 +5,6 @@ tags:
   - openstack
 ---
 
-> **08 Feb 2016**: Currently unable to complete a Mirantis Openstack setup in
-this virtual environment. Working through somes issues. Got a [couple of blog
-posts](/mirantis.html) documenting what problems encountered so far.
 
 [Mirantis Fuel](https://wiki.openstack.org/wiki/Fuel) is a bare-metal installer
 for OpenStack. Mirantis provides a way to virtualize the [setup using
@@ -129,6 +126,12 @@ The username and password is _admin/admin_.
 
 In the Fuel GUI ensure that the 2nd interface _(eth1)_ is configured as the public,
 storage, management and private interface. Pictures of this can be found [here](/mirantis_pics.html)
+
+Ran into a few problems along the way. But got the setup up and running.
+the OS and Openstack installation took a really long time. Like 1 hour.
+Got a [couple of blog posts](/mirantis.html) documenting what problems were
+encountered.
+
 ### References
 
 * [Notes on Building Mirantis Vagrant Box using packer]({% post_url 2016-02-07-building-mirantis-vagrant-box %})
