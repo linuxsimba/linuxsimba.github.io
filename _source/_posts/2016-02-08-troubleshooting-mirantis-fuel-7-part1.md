@@ -4,8 +4,9 @@ tags: ['mirantis', 'openstack', 'fuel', 'troubleshooting', 'vagrant']
 ---
 
 The virtual design setup for installing Mirantis OpenStack in a
-vagrant-libvirt environment doesn not work with the default settings of
-Mirantis Fuel.
+vagrant-libvirt environment does not work with the default settings of
+Mirantis Fuel. Bad design? Maybe. This series of posts may be changed in the
+near future as Mirantis Openstack adventures continue.
 
 <img src='/mirantis-openstack.svg'/>
 
@@ -16,6 +17,9 @@ the following error
 
 This cryptic error message pointed to the fact the `connectivity_test.pp``
 puppet script on node1 failed. Let us see why.
+
+> Found out later that clicking the "Log" button next to a Node in the "Nodes"
+> Tab gives you the puppet log that points to the root cause.
 
 ```
 $ vagrant ssh fuel_master
@@ -36,11 +40,16 @@ URL, or remove it from the settings page if it is invalid. on node
 node-1.domain.tld
 ```
 
-The node is unable to reach the main Ubuntu repo. Decided to read the docs and
-not be smarty pants. In Mirantis Fuel default setup, the Openstack node tries to
-reach the internet to download what it needs. To do this, the node uses its
-**public** interface. So what is the public interface and what is the default
-route? Let us see!
+The node is unable to reach the main Ubuntu repo. What was confusing is that
+the OS was installed using the Fuel Master Node. That is via the Admin/PXE
+interface (eth0). The Openstack install occurs over the **public** or eth1
+interface in this case. Found this a little odd. Why not configure the whole
+setup via the admin interface.
+
+Below is the output from the openstack node showing its default route and bridge
+setup. It is clearly trying to go out eth1 to get to the internet. Plus, and
+this is not shown, the apt sources.list files point to the Ubuntu archives and
+not the Fuel master node.
 
 ```
 root@node-1# route -n
@@ -63,11 +72,10 @@ br-mgmt   8000.525400d6b687 no    eth1.101
 br-storage    8000.525400d6b687 no    eth1.102
 ```
 
-Well its not ``eth0`` which connects to the fuel master! And remember in the
-diagram, I connect ``eth1`` as a back to back link between the 2 nodes.
+Mirantis Fuel has APT mirror support. So the next step was to turn to this on and
+see if all installation (OS + OpenStack) will occur over the "Admin" or "PXE boot" interface.
 
-So decided to see if wiping clean the openstack nodes, and installing an APT
-mirror on the Fuel master node using the command ``fuel-createmirror`` will
-help. The troubles are faced there are documented in [Part 2 of Mirantis Fuel
+This was done using the command ``fuel-createmirror``. Some trouble was
+experienced when this command was first run.  It is documented in [Part 2 of Mirantis Fuel
 Troubleshooting]({% post_url 2016-02-08-troubleshooting-mirantis-fuel-7-part2 %})
 
