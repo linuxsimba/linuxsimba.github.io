@@ -97,8 +97,11 @@ mkdir $HOME/openstack-mirantis
 cd $HOME/openstack-mirantis
 vagrant init
 cp $HOME/git/packer-libvirt-profiles/vagrantfile_examples/Vagrantfile.mirantis Vagrantfile
-vagrant up
+vagrant up --no-parallel
 ```
+
+Run vagrant with ``no-parallel`` because the Fuel master needs to be up and
+running to become a PXE and DHCP server for the openstack server nodes.
 
 It will take a while for the Fuel master to load because it has to install
 docker containers. On my Intel I5 server it took about 20 minutes to complete.
