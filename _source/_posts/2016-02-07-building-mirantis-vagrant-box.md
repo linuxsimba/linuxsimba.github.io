@@ -1,0 +1,113 @@
+---
+title: Building Mirantis Fuel Vagrant Box
+tags: ['mirantis', 'openstack', 'packer', 'vagrant']
+---
+
+[HashiCorp's Packer](https://www.Packer.io/downloads.html) is a cool tool. Take any ISO, and in a few hours, you can transform the ISO into a Vagrant Box.
+
+### Build the Mirantis Fuel Vagrant Box
+
+* [Install Vagrant-libvirt ]({% post_url 2015-08-11-vagrant-libvirt-install %})
+
+* [Download and install Packer](https://www.Packer.io/intro/getting-started/setup.html)
+
+* Git clone the Packer repo with the Mirantis Fuel Packer build script
+
+
+```
+git clone http://github.com/linuxsimba/packer-libvirt-profiles
+```
+
+* Assign a temporary directory with at least 30GB of space. Defaults to /tmp. If
+/tmp is small then the build process will fail with space exceeded message.
+
+```
+export TMPDIR=$HOME/tmp
+```
+
+* cd into the Packer build repo and run Packer. Wait 14-45 minutes depending on
+the speed of your PC.
+
+```
+cd packer-libvirt-profiles
+packer build Packer build mirantis-7-x86_64.json
+```
+
+A vagrant libvirt box will be created in the following Packer build repo
+directory.
+
+
+<pre><code>
+==> qemu (vagrant): Creating Vagrant Box for 'libvirt' provider
+    qemu (vagrant): Copying from artifact: Packer-mirantis-7-qemu/mirantis-7
+    qemu (vagrant): Compressing: Vagrantfile
+    qemu (vagrant): Compressing: box.img
+    qemu (vagrant): Compressing: metadata.json
+Build 'qemu' finished.
+
+==> Builds finished. The artifacts of successful builds are:
+--> qemu: 'libvirt' provider box: <strong>builds/mirantis-fuel-7.libvirt.box</strong>
+</code></pre>
+
+### Notes
+
+After running through the entire install of Mirantis Fuel manually using
+libvirt's [virt-manager](https://virt-manager.org/), _and screen capturing the
+output using gtk-recordmydesktop_, it was determined that the following files
+were relevant to the Vagrant Box creation.
+
+```
+  - isolinux/isolinux.cfg
+  - ks.cfg
+```
+
+``isolinux/isolinux.cfg`` defined what the kernel boot commands are by default.
+Packer was configured to delete this as it hard codes the IP address of the eth0
+interface. It has some undesirable effects during the Vagrant Box build process.
+Packer was configured to amend some of the boot command variables, so the final
+boot command looked like this. All interactivity was disabled as well by setting
+the ``showmenu`` option to ``no``.
+
+```
+vmlinuz initrd=initrd.img hostname=fuel.domain.tld showmenu=no admin_interface=eth1 dhcp_interface=eth0 text ks=http://10.0.2.2/mirantis-7/ks.cfg
+```
+
+The ``HTTPIP`` and ``HTTPPort`` config is Packer magic. When Packer executes it creates
+a temporary HTTP server that the QEMU VM can access to get to its kickstart
+config in the ``http`` directory of the Packer build repo.
+
+
+``ks.cfg``, the kickstart file, was amended to add a Vagrant Box user, delete
+the code that configures what Fuel calls the `admin_interface`.
+
+The [centos-6](https://github.com/chef/bento/blob/master/centos-6.7-x86_64.json) Packer build script was used as the starting point for the
+mirantis Fuel Packer build script.
+
+When all was configured, the following ``Packer`` command was executed, and on a
+Intel I5, 4 GB server, it took about 30 minutes to complete.
+
+The final box image for Mirantis-7 Fuel Vagrant Box was about 4.7GB. Packer
+does some compression and removal of _unnecessary_ packages.
+
+The [linuxsimba packer template repo](http://github.com/linuxsimba/packer-libvirt-profiles
+) contains an [example Vagrantfile](http://github.com/linuxsimba/packer-libvirt-profiles/blob/master/vagrantfile_examples/Vagrantfile.mirantis) to use to
+setup the Mirantis OpenStack setup.
+
+This Vagrantfile hard codes the ``eth0`` MAC
+address of the openstack nodes. This is because Mirantis Fuel assumes,
+correctly, that the PXE MAC for a particular server should not change. So as one creates and destroys the
+openstack nodes using `vagrant destroy/up`, Mirantis Fuel will not get confused and think its a new server.
+
+The Vagrant Box does not have the docker containers needed for Fuel to work.
+The script to generate the docker containers is run as a Vagrantfile provision
+script during a ``vagrant up`` run.
+
+The Vagrant Box therefore, is relatively small in size,  and easier to distribute
+than one that is loaded with all the Fuel docker containers.
+
+
+> Not sure if the Vagrant Box can be [posted on this site](/vagrant.html). I am going to
+ask Mirantis if that is okay.
+
+
+
