@@ -47,7 +47,7 @@ Could not get docker ID for fuel-createmirror. Is it running?
 It fails to pull this container. Why? Apparently its a [fuel-createmirror
 bug](https://bugs.launchpad.net/fuel/+bug/1528498)
 
-The fix to to apply the workaround which was integrated in the vagrant
+The fix is to apply the workaround which was integrated in the vagrant
 provisioning script.
 
 ```
