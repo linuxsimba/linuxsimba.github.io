@@ -3,26 +3,26 @@ title: "Troubleshooting Mirantis Fuel: Problems Creating an APT Mirror"
 tags: ['mirantis', 'openstack', 'fuel', 'troubleshooting', 'vagrant']
 ---
 
-In [Part 1 of Troubleshooting Mirantis Fuel]({% post_url 2016-02-08-troubleshooting-mirantis-fuel-7-part1 %})
-it was discovered that OpenStack apps
-failed to be installed on the respective nodes because the nodes could not reach
-the internet. To remedy this an APT mirror would be setup using the ``fuel
+In [Part 1 of Troubleshooting Mirantis Fuel]({% post_url 2016-02-08-troubleshooting-mirantis-fuel-7-part1 %}), it was discovered that
+OpenStack installation failed  because the nodes could not reach
+the internet. To remedy this, an APT mirror was setup using the ``fuel
 create-mirror`` command.
 
-When ``fuel-createmirror was executed, it failed. The error message was:
+When ``fuel-createmirror`` was executed, it failed. The error message was:
 
 ```
 * INFO: Resolving dependencies for partial mirror
 * FATAL: Cannot calculate list of dependencies
 ```
 
-Not a helpful message so searched the internet to find out how to turn on [Fuel
-createmirror debugs](https://irclog.perlgeek.de/fuel-dev/2015-09-17)
+An internet search was done to understand how to enable [Fuel
+createmirror debugs](https://irclog.perlgeek.de/fuel-dev/2015-09-17).
 
-On the Fuel master node, in  `/opt/fuel-createmirror-7.0/config/` change the
-`DEBUG` flag in `ubuntu.cfg` and `mos-ubuntu.cfg` to `yes`.
+On the Fuel master node, in  `/opt/fuel-createmirror-7.0/config/`, the
+`DEBUG` flag in `ubuntu.cfg` and `mos-ubuntu.cfg` was changed to `yes`.
 
-After doing that and executing ``sudo fuel-createmirror -U`` again, the true source of the error is revealed
+Then ``sudo fuel-createmirror`` was run again. The true source of the error
+appeared.
 
 ```
  * INFO: Resolving dependencies for partial mirror
@@ -43,8 +43,8 @@ Could not get docker ID for fuel-createmirror. Is it running?
  * FATAL: Creation of Ubuntu mirror FAILED, check logs at /var/log/mirror-sync
 ```
 
-`fuel-createmirror` is trying to install the `ubuntu:latest` docker container.
-It fails to pull this container. Why? Apparently its a [fuel-createmirror
+`fuel-createmirror` was trying to install the `ubuntu:latest` docker container.
+It fails to pull this container.  [fuel-createmirror
 bug](https://bugs.launchpad.net/fuel/+bug/1528498)
 
 The fix is to apply the workaround which was integrated in the vagrant
@@ -56,5 +56,6 @@ sudo docker load -i /tmp/ubuntu.trusty.tar.xz
 sudo fuel-creatmirror
 ```
 
-Reset the Openstack Environment via the Fuel GUI. But still encountered a problem. See Part 3 of Mirantis Fuel Troubleshooting.
+The Openstack Environment was reset via the Fuel GUI, and the install repeated. There is a _Reset
+Environment_ button on the homepage of the Openstack environment.
 
