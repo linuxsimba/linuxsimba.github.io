@@ -18,8 +18,6 @@ the following error
 This cryptic error message pointed to the fact the `connectivity_test.pp``
 puppet script on node1 failed. Let us see why.
 
-> Found out later that clicking the "Log" button next to a Node in the "Nodes"
-> Tab gives you the puppet log that points to the root cause.
 
 ```
 $ vagrant ssh fuel_master
@@ -78,4 +76,9 @@ see if all installation (OS + OpenStack) will occur over the "Admin" or "PXE boo
 This was done using the command ``fuel-createmirror``. Some trouble was
 experienced when this command was first run.  It is documented in [Part 2 of Mirantis Fuel
 Troubleshooting]({% post_url 2016-02-08-troubleshooting-mirantis-fuel-7-part2 %})
+
+
+> Found out later that clicking the "Log" button next to a Node in the "Nodes"
+> Tab gives you the puppet log that points to the root cause.
+> <img src='/images/view_server_logs.png'/>
 
