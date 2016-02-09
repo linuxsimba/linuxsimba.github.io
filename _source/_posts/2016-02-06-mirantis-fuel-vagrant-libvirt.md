@@ -105,7 +105,7 @@ necessary to include in the setup because the installer attempts to ping the
 public network gateway. If the ping fails the install never completes.
 
 Future updates to this post, will include switches
-between the servers with more a more realistic IP layout.
+between the servers with a more realistic IP layout.
 
 The topology takes advantage of the [libvirt PXE boot
 feature](https://libvirt.org/formatdomain.html#elementsNICSBoot). So the Server
