@@ -5,15 +5,6 @@ tags:
   - openstack
 ---
 
->Ran into a few problems along the way. But the setup, nearly completed.
-The OS and Openstack installation took a really long time. Like 1 hour.
-Got a [couple of blog posts](/mirantis.html) documenting what problems were
-encountered. Hopefully this last problem is all that is left. Its an error
-saying the setup cannot find its public VIPs. So a redesign of the topology is
-required. Thought the current simplified topology would be enough to complete an install
-but it needs just a little more.
-
-
 [Mirantis Fuel](https://wiki.openstack.org/wiki/Fuel) is a bare-metal installer
 for OpenStack. Mirantis provides a way to virtualize the [setup using
 VirtualBox](https://docs.mirantis.com/openstack/fuel/fuel-6.1/virtualbox.html).
@@ -87,7 +78,7 @@ vagrant box add builds/mirantis-fuel-7.libvirt.box --name "mirantis-7"
 ### Start the Topology
 
 
-<img src='/mirantis-openstack.svg'/>
+<img src='/svgs/mirantis-openstack10.svg'/>
 
 
 
@@ -105,10 +96,16 @@ Vagrantfile](http://github.com/linuxsimba/packer-libvirt-profiles/blob/master/va
 the test virtual setup looks the topology shown above.
 It has a back-to-back connection between the first server and the 2nd server.
 
-Used a back-to-back connection for simplicity because Mirantis with VLAN
+There is back-to-back connection for simplicity. Mirantis,  with VLAN
 segmentation configures the non-admin NIC as a trunk with VLANS for storage,
-management and Openstack projects. In the near future switches will be put
-between the servers to develop a more complex network.
+management and Openstack projects.  A NIC is dedicated the _public_ network with
+an IP address on a bridge interface (SVI) of 172.16.0.1/24. This is the default IP range used for
+the public network settings in the Mirantis Fuel Network Settings. This step was
+necessary to include in the setup because the installer attempts to ping the
+public network gateway. If the ping fails the install never completes.
+
+Future updates to this post, will include switches
+between the servers with more a more realistic IP layout.
 
 The topology takes advantage of the [libvirt PXE boot
 feature](https://libvirt.org/formatdomain.html#elementsNICSBoot). So the Server
