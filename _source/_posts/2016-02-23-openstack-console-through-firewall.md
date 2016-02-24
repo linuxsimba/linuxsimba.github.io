@@ -1,5 +1,5 @@
 ---
-title: "Openstack Spice Console Through a Jump Host/Firewall"
+title: "Openstack Horizon Dashboard and VM Spice Console Via SSH Tunnels"
 tags: ['openstack', 'console']
 ---
 
