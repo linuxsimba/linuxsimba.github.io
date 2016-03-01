@@ -19,6 +19,9 @@ Mirantis does not provide a URL for the ISO, so you have to sign up for it on
 the [Mirantis Fuel Download
 Page](https://software.mirantis.com/openstack-download-form/).
 
+Have not tried this yet, but you can get a copy of the Community edition from
+the [Openstack Fuel Wiki](https://wiki.openstack.org/wiki/Fuel#Releases)
+
 Copy the ISO to the ``$HOME/openstack`` directory. This is where the packer
 template is assuming the ISO to be.
 
@@ -102,10 +105,12 @@ management and Openstack projects.  A NIC is dedicated the _public_ network with
 an IP address on a bridge interface (SVI) of 172.16.0.1/24. This is the default IP range used for
 the public network settings in the Mirantis Fuel Network Settings. This step was
 necessary to include in the setup because the installer attempts to ping the
-public network gateway. If the ping fails the install never completes.
+public network gateway. If the ping fails the install never completes. The next
+step was to ensure the 172.16.0.1/24 libvirt bridge interface on the vagrant
+hypervisor, is using NAT. This provides the ability to run the [Calico
+Plugin](http://www.projectcalico.org/), which downloads Calico code from the internet.
 
-Future updates to this post, will include switches
-between the servers with a more realistic IP layout.
+Future updates to this post, will include switches between the servers with a more realistic IP layout.
 
 The topology takes advantage of the [libvirt PXE boot
 feature](https://libvirt.org/formatdomain.html#elementsNICSBoot). So the Server
