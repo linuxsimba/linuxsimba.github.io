@@ -54,12 +54,12 @@ if __name__ == '__main__':
 ###roles/centos_lldp/tasks/main.yml
 <pre><code>
 # vim:ft=ansible:
-
+{% raw %}
 - name: create new list of intefaces only include physical ports based on the name
   set_fact:
     phy_ints: "{{ ansible_interfaces | <strong>filter_ints('eth|em')</strong> }}"
   tags: config_lldp_centos
-
+{% endraw %}
 - name: install lldpad
   yum:  name=lldpad
   tags: install_lldp_centos
