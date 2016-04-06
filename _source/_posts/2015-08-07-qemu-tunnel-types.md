@@ -73,13 +73,15 @@ Destination IP & Port configuration.  An example is shown below:
 ```
 <devices>
     <interface type='udp'>
-      <source address='127.0.0.1' port='5558'/>
-      <dest address='127.0.0.1' port='6667' />
+      <source address='127.0.0.1' port='5577'>
+        <local address='127.0.0.1' port='6688'/>
+      </source>
     </interface>
     ...
     <interface type='udp'>
-      <source address='127.0.0.1' port='6667'/>
-      <dest address='127.0.0.1' port='5558' />
+      <source address='127.0.0.1' port='6688'>
+        <local address='127.0.0.1' port='5577'/>
+      </source>
     </interface>
   </devices>
 ```
