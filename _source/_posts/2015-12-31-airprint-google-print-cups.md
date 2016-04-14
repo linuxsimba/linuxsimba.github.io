@@ -28,7 +28,7 @@ command allows you to control it from any device on the subnet.
 
 ```
 sudo cupsctl --remote-admin
-sudo cups restart
+sudo service cups restart
 ```
 
 When all configuration was finished, and test pages from Android and Apple mobile
@@ -48,6 +48,9 @@ Click on:
   * "Add Printer". Clicking this may prompt a Basic Auth  prompt.
 Use the credentials for the user that ran ``sudo`` when installing CUPS.
 CUPS is able to do this, by checking if the user belongs to the ``lpadmin`` group.
+If this step fails you will get the Error _"User Forbidden"_. When adding the
+printer make sure to click on the **Share Printer** radio button.
+
   * In my case, the Samsung printer was not in the default set of printer PPDs.
 Installing the [Linux Samsung Installer](http://www.bchemnet.com/suldr/) and restarting the CUPS service resolved
 that issue.
@@ -92,7 +95,8 @@ the connector.
 ```
  wget https://github.com/google/cups-connector/releases/download/2015.10.05/gcp-cups-connector-linux-amd64-2015.10.05.tar.gz
 tar xvfz gcp-cups-connector-linux-amd64-2015.10.05.tar.gz
-sudo mv gcp-cups-connector /usr/bin
+sudo mv cups-connector/gcp-cups-connector /usr/bin
+
 
 ```
 
