@@ -15,4 +15,4 @@ What did I learn from doing this?
 
 Type in the name of a country and it prints out basic information about the country. It uses [ngStorage](https://github.com/gsklee/ngStorage) to remember what country you typed in last after a browser reload.
 
-<iframe height=700px width=100% src='http://localhost:4000/country_database.html'/>
+<iframe height=700px width=100% src='http://linuxsimba.com/country_database.html'/>
