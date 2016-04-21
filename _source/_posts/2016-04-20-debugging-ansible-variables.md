@@ -2,7 +2,7 @@
 title: "Debugging Ansible with_items errors"
 tags: ['ansible']
 ---
-I was recently porting some [openstack-ansible](https://github.com/openstack/oopenstack-ansible) code and I experienced an interesting error.
+I was recently porting some [openstack-ansible](https://github.com/openstack/oopenstack-ansible) code to another project and I experienced an interesting error.
 
 ```
 TASK: [openstack_hosts | Adding new system tuning] ****************************
