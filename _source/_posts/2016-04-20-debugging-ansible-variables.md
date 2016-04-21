@@ -59,4 +59,4 @@ openstack_kernel_options:
   - { key: 'net.bridge.bridge-nf-call-arptables', value: 0 }
   - { key: 'net.ipv4.neigh.default.gc_thresh1', value: "{{ set_gc_val | int // 2 }}" }
 ```
-{%raw%}
+{%endraw%}
