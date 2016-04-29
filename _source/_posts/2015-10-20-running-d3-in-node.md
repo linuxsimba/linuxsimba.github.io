@@ -23,7 +23,9 @@ var document = jsdom.jsdom(),
 This did not quite work for me.  I needed a little more config.
 I use the Express Framework.
 
-This is my config snippets.
+This is my config snippets from an [example
+github repo](https://github.com/linuxsimba/running-d3-in-node-example)
+
 
 ### server.js
 ```
@@ -40,7 +42,7 @@ load = require 'express-load'
 app = express()
 app.d3 = require 'd3'
 app.jsdom = require 'jsdom'
-app.set 'view engine', 'jade'
+app.set 'view engine', 'pug'
 
 load("controllers")
   .into(app)
@@ -61,36 +63,49 @@ exports.index = (req, res) ->
   d3 = req.app.d3
   html = '<!doctype html><html></html>'
   # jsdom magic to get d3 to work within a DOM
-  document = res.app.jsdom.jsdom(html)
+  document = req.app.jsdom.jsdom(html)
 
-  # Set base width and height to mobile phone
   width =  300
   height = 450
 
-  # draw the following into the jsdom document body
   ###
-  # <svg width=300 height=400>
-  # <g></g>
-  # </svg>
+  # draw 2 circles side-by-side
   ###
-  svg = d3.select(document.body)
+  circleData = [
+    { cx: 20, cy: 25, r: 20, fill: 'blue' },
+    { cx: 60, cy: 25, r: 20, fill: 'green'}
+  ]
+  layoutRoot = d3.select(document.body)
     .append('svg')
-    .attr('width', width)
-    .attr('height', height)
-    .append('g')
+  layoutRoot.attr('width', width)
+            .attr('height', height)
+            .append('g')
+            .selectAll('circle')
+            .data(circleData)
+            .enter()
+            .append('circle')
+            .attr('cx', (d) ->  d.cx)
+            .attr('cy', (d) ->  d.cy)
+            .attr('r', (d) -> d.r)
+            .attr('fill', (d) -> d.fill)
 
   # only render text in and include the <svg></svg> tags only
-  # draws it in the jade template where !{svgstuff} is defined
+  # draws it in the pug template where !{svgstuff} is defined
   res.render 'index', svgstuff: layoutRoot.node().outerHTML
-
 ```
-### views/index.jade
+
+
+### views/index.pug
 ```
 doctype html
 html
   head
   body
     div.container
+      h1 Running D3 in Node.js Example
+      p Two Circles side-by side
       div#map !{svgstuff}
     footer
 ```
+
+
