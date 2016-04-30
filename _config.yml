@@ -12,10 +12,9 @@ social_media_btn:
 # This is used by feed.xml. Uncomment if you want to use it.
 # description: "..."
 markdown: redcarpet
-
 gems:
-  - jemoji
-  - jekyll-last-modified-at
+    - jekyll-gist
+    - jekyll-last-modified-at
 exclude:
   - "README.md"
   - "CHANGELOG.md"
