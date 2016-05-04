@@ -9,7 +9,7 @@ tags:
 for OpenStack. Mirantis provides a way to virtualize the [setup using
 VirtualBox](https://docs.mirantis.com/openstack/fuel/fuel-6.1/virtualbox.html).
 Decided to virtualize Mirantis Fuel using
-[vagrant-libvirt](https://github.com/pradels/vagrant-libvirt). Using a Vagrant
+[vagrant-libvirt](https://github.com/vagrant-libvirt/vagrant-libvirt). Using a Vagrant
 Box  opens the
 door to build virtual setups that include the underlay, like the switches (_Cumulus VX_) and
 external routers (_Cisco VM_)

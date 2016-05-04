@@ -4,7 +4,7 @@ tags: ['vagrant', 'libvirt', 'ruby']
 ---
 
 Interesting error message when running ``bundle install`` on the [libvirt-vagrant
-plugin]('https://github.com/pradels/vagrant-libvirt/')
+plugin]('https://github.com/vagrant-libvirt/vagrant-libvirt/')
 
 ```
 Gem::Ext::BuildError: ERROR: Failed to build gem native extension.

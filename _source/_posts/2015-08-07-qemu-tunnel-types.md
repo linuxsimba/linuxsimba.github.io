@@ -101,7 +101,7 @@ I have a [branch in my fork of
 vagrant-libvirt](https://github.com/skamithi/vagrant-libvirt/tree/mcast_and_tcp_tunnel_support)
 where I add support for all the above tunneling modes.  I will send a pull
 request to the [master vagrant-libvirt
-project](https://github.com/pradels/vagrant-libvirt) once I find out if libvirt will accept the udp unicast tunneling patch. An example VagrantFile is shown below
+project](https://github.com/vagrant-libvirt/vagrant-libvirt) once I find out if libvirt will accept the udp unicast tunneling patch. An example VagrantFile is shown below
 
 ### Topology
 ![vagrant topology](https://lh3.googleusercontent.com/F9ERg4jd0nXK5nmlhTaVHTvV330FtvSloBtKq8VC3bQ=s0

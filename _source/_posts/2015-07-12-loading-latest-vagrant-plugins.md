@@ -10,7 +10,7 @@ use [RVM](http://rvm.io).
 ### clone the vagrant plugin git project
 
 ```
-$ git clone https://github.com/pradels/vagrant-libvirt
+$ git clone https://github.com/vagrant-libvirt/vagrant-libvirt
 
 ```
 
