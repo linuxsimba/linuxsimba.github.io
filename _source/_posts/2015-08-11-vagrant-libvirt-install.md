@@ -3,7 +3,7 @@ title: Vagrant Libvirt Install on Ubuntu 14.04
 tags: ['vagrant', 'libvirt', 'ruby', 'qemu']
 ---
 
-Got a question on how I setup [vagrant-libvirt](https://github.com/pradels/vagrant-libvirt). This is my most basic setup.
+Got a question on how I setup [vagrant-libvirt](https://github.com/vagrant-libvirt/vagrant-libvirt). This is my most basic setup.
 
 > The steps I describe are only **tested and used on Ubuntu 14.04**
 

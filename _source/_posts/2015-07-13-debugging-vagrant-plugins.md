@@ -5,7 +5,7 @@ tags: ['vagrant', 'development']
 
 
 Recently posted a [Pull Request to the
-vagrant-libvirt](https://github.com/pradels/vagrant-libvirt/pull/413) project.
+vagrant-libvirt](https://github.com/vagrant-libvirt/vagrant-libvirt/pull/413) project.
 
 I have rvm installed, so I think during that install, I have most of the
 dependencies for doing ruby development.

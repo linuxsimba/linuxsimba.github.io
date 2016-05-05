@@ -4,7 +4,7 @@ tags: ['bonding', 'vagrant']
 ---
 
 Trying to configure a network bond in
-[vagrant-libvirt](https://github.com/pradels/vagrant-libvirt) environment?
+[vagrant-libvirt](https://github.com/vagrant-libvirt/vagrant-libvirt) environment?
 
 Getting an error like this on the Linux host?
 
