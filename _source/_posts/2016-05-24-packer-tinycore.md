@@ -55,14 +55,4 @@ vagrant box add builds/tinycore-7.0.libvirt.box --name tc
 
 If you want to use it in your Vagrantfile without customizing the build,  point the ``box.url`` to linuxsimba.com libvirt box repo.
 
-```
-# -*- mode: ruby -*-
-# vi: set ft=ruby :
-
-Vagrant.configure(2) do |config|
-  config.vm.box = "http://linuxsimba.com/vagrantbox/tinycore-7.0.libvirt.box"
-  config.vm.synced_folder '.', '/vagrant', :disabled => true
-end
-
-```
-
+{% gist e0bdf27a77178b6eefbd466dfd87e05e %}
