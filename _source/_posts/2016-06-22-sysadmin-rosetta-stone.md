@@ -65,3 +65,28 @@ NM_CONTROLLED=no
 </tr>
 </tbody>
 </table>
+
+### Configure a Trunk
+
+### Find a Package
+
+<table>
+<thead>
+<tr><td><strong>Debian</strong> </td><td><strong> Redhat</strong></td></tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<pre>
+$ dpkg -S /usr/bin/nice
+coreutils: /usr/bin/nice
+</pre>
+</td>
+<td>
+<pre>
+$ rpm -qf /usr/bin/nice
+coreutils-8.22-12.el7_1.2.x86_64
+</pre>
+</td></tr>
+</tbody>
+</table>
