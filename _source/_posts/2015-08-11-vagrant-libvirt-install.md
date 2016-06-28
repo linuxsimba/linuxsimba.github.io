@@ -1,19 +1,20 @@
 ---
-title: Vagrant Libvirt Install on Ubuntu 14.04
+title: Vagrant Libvirt Install on Ubuntu 14.04/16.04
 tags: ['vagrant', 'libvirt', 'ruby', 'qemu']
 ---
 
+> Updated June 2016
+
 Got a question on how I setup [vagrant-libvirt](https://github.com/vagrant-libvirt/vagrant-libvirt). This is my most basic setup.
 
-> The steps I describe are only **tested and used on Ubuntu 14.04**
 
 ### Install Vagrant
 
 Easy enough!  [Install the deb](http://www.vagrantup.com/downloads.html)
 
 ```
-$ wget https://dl.bintray.com/mitchellh/vagrant/vagrant_1.7.4_x86_64.deb
-$ sudo dpkg -i vagrant_1.7.4_x86_64.deb
+wget https://releases.hashicorp.com/vagrant/1.8.4/vagrant_1.8.4_x86_64.deb
+sudo dpkg -i vagrant_1.8.4_x86_64.deb
 ```
 ### Install libvirt and qemu-kvm
 
@@ -27,16 +28,13 @@ $ sudo adduser $USER libvirtd
 
 
 ### Install vagrant-libvirt gem
-All the Changes, I submitted,  to setup multiple VMs using the unicast UDP tunnel support is
-now in version 0.0.31 :)
 
 This step may require ``libvirt-dev`` deb package be installed.
 
 ```
 $ vagrant plugin install vagrant-libvirt
 $ vagrant plugin list
-vagrant-libvirt (0.0.31)
-vagrant-share (1.1.4, system)
+vagrant-libvirt (0.0.33)
 ```
 
 ### Install Vagrant Boxes
@@ -48,17 +46,24 @@ A Vagrant box is a tar archive with 3 files in it.
 * QCOW2 image
 
 
-LinuxSimba provides the [Ubuntu and Jessie KVM Libvirt
-Boxes](http://linuxsimba.com/vagrant.html)
+You can also build your own Vagrant box very easily using [Packer](https://www.packer.io/downloads.html) and Packer build templates found in [chef/bento github repo](https://github.com/chef/bento).
 
-A few native KVM Vagrant Boxes are also available at
-[vagrantboxes.es](http://vagrantboxes.es). But these, to me, are less reliable.
-
-Use the `vagrant box add` command to download a box either from a local file
-system or from a URL.
+#### Example: using a PC with a Monitor
 
 ```
-$ vagrant box add http://linuxsimba.com/vagrant/ubuntu-trusty.box --name "trusty64"
+git clone https://github.com/chef/bento
+cd bento
+packer build -only qemu ubuntu-14.04.amd64.json
+vagrant box add builds/ubuntu-14.04.libvirt.box --name "trusty64"
+```
+
+#### Example: using a Server with No Monitor Access (headless)
+
+```
+git clone https://github.com/chef/bento
+cd bento
+packer build -only qemu -var "headless=true" ubuntu-14.04.amd64.json
+vagrant box add builds/ubuntu-14.04.libvirt.box --name "trusty64"
 ```
 
 Verify the box is installed
@@ -67,10 +72,6 @@ Verify the box is installed
 $ vagrant box list
 trusty64 (libvirt, 0)
 ```
-
-I prefer to build my own from scratch. Here is [my blog post about that subject]({% post_url 2015-08-22-building-qcow-vagrant-box %}).
-
-
 
 ### Create a 2 VM Vagrant file
 
