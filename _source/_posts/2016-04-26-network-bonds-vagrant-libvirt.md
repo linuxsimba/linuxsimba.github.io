@@ -3,6 +3,10 @@ title: Network Bonding in a Vagrant-Libvirt Environment
 tags: ['bonding', 'vagrant']
 ---
 
+> Update:  Cumulus Networks have [upstreamed a
+> patch](https://bugs.launchpad.net/ubuntu/+source/linux/+bug/1581132) that
+> sets a speed on a virtio_net enabled VM NIC.
+
 Trying to configure a network bond in
 [vagrant-libvirt](https://github.com/vagrant-libvirt/vagrant-libvirt) environment?
 
