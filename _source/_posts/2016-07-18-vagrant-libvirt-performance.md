@@ -23,8 +23,7 @@ to the maximum values helps a lot.  Here is a [good reference](http://www.cyberc
 
 ## Tweak 3: Use the virtio_net driver where you can.
 
-The performance of the virtio\_net driver is just miles ahead of the `rtl8139`
-or `e1000` VM NIC drivers.
+The performance of the virtio\_net driver is just miles ahead of the `e1000` VM NIC drivers.
 The virtio_net driver is not perfect. By default, the virtio_net NIC speed to `-1`. But it [can be
 changed](https://bugs.launchpad.net/ubuntu/+source/linux/+bug/1581132)! I would love to know how to set it to a particular speed by default using a kernel cmdline argument.
 
@@ -45,9 +44,8 @@ iface ens7 inet manual
   post-up ethtool -s $IFACE speed 10000 duplex full
 ```
 
-This config is not perfect. Ethtool does not kick in all the time when you would
-expect resulting in inconsistent bonds or connectivity issues. For all nodes that need stable network bonding, I stuck with the
-`rtl8139` driver.  I have not tried the e1000 driver yet. I guess I should try it. Maybe in my next major simulation.
+This config is not perfect. Ethtool does not kick in all the time, resulting in inconsistent bonds or connectivity issues. For all nodes
+that need stable network bonding, I stick with the `e1000` NIC driver.
 
 ## Tweak 4: Use kernel 4.x and higher
 
