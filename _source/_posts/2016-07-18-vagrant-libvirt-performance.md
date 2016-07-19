@@ -3,29 +3,32 @@ title: Vagrant Libvirt Performance and Operations
 tags: ['vagrant', 'libvirt']
 ---
 
-Simulating an Openstack environment that consists of 12 Openstack nodes and 4 switcches. At the beginning performance was horrible. Here are some the
-things I did to improve performance. Still learningi, so if anyone has any other tips, please share.
+Simulating an Openstack environment that consists of 12 Openstack nodes and 4
+switches. When I first started, performance was horrible. Here are some the
+things I did to improve performance. Still learning, so if anyone has any tips, please share.
 
 
-## Tweak 1: Use topology-generator to convert a simple dotviz file to a complicated messy looking Vagrantfile
+## Tweak 1: Convert a simple dotviz file to a complicated messy looking Vagrantfile
 
-Vagrantfiles are not simple docs to generate. Really! It is the kind of file you want created by a computer. Thank goodness, there is a cool opensource
+A Vagrantfile is not a simple document to generate. Really! It is the kind of file you want a computer to create. Thank goodness, there is a cool opensource
 tool - [topology-generator](https://github.com/CumulusNetworks/topology_converter) - to do that for you.
 
 
 ## Tweak 2: Increase UDP Buffers
 
-A large reliable vagrant-libvirt setup makes heavy use of UDP sockets. Configuring network buffers to the maximum values helps a lot.
+A large reliable vagrant-libvirt setup makes heavy use of [UDP
+sockets](http://linuxsimba.com/qemu-tunnel-types). Configuring network buffers
+to the maximum values helps a lot.  Here is a [good reference](http://www.cyberciti.biz/faq/linux-tcp-tuning/).
 
-Here is a [good reference](http://www.cyberciti.biz/faq/linux-tcp-tuning/).
 
+## Tweak 3: Use the virtio_net driver where you can.
 
-## Tweak 3: Use Virtio_net driver where you can.
+The performance of the virtio\_net driver is just miles ahead of the `rtl8139`
+or `e1000` VM NIC drivers.
+The virtio_net driver is not perfect. By default, the virtio_net NIC speed to `-1`. But it [can be
+changed](https://bugs.launchpad.net/ubuntu/+source/linux/+bug/1581132)! I would love to know how to set it to a particular speed by default using a kernel cmdline argument.
 
-The performance of the virtio_net driver is just miles ahead of the rtl8139 or e1000 VM NIC drivers.
-Its not perfect. By default, the NIC speed to -1, but it [can be changed](https://bugs.launchpad.net/ubuntu/+source/linux/+bug/1581132). I would love to know how to set it to a particular speed by default using a kernel cmdline argument.
-
-Here is how I set the speed on the VM. I need a better way. If know the right way, please share.
+Here is how I set the virtio_net enabled NIC speed. I need a better way. If someone knows a better way, please share.
 
 ```
 auto ens6
@@ -42,12 +45,17 @@ iface ens7 inet manual
   post-up ethtool -s $IFACE speed 10000 duplex full
 ```
 
-This config is not perfect. ethtool doesn't kick in all the time when you would expect. So for nodes that need stable bonding, I stuck with the rtl8139 driver.  I have not tried the e1000 driver yet. I guess I should try it. Maybe in my next major simulation.
+This config is not perfect. Ethtool does not kick in all the time when you would
+expect resulting in inconsistent bonds or connectivity issues. For all nodes that need stable network bonding, I stuck with the
+`rtl8139` driver.  I have not tried the e1000 driver yet. I guess I should try it. Maybe in my next major simulation.
 
 ## Tweak 4: Use kernel 4.x and higher
 
 Nested Virtualization works so much better on a 4.x kernel than a 3.x Linux kernel.
-I'm not sure why. Here is [a great video](https://www.youtube.com/watch?v=ISKfq66vTs8) to teach you more about nested virtualization.
+I am not sure why. Here is [a great video](https://www.youtube.com/watch?v=ISKfq66vTs8) to teach you more about nested virtualization.
+
+
+That is all I have for now.
 
 If I find more ways to improve vagrant-libvirt performance I will share it on this post.
 
