@@ -1,0 +1,75 @@
+---
+title: Vagrant Libvirt Performance and Operations
+tags: ['vagrant', 'libvirt']
+---
+
+Simulating an Openstack environment that consists of 12 Openstack nodes and 4 switcches. At the beginning performance was horrible. Here are some the
+things I did to improve performance. Still learningi, so if anyone has any other tips, please share.
+
+
+## Tweak 1: Use topology-generator to convert a simple dotviz file to a complicated messy looking Vagrantfile
+
+Vagrantfiles are not simple docs to generate. Really! It is the kind of file you want created by a computer. Thank goodness, there is a cool opensource
+tool - [topology-generator](https://github.com/CumulusNetworks/topology_converter) - to do that for you.
+
+
+## Tweak 2: Increase UDP Buffers
+
+A large reliable vagrant-libvirt setup makes heavy use of UDP sockets. Configuring network buffers to the maximum values helps a lot.
+
+Here is a [good reference](http://www.cyberciti.biz/faq/linux-tcp-tuning/).
+
+
+## Tweak 3: Use Virtio_net driver where you can.
+
+The performance of the virtio_net driver is just miles ahead of the rtl8139 or e1000 VM NIC drivers.
+Its not perfect. By default, the NIC speed to -1, but it [can be changed](https://bugs.launchpad.net/ubuntu/+source/linux/+bug/1581132). I would love to know how to set it to a particular speed by default using a kernel cmdline argument.
+
+Here is how I set the speed on the VM. I need a better way. If know the right way, please share.
+
+```
+auto ens6
+iface ens6 inet manual
+  description bond member
+  bond-primary ens6
+  bond-master bond0
+  post-up ethtool -s $IFACE speed 10000 duplex full
+auto ens7
+iface ens7 inet manual
+  description bond member
+  bond-primary ens6
+  bond-master bond0
+  post-up ethtool -s $IFACE speed 10000 duplex full
+```
+
+This config is not perfect. ethtool doesn't kick in all the time when you would expect. So for nodes that need stable bonding, I stuck with the rtl8139 driver.  I have not tried the e1000 driver yet. I guess I should try it. Maybe in my next major simulation.
+
+## Tweak 4: Use kernel 4.x and higher
+
+Nested Virtualization works so much better on a 4.x kernel than a 3.x Linux kernel.
+I'm not sure why. Here is [a great video](https://www.youtube.com/watch?v=ISKfq66vTs8) to teach you more about nested virtualization.
+
+If I find more ways to improve vagrant-libvirt performance I will share it on this post.
+
+
+## Results so far:
+
+A Level 2 Windows Server 2012 VM running in a Level 1 Linux VM ping performance
+
+```
+ $ ping 192.168.8.76
+PING 192.168.8.76 (192.168.8.76) 56(84) bytes of data.
+64 bytes from 192.168.8.76: icmp_seq=1 ttl=127 time=32.0 ms
+64 bytes from 192.168.8.76: icmp_seq=2 ttl=127 time=13.4 ms
+64 bytes from 192.168.8.76: icmp_seq=3 ttl=127 time=2.75 ms
+64 bytes from 192.168.8.76: icmp_seq=4 ttl=127 time=2.57 ms
+64 bytes from 192.168.8.76: icmp_seq=5 ttl=127 time=3.02 ms
+64 bytes from 192.168.8.76: icmp_seq=6 ttl=127 time=7.05 ms
+64 bytes from 192.168.8.76: icmp_seq=7 ttl=127 time=3.10 ms
+64 bytes from 192.168.8.76: icmp_seq=8 ttl=127 time=2.88 ms
+```
+
+Not bad I think. Originally the latency averaged 30ms
+
+
+
