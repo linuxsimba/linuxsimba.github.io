@@ -106,4 +106,4 @@ git push origin add_gitlab_ci -f
 #### Submit the Pull Request
 ![ submit the merge](https://lh3.googleusercontent.com/-iGzg9S10LUI/WDZiii9Vt_I/AAAAAAAAALo/34jlA5_S7_AjXL5SSnnlw6eCbxo5AD1NACLcB/s0/merge_is_allowed.png "merge_is_allowed.png")
 
-The next part of the series is how to do basic Continuous Deployment (CD). That is when a certain branch is updated, python wheel files are created and updated in an inhouse PyPi server.
+The next part of the series is work with multiple branches and how CI can be used to ensure the stability of the application. Specifically how to commit to a develop branch simulating a dev release. Then at some point, merging the dev release changes back to master to simulate creating a new production release.
