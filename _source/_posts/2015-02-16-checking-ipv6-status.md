@@ -3,6 +3,9 @@ title: Checking Server IPv6 status
 tags: ['ipv6']
 ---
 
+> Note: Dec 2016 - Had to move the site to a provide who doesn't provide IPv6.
+Hopefully the provider will use IPv6 soon.
+
 In an [earlier post]({% post_url 2015-02-15-ipv6-blog-ip %}), I setup IPv6 on
 the server hosting this blog. I figured out how to verify the IPv6 setup.
 

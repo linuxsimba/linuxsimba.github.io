@@ -1,19 +1,10 @@
-<div>
-  <h3>
-    Author
-  </h3>
-  <p>
-    <div class="media">
-      <img
-      src="https://avatars3.githubusercontent.com/u/58913?v=3&u=04cf7d9cbbec7e6b081c1e1228dbd3e305af2a2c&s=140" alt="Stanley Kamithi" class="pull-left">
-      <div class="media-body">
-        <h4 class="media-heading">Stanley Kamithi</h4>
-      </div>
+<div data-purplecoat='shiori' data-purplecoat-label='sidebar.html'>
+  <div class='tags-expo'>
+    <div class='tags-expo-list'>
+      {% for tag in site.tags %}
+      <a href="{{ '/tags' | prepend:site.baseurl }}#{{ tag[0] | slugify }}" class="post-tag">{{ tag[0] }}</a>
+
+      {% endfor %}
     </div>
-  </p>
-
-  <p><a href="https://twitter.com/skamithik" class="twitter-follow-button"
-    data-show-screen-name="false" data-show-count="true" data-dnt="true"
-  data-size="large">Follow @skamithik</a></p>
-
+  </div>
 </div>

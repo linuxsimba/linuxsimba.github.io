@@ -36,7 +36,7 @@ Host gitlab.linuxsimba.test
 *  git clone netshow-core from the local gitlab server
 
 ```
-% git clone git@gitlab.linuxsimba.test:demo/netshow-core     
+% git clone git@gitlab.linuxsimba.test:demo/netshow-core
 
 Cloning into 'netshow-core'...
 remote: Counting objects: 1227, done.
