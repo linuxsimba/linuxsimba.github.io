@@ -127,8 +127,9 @@ $ ps -ef | grep kubelet
 </code></pre>
 
 And finally, review the kubectl data after Kubernetes is installed.
-The IP address used by a Kubernetes node to talk to another Kubernetes node is found in the ``hostname`` label. In this case its a name, so it uses the /etc/hosts, or DNS to resolve. In this case it uses /etc/hosts.
-/etc/hosts was programmed by [Kargo](https://github.com/kubernetes-incubator/kargo), the Kubernetes deployer.
+The IP address used by a Kubernetes node to talk to another Kubernetes node is found in the ``hostname`` label. In this case the hostname is a name not an IP. So the node, uses ``/etc/hosts`` to resolve the host name to an IP address.
+
+``/etc/hosts`` was programmed by [Kargo](https://github.com/kubernetes-incubator/kargo), the Kubernetes deployer.
 
 ```
 # kubectl get node --show-labels                                                    
