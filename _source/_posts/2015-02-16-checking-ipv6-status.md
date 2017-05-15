@@ -3,16 +3,13 @@ title: Checking Server IPv6 status
 tags: ['ipv6']
 ---
 
-> Note: Dec 2016 - Had to move the site to a provide who doesn't provide IPv6.
-Hopefully the provider will use IPv6 soon.
-
 In an [earlier post]({% post_url 2015-02-15-ipv6-blog-ip %}), I setup IPv6 on
 the server hosting this blog. I figured out how to verify the IPv6 setup.
 
 ### Checking that DNS has IPv6 hostname
 ```
 $ host -t AAAA linuxsimba.com
-linuxsimba.com has IPv6 address 2600:3c02::f03c:91ff:fe93:7057
+linuxsimba.com has IPv6 address 2602:304:6824:e06f:c23f:d5ff:fe63:1408
 ```
 
 ### IPv6 Connectivity Verification
@@ -42,7 +39,7 @@ $ phantomjs ipv6-test.js
   Supported
 
   Address
-  2600:3c02::f03c:91ff:fe93:7057
+  2602:304:6824:e06f:c23f:d5ff:fe63:1408
 
   Type
   Native IPv6
