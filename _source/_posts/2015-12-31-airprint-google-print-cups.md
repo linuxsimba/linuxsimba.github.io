@@ -36,7 +36,7 @@ devices worked, the remote-admin access was disabled.
 
 ```
 sudo cupsctl --no-remote-admin
-sudo cups restart
+sudo service cups restart
 ```
 
 ### Add the Printer to CUPS
