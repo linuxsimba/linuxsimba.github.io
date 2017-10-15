@@ -3,10 +3,10 @@ title: "Building JunOS Vagrant Setups using Libvirt"
 tags: ['juniper', "network", "automation"]
 ---
 
-Juniper provides a free [QFX10k](https://www.juniper.net/us/en/products-services/switching/qfx-series/qfx10000/) VM with limited features available from hashicorp Atlas website.
-I am an avid support of vagrant and the [vagrant-libvirt](https://linuxsimba.com/vagrant-libvirt-install) component. Unfortunately Juniper only officially release the vqfx VM for vagrant-virtualbox.
+Juniper provides a free [QFX10k](https://www.juniper.net/us/en/products-services/switching/qfx-series/qfx10000/) VM with limited features available from the Hashicorp Atlas website.
+I am an avid supporter of vagrant and the [vagrant-libvirt](https://linuxsimba.com/vagrant-libvirt-install) component. Unfortunately, Juniper only officially released the vqfx10k VM for vagrant-virtualbox.
 
-Vagrant-libvirt has the advantage of using KVM tech which has a smaller memory footprint then Virtualbox. Also [QEMU can use UDP tunnels to create point to point connections](https://linuxsimba.com/qemu-tunnel-types) between VMS. This means it is possible to build a QEMU environment between 2 or more baremetal devices.
+I like vagrant-libvirt for a few reasons. Vagrant-libvirt has the advantage of using KVM tech which has a smaller memory footprint then Virtualbox. Also [QEMU uses very resilient UDP tunnels for point to point connections](https://linuxsimba.com/qemu-tunnel-types) between VMS. This means you can simulate a large network, say 50 switches without having to create 50 Linux bridges and managing all the messiness of bridges.
 
 This blog post goes over how to create a Vagrant libvirt box for Vqfx10k.
 
@@ -14,7 +14,7 @@ This blog post goes over how to create a Vagrant libvirt box for Vqfx10k.
 I have a post on [how to install vagrant-libvirt](https://linuxsimba.com/vagrant-libvirt-install). Also the [official vagrant-libvirt github site](https://github.com/vagrant-libvirt/vagrant-libvirt) has further details.
 
 ## Install virtualbox
-Install Virtualbox via the Linux system package manager (apt/yum). After the conversion of the fixed VM to a libvirt format, you can delete all Virtualbox system packages, if you want.
+Install Virtualbox via a Linux system package manager (apt/yum). After creating a vagrant qcow2 formatted Box, you can delete all Virtualbox system packages, if you want.
 
 ## Download Virtuabox Vqfx10k Box
 
@@ -34,8 +34,9 @@ Packer is a single precompiled binary written in Go. [Just download it](https://
 
 ## Git clone vagrant-libvirt-junos repo and create a usable VM for vagrant-libvirt
 
-The problem with the Virtualbox vqfx10k is that the ``em0``, the management interface for vqfx10k, is already assigned a IP address of ``10.0.2.15``. If you take this Virtualbox OVF, and convert it to a QCOW2 image, and boot it up, ``em0`` fails to pick up an IP address from the dnsmasq server running on the ``vagrant-libvirt`` Linux bridge created by vagrant-libvirt.
-The problem is that the Vqfx10k VM continously sends out a DHCPREQUEST instead of sending a DHCPDISCOVER. So DNSMasq ignores the request and nothing happens.
+The problem with the Virtualbox vqfx10k is that the ``em0``, the management interface for vqfx10k, is already assigned an IP address of ``10.0.2.15``. If you take this Virtualbox OVF, and convert it to a QCOW2 image, and boot it up, ``em0`` fails to pick up an IP address from the dnsmasq server running on the ``vagrant-libvirt`` Linux bridge created by vagrant-libvirt.
+
+The Vqfx10k VM continously sends out a DHCPREQUEST instead of sending a DHCPDISCOVER. So DNSMasq ignores the request and nothing happens.
 
 ```
 root@vqfx-re> show dhcp client binding
@@ -46,11 +47,11 @@ IP address        Hardware address   Expires     State      Interface
 I suspect the Juniper builders of the Virtualbox VM did not take this problem into account because it always works with Virtualbox.
 
 
-To clear this run the command ``clear  dhcp client binding all`` from the console.
+To clear this issue, run the command ``clear  dhcp client binding all`` from the console.
 
-The Vqfx10k Virtualbox VM already has a vagrant user with the insecure Vagrant key, so none of that needs to be configured.
+The Vqfx10k Virtualbox VM already has a vagrant user with the insecure Vagrant SSH key, using ``vagrant ssh`` just works.
 
-After running the command to clear the DHCP client bindings then the Vqfx10k VM now has a working DHCP management Interface
+After running the command to clear the DHCP client bindings, the Vqfx10k VM now has a working DHCP management Interface
 
 ```
 root@vqfx-re> show dhcp client binding
@@ -58,7 +59,8 @@ IP address        Hardware address   Expires     State      Interface
 0.0.0.0           00:0f:81:61:36:00  0           INIT       em0.0
 ```
 
-This is where Packer comes to play. It supports the ability to load an existing OVF and run boot commands (console commands) to fix the issue and save a new Vagrant Box. So this is what my repo does.
+Packer is used to fix the existing OVF created by Juniper. Packer has the ability to modify an OVF via its console connection and save the changes made to the OVF in a new Vagrant Box.
+This is what the ``fix_junos_dhcp.json`` packer config file does. Download it from the Linuxsimba libvirt-network-switches git repo.
 
 ```
 
@@ -69,7 +71,7 @@ cp -rv $HOME/.vagrant.d/boxes/juniper-VAGRANTSLASH-vqfx10k-re/0.2.0/virtualbox/*
 packer build fix_junos_dhcp.json
 
 ```
-A window should appear showing the console of the VM and the console commands executed the fix the issue.  After the fixed VM is built, add the fixed Vagrant Box into your vagrant box repository. Then convert the OVF to a QCOW2 so it can work with vagrant-libvirt. Use the vagrant-mutate plugin to achieve this.
+After Packer builds a fixed Vagrant Box with an updated Virtualbox OVF, proceed to convert the Box into a vagrant-libvirt compatible box using [vagrant-mutate](https://github.com/sciurus/vagrant-mutate)
 
 ```
 vagrant plugin install vagrant-mutate
