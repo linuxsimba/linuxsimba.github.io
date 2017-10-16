@@ -75,8 +75,8 @@ After Packer builds a fixed Vagrant Box with an updated Virtualbox OVF, proceed 
 
 ```
 vagrant plugin install vagrant-mutate
-vagrant box add boxes/junos_dhcp_fixed.box --name "vqfx10k-fixed-dhcp"
-vagrant mutate vqfx10k-fixed-dhcp libvirt
+vagrant box add boxes/junos_dhcp_fixed.box --name "vqfx10k-re-fixed-dhcp"
+vagrant mutate vqfx10k-re-fixed-dhcp libvirt
 ```
 
 ## Use the Fixed Vagrant Box in a Vagrantfile.
