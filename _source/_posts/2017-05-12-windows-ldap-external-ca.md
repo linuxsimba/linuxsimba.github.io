@@ -226,17 +226,18 @@ $ cp demoCA/cacert.pem cacert.pem
 
 Copy ``ldapcert.pem`` (_LDAP Server SSL Certificate_)  and ``cacert.pem`` (_CA SSL Certificate_) to the Windows Server Virtual Machine. Then use the following Powershell command to install the Root certificate
 
-```powershell
+``` powershell
 
 Import-Certificate -FilePath C:\users\vagrant\cacert.pem -CertStoreLocation Cert:\LocalMachine\Root
-
 ```
 
 Next install the server certificate into the servers personal SSL store
 
-```
+``` powershell
+
 Import-Certificate -FilePath C:\users\vagrant\ldapcert.pem -CertStoreLocation Cert:\LocalMachine\My
 ```
+
 
 > Make sure to check the time on the server. Wrong time could result in the certificate becoming invalid and LDAPS will not work.
 

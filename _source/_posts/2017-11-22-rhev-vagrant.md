@@ -1,9 +1,9 @@
 ---
 title: "Testing RHEV in Vagrant Libvirt"
-tags: ['vagrant", "rhev"]
+tags: ["vagrant", "rhev"]
 ---
 
-Recently got the opportunity to learn Red Hat Virtualization. So I decidedo
+Recently got the opportunity to learn Red Hat Virtualization. So I decided to
 take a stab at installing a simple RHV environment using vagrant-libvirt,
 
 The  install includes 2 RHEL 7.4 VMs, the first is the RHEV Manager and the second
@@ -102,6 +102,7 @@ Use your system package manager or PIP  to install Ansible 2.4 or higher.
 Create the file ``group_vars/all/vault.yml`` in the rhev vagrant directory
 Pool IDs are Red Hat subscription pools that contain the Red Hat Virtualization repos.
 Review the [RHEV Install Docs](https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.1/html/installation_guide/chap-installing_red_hat_enterprise_virtualization#Subscribing_to_the_Red_Hat_Enterprise_Virtualization_Manager_Channels_using_Subscription_Manager) for more details on how to get find the right Pool IDs
+
 ```
 # cd $HOME/git/install-rhev-using-vagrant
 # echo "
