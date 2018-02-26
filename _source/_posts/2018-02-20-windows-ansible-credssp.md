@@ -30,16 +30,16 @@ I encountered the Microsoft [Double Hopping](https://blogs.msdn.microsoft.com/kn
 
  ```
   > get-rdserver
-        Server                                                                                          Roles
-        ------                                                                                             ----
-        LINUXSIMBAAD.LINUXSIMBA.LOCAL                      {RDS-RD-SERVER, RDS-CONNECTION-BROKER, RDS-W....
+     Server                                             Roles
+    ------                                             -----                                          
+    LINUXSIMBAAD.LINUXSIMBA.LOCAL                      {RDS-RD-SERVER, RDS-CONNECTION-BROKER, RDS-W...",
 
  ```
 
  After some web searching, it became clear the issue was double hopping.
 
 The [Ansible Windows  Automation documentation](http://docs.ansible.com/ansible/devel/user_guide/windows_winrm.html)  says the following about the issue.
-> Set ansible_winrm_transport to credssp or kerberos (with ansible_winrm_kerberos_delegation=true) to bypass the double hop issue and access network resources
+> Set ansible\_winrm\_transport to credssp or kerberos (with ansible\_winrm\_kerberos\_delegation=true) to bypass the double hop issue and access network resources
 
 I set the winrm transport protocol to credSSP,  after enabling credSSP WinRM support, using the [Ansible Winrm configuration script](https://github.com/ansible/ansible/blob/devel/examples/scripts/ConfigureRemotingForAnsible.ps1). I'm too lazy to setup kerberos on my Ansible server. Happy to report ... **IT WORKED**!
 
