@@ -10,7 +10,7 @@ So what to do if you want to perform some action when a host is unreachable?
 
 ## Case 1: Disabling Insecure WinRM on Windows , then proceeding with the playbook.
 
-When you try to disable Insecure WinRM(port 5985), the connection fails and the play ends on that host.
+When you try to disable the insecure WinRM(port 5985) using a modified Ansible remoting script, the connection fails and the play ends on that host.
 Below is a solution.
 
 ```
@@ -19,7 +19,7 @@ Below is a solution.
   connection: local
   tasks:
     - block:
-        - name: test if port 5985 is open
+        - name: test basic auth is working on port 5985
           wait_for_connection:
             timeout: 10
         - name: copy winrm setup for ansible
@@ -27,8 +27,8 @@ Below is a solution.
             src: ConfigureRemotingForAnsible.ps1.txt
             dest: C:\users\vagrant\ConfigureRemoteForAnsible.ps1
         - block:
-            - name: enable credssp and disable port 5985
-              win_shell: C:\users\vagrant\ConfigureRemoteForAnsible.ps1 -enablecredssp -disablebasicauth
+            - name: enable credssp and disable basic auth and port 5985
+              win_shell: C:\users\vagrant\ConfigureRemoteForAnsible.ps1 -enablecredssp -disablebasicauth -disableinsecureport
           rescue:
             - debug:
                 msg: "Insecure WinRM is now disabled"
