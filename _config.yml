@@ -11,8 +11,9 @@ social_media_btn:
     id: 'twitter_btn'
 # This is used by feed.xml. Uncomment if you want to use it.
 # description: "..."
-markdown: redcarpet
-gems:
+# commented because github recommends it
+# markdown: redcarpet
+plugins:
     - jekyll-gist
     - jekyll-last-modified-at
 exclude:
