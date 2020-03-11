@@ -12,7 +12,7 @@ social_media_btn:
 # This is used by feed.xml. Uncomment if you want to use it.
 # description: "..."
 # commented because github recommends it
-# markdown: redcarpet
+markdown: kramdown
 plugins:
     - jekyll-gist
     - jekyll-last-modified-at
