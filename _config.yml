@@ -15,7 +15,7 @@
 # in the templates via {{ site.myvariable }}.
 #-baseurl: "" # The subpath of your site. Use "" if you're hosting a blog at the root level.
 source: _source
-destination: docs
+destination: _site
 url: "http://linuxsimba.github.io" # the base hostname & protocol for your site
 title: "Linux Simba"
 twitter_username: 'linuxsimba'
