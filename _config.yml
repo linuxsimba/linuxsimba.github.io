@@ -13,13 +13,13 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-source: _source
-destination: _site
 #-baseurl: "" # The subpath of your site. Use "" if you're hosting a blog at the root level.
--url: "http://linuxsimba.github.io" # the base hostname & protocol for your site
--title: "Linux Simba"
--twitter_username: 'linuxsimba'
--social_media_btn:
+source: _source
+destination: docs
+url: "http://linuxsimba.github.io" # the base hostname & protocol for your site
+title: "Linux Simba"
+twitter_username: 'linuxsimba'
+social_media_btn:
   - name: 'twitter'
     url: "https://twitter.com/intent/follow?original_referer=http%3A%2F%2Flinuxsimba.com&amp;region=follow_link&amp;screen_name=linuxsimba&amp;tw_p=followbutton"
     title: "Follow Us (@linuxsimba) on Twitter"
@@ -29,7 +29,6 @@ markdown: kramdown
 plugins:
     - jekyll-gist
     - jekyll-last-modified-at
-permalink: :title
 #defaults:
 #  -
 #    scope:
