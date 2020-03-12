@@ -24,8 +24,8 @@ social_media_btn:
 
 markdown: kramdown
 plugins:
-    - jekyll-gist
-    - jekyll-last-modified-at
+  - gem "jekyll-gist"
+  - gem "jekyll-last-modified-at"
 
 
 # Exclude from processing.
