@@ -1,12 +1,3 @@
-.bundle/
-ruby/
 _site
-Session.vim
-*.orig
 .sass-cache
-*.swp
-*.swo
-*.pyc
-.capistrano
-*~
-config/deploy/prod.rb
+.jekyll-metadata
