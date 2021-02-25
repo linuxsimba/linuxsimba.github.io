@@ -9,6 +9,8 @@ Recently created a new NS7 project and wanted build my app following some kind o
 I added ``nsTestBedInit()`` call in my tests. Everything broke. Any of my tricks I used in NS6 failed. So I guessed it must be because of NG10,
 and the NS unit testing code has not been thoroughly tested and updated to handle it.
 
+Please note that the [Nativescript docs say unit testing](https://docs.nativescript.org/angular/tooling/testing/testing) is for testing **Javascript Functionality**, not the UI. I guess that's what [Appium](https://docs.nativescript.org/tooling/testing/end-to-end-testing/overview) is for, which is next on my list to perfect for my project.
+
 ## First error message
 
 ``Node is not defined``.  After some troubleshooting I figured out that this has
