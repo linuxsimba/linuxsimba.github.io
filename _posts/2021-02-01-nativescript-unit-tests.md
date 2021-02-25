@@ -14,7 +14,7 @@ Please note that the [Nativescript docs say unit testing](https://docs.nativescr
 ## First error message
 
 ``Node is not defined``.  After some troubleshooting I figured out that this has
-do with the webpack versions. So I fixed it and posted [my package.json on the relevant github issue]('https://github.com/NativeScript/nativescript-angular/issues/2311')
+do with the webpack versions. So I fixed it and hit another problem...
 
 
 ## Second error message
