@@ -18,7 +18,7 @@ title: "Linux Simba"
 twitter_username: 'linuxsimba'
 social_media_btn:
   - name: 'twitter'
-    url: "https://twitter.com/intent/follow?original_referer=http%3A%2F%2Flinuxsimba.com&amp;region=follow_link&amp;screen_name=linuxsimba&amp;tw_p=followbutton"
+    url: "https://twitter.com/intent/follow?original_referer=http%3A%2F%2Flinuxsimba.github.io&amp;region=follow_link&amp;screen_name=linuxsimba&amp;tw_p=followbutton"
     title: "Follow Us (@linuxsimba) on Twitter"
     id: 'twitter_btn'
 
