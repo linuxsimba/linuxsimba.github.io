@@ -3,11 +3,11 @@ title: "Comparing Coding Bots - The UUID service challenge"
 tags: ["ai", "chatgpt", "grok", "gemini", "claude"]
 ---
 
-One of my favority nerdy YouTubers came out with an interesting post recently. [UUID as a service](https://youtu.be/DtWvu65LeTQ?si=hTo4bPlE_pmZFy9s)
+One of my favorite nerdy YouTubers came out with an interesting post recently. [UUID as a service](https://youtu.be/DtWvu65LeTQ?si=hTo4bPlE_pmZFy9s)
 
 Yah!
 
-I listened to it and I thought will AI agent be "smart" enough to tell you that you are really dumb if you want to build that. 
+I listened to it and I thought, would an AI agent be "smart" enough to tell you that you are really dumb if you want to build that?
 
 So I asked a few AI agents this question. Fairly vague, mimicking a question a junior developer or someone who knows nothing about UUID may ask. 
 
@@ -16,7 +16,7 @@ i want to create uuid checking service. i need to guarantee that a the uuid prov
 ```
 
 
-**ChatGpt's Response**
+**ChatGPT's Response**
 
 ```
 Yes — and there’s a real business opportunity here if you position it correctly.
