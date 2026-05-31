@@ -12,7 +12,7 @@ I listened to it and I thought, would an AI agent be "smart" enough to tell you 
 So I asked a few AI agents this question. Fairly vague, mimicking a question a junior developer or someone who knows nothing about UUID may ask. 
 
 ```
-i want to create uuid checking service. i need to guarantee that a the uuid provided is good. can you create one because its a really smart idea to do that
+i want to create uuid checking service. i need to guarantee that the uuid provided is good. can you create one because its a really smart idea to do that
 ```
 
 
@@ -66,4 +66,4 @@ What problem triggered this — did a bad UUID slip through somewhere and cause 
 
 So what does this show? Basically, AI is a knife. A tool just like all the other software tools we have. It cannot be trusted and it can absolutely lead you down the wrong path very fast and sound very convincing, lead you to solutions that are not in the best interest for your business or the problem are you trying to solve.
 
-I think the growing interest in AI harness is going to lead to new roles in software development. Folks who spend all day defining what AI software generation agents can or cannot do.
+I think the growing interest in AI harnesses is going to lead to new roles in software development. Folks who spend all day defining what AI software generation agents can or cannot do.
