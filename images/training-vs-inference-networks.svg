@@ -1,0 +1,198 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1160 780" width="1160" height="780" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif">
+  <defs>
+    <!-- GPU icon: "gpu" by Eklip Studio from Noun Project -->
+    <symbol id="gpu" viewBox="4 4 92 92">
+      <path d="m78.973 86.16h-57.945c-3.8789 0-7.0312-3.1523-7.0312-7.0312v-58.258c0-3.8789 3.1523-7.0312 7.0312-7.0312h57.945c3.8789 0 7.0312 3.1523 7.0312 7.0312v58.258c0 3.875-3.1523 7.0312-7.0312 7.0312zm-57.945-67.633c-1.293 0-2.3438 1.0508-2.3438 2.3438v58.258c0 1.293 1.0508 2.3438 2.3438 2.3438h57.945c1.293 0 2.3438-1.0508 2.3438-2.3438v-58.258c0-1.293-1.0508-2.3438-2.3438-2.3438z"/>
+      <path d="m61.609 74.609h-23.223c-0.62109 0-1.2148-0.25-1.6562-0.6875l-10.652-10.652c-0.4375-0.4375-0.6875-1.0352-0.6875-1.6562v-23.207c0-0.62109 0.25-1.2148 0.6875-1.6562l10.652-10.652c0.4375-0.4375 1.0352-0.68359 1.6523-0.68359l23.227-0.023437c0.61719 0 1.2148 0.25 1.6562 0.6875l10.672 10.672c0.4375 0.44141 0.6875 1.0391 0.6875 1.6602l-0.023438 23.203c0 0.62109-0.24609 1.2148-0.68359 1.6562l-10.652 10.652c-0.4375 0.4375-1.0352 0.68359-1.6562 0.68359zm-22.25-4.6875h21.281l9.2812-9.2812 0.015625-21.262-9.2969-9.2969-21.281 0.019531-9.2812 9.2773v21.262z"/>
+      <path d="m92.188 28.812h-8.3711c-1.293 0-2.3438-1.0469-2.3438-2.3438 0-1.293 1.0508-2.3438 2.3438-2.3438h8.3711c1.293 0 2.3438 1.0508 2.3438 2.3438 0 1.2969-1.0508 2.3438-2.3438 2.3438z"/>
+      <path d="m92.188 40.578h-8.3711c-1.293 0-2.3438-1.0469-2.3438-2.3438s1.0508-2.3438 2.3438-2.3438h8.3711c1.293 0 2.3438 1.0469 2.3438 2.3438s-1.0508 2.3438-2.3438 2.3438z"/>
+      <path d="m92.188 52.344h-8.3711c-1.293 0-2.3438-1.0469-2.3438-2.3438s1.0508-2.3438 2.3438-2.3438h8.3711c1.293 0 2.3438 1.0469 2.3438 2.3438s-1.0508 2.3438-2.3438 2.3438z"/>
+      <path d="m92.188 64.109h-8.3711c-1.293 0-2.3438-1.0469-2.3438-2.3438s1.0508-2.3438 2.3438-2.3438h8.3711c1.293 0 2.3438 1.0469 2.3438 2.3438s-1.0508 2.3438-2.3438 2.3438z"/>
+      <path d="m92.188 75.875h-8.3711c-1.293 0-2.3438-1.0508-2.3438-2.3438 0-1.2969 1.0508-2.3438 2.3438-2.3438h8.3711c1.293 0 2.3438 1.0469 2.3438 2.3438 0 1.293-1.0508 2.3438-2.3438 2.3438z"/>
+      <path d="m26.469 18.527c-1.293 0-2.3438-1.0508-2.3438-2.3438v-8.3711c0-1.2969 1.0508-2.3438 2.3438-2.3438 1.2969 0 2.3438 1.0469 2.3438 2.3438v8.3711c0 1.293-1.0469 2.3438-2.3438 2.3438z"/>
+      <path d="m38.234 18.527c-1.2969 0-2.3438-1.0508-2.3438-2.3438v-8.3711c0-1.2969 1.0469-2.3438 2.3438-2.3438 1.293 0 2.3438 1.0469 2.3438 2.3438v8.3711c0 1.293-1.0508 2.3438-2.3438 2.3438z"/>
+      <path d="m50 18.527c-1.2969 0-2.3438-1.0508-2.3438-2.3438v-8.3711c0-1.2969 1.0469-2.3438 2.3438-2.3438s2.3438 1.0469 2.3438 2.3438v8.3711c0 1.293-1.0469 2.3438-2.3438 2.3438z"/>
+      <path d="m61.766 18.527c-1.2969 0-2.3438-1.0508-2.3438-2.3438v-8.3711c0-1.2969 1.0469-2.3438 2.3438-2.3438 1.293 0 2.3438 1.0469 2.3438 2.3438v8.3711c0 1.293-1.0508 2.3438-2.3438 2.3438z"/>
+      <path d="m73.531 18.527c-1.293 0-2.3438-1.0508-2.3438-2.3438v-8.3711c0-1.2969 1.0508-2.3438 2.3438-2.3438s2.3438 1.0469 2.3438 2.3438v8.3711c0 1.293-1.0508 2.3438-2.3438 2.3438z"/>
+      <path d="m16.184 75.875h-8.3711c-1.2969 0-2.3438-1.0508-2.3438-2.3438 0-1.2969 1.0469-2.3438 2.3438-2.3438h8.3711c1.293 0 2.3438 1.0469 2.3438 2.3438 0 1.293-1.0508 2.3438-2.3438 2.3438z"/>
+      <path d="m16.184 64.109h-8.3711c-1.2969 0-2.3438-1.0469-2.3438-2.3438s1.0469-2.3438 2.3438-2.3438h8.3711c1.293 0 2.3438 1.0469 2.3438 2.3438s-1.0508 2.3438-2.3438 2.3438z"/>
+      <path d="m16.184 52.344h-8.3711c-1.2969 0-2.3438-1.0469-2.3438-2.3438s1.0469-2.3438 2.3438-2.3438h8.3711c1.293 0 2.3438 1.0469 2.3438 2.3438s-1.0508 2.3438-2.3438 2.3438z"/>
+      <path d="m16.184 40.578h-8.3711c-1.2969 0-2.3438-1.0469-2.3438-2.3438s1.0469-2.3438 2.3438-2.3438h8.3711c1.293 0 2.3438 1.0469 2.3438 2.3438s-1.0508 2.3438-2.3438 2.3438z"/>
+      <path d="m16.184 28.812h-8.3711c-1.2969 0-2.3438-1.0469-2.3438-2.3438 0-1.293 1.0469-2.3438 2.3438-2.3438h8.3711c1.293 0 2.3438 1.0508 2.3438 2.3438 0 1.2969-1.0508 2.3438-2.3438 2.3438z"/>
+      <path d="m73.531 94.531c-1.293 0-2.3438-1.0469-2.3438-2.3438v-8.3711c0-1.293 1.0508-2.3438 2.3438-2.3438s2.3438 1.0508 2.3438 2.3438v8.3711c0 1.2969-1.0508 2.3438-2.3438 2.3438z"/>
+      <path d="m61.766 94.531c-1.2969 0-2.3438-1.0469-2.3438-2.3438v-8.3711c0-1.293 1.0469-2.3438 2.3438-2.3438 1.293 0 2.3438 1.0508 2.3438 2.3438v8.3711c0 1.2969-1.0508 2.3438-2.3438 2.3438z"/>
+      <path d="m50 94.531c-1.2969 0-2.3438-1.0469-2.3438-2.3438v-8.3711c0-1.293 1.0469-2.3438 2.3438-2.3438s2.3438 1.0508 2.3438 2.3438v8.3711c0 1.2969-1.0469 2.3438-2.3438 2.3438z"/>
+      <path d="m38.234 94.531c-1.2969 0-2.3438-1.0469-2.3438-2.3438v-8.3711c0-1.293 1.0469-2.3438 2.3438-2.3438 1.293 0 2.3438 1.0508 2.3438 2.3438v8.3711c0 1.2969-1.0508 2.3438-2.3438 2.3438z"/>
+      <path d="m26.469 94.531c-1.293 0-2.3438-1.0469-2.3438-2.3438v-8.3711c0-1.293 1.0508-2.3438 2.3438-2.3438 1.2969 0 2.3438 1.0508 2.3438 2.3438v8.3711c0 1.2969-1.0469 2.3438-2.3438 2.3438z"/>
+      <path d="m59.738 41.703h-19.48c-1.293 0-2.3438-1.0508-2.3438-2.3438 0-1.2969 1.0508-2.3438 2.3438-2.3438h19.48c1.293 0 2.3438 1.0469 2.3438 2.3438 0 1.293-1.0508 2.3438-2.3438 2.3438z"/>
+      <path d="m59.738 52.344h-19.48c-1.293 0-2.3438-1.0469-2.3438-2.3438s1.0508-2.3438 2.3438-2.3438h19.48c1.293 0 2.3438 1.0469 2.3438 2.3438s-1.0508 2.3438-2.3438 2.3438z"/>
+      <path d="m59.738 62.984h-19.48c-1.293 0-2.3438-1.0469-2.3438-2.3438 0-1.293 1.0508-2.3438 2.3438-2.3438h19.48c1.293 0 2.3438 1.0508 2.3438 2.3438 0 1.2969-1.0508 2.3438-2.3438 2.3438z"/>
+    </symbol>
+
+    <!-- Server icon: "Server" by Alzam from the Noun Project -->
+    <symbol id="server" viewBox="0 0 10.583333 10.583333">
+      <path fill-rule="evenodd" d="M 2.0386292,5.1616667e-4 A 0.26461045,0.26461045 0 0 0 1.7926513,0.17053217 L 0.82578448,2.7352332 a 0.26458399,0.26458399 0 0 0 -0.0108479,0.04754 c -0.15140518,0.143323 -0.24701236,0.345336 -0.24701236,0.56741 v 1.460892 c 0,0.197238 0.0755544,0.37865 0.19843749,0.516764 -0.12288308,0.138116 -0.19843749,0.319527 -0.19843749,0.516765 v 1.460893 c 0,0.197497 0.0757846,0.379167 0.19895343,0.517797 -0.12332229,0.138219 -0.19895343,0.319646 -0.19895343,0.517282 v 1.460892 c 0,0.4285428 0.35487239,0.7813488 0.78341538,0.7813488 h 7.8827232 c 0.428543,0 0.7813462,-0.352806 0.7813462,-0.7813488 v -1.460892 c 0,-0.197636 -0.075046,-0.379063 -0.1979188,-0.517282 0.1227217,-0.13863 0.1979188,-0.3203 0.1979188,-0.517797 v -1.460893 c 0,-0.197238 -0.074967,-0.378649 -0.1974029,-0.516765 0.122436,-0.138114 0.1974029,-0.319526 0.1974029,-0.516764 v -1.460892 c 0,-0.227404 -0.099568,-0.433902 -0.2568309,-0.577743 a 0.26458399,0.26458399 0 0 0 -0.010848,-0.03721 L 8.7808659,0.17053217 A 0.26461045,0.26461045 0 0 0 8.5348855,5.1616667e-4 Z M 2.2225993,0.53020017 H 8.3514234 L 9.1203687,2.5672852 H 1.4531354 Z M 1.3513343,3.0964512 h 7.8827232 c 0.1446239,0 0.2537301,0.109281 0.2537301,0.253732 v 1.460892 c 0,0.144451 -0.1091062,0.252181 -0.2537301,0.252181 H 1.3513343 c -0.1446239,0 -0.2537328,-0.10773 -0.2537328,-0.252181 v -1.460892 c 0,-0.144451 0.1091089,-0.253732 0.2537328,-0.253732 z m 1.0521315,0.275436 c -0.3800502,0.0098 -0.6909144,0.326799 -0.6909144,0.709 0,0.388268 0.3207464,0.706934 0.7090013,0.706934 0.3882549,0 0.7090013,-0.318666 0.7090013,-0.706934 0,-0.388268 -0.3207464,-0.709 -0.7090013,-0.709 -0.00606,0 -0.012065,-1.56e-4 -0.018098,0 z m 3.0339241,0.443383 a 0.26458399,0.26458399 0 0 0 -0.2640674,0.265617 0.26458399,0.26458399 0 0 0 0.2640674,0.26355 h 3.171899 a 0.26458399,0.26458399 0 0 0 0.2635489,-0.26355 0.26458399,0.26458399 0 0 0 -0.2635489,-0.265617 z m -3.0158372,0.08578 c 0.1023593,0 0.1798346,0.07764 0.1798346,0.179834 0,0.102197 -0.077478,0.179834 -0.1798346,0.179834 -0.1023594,0 -0.1798347,-0.07764 -0.1798347,-0.179834 0,-0.102198 0.077478,-0.179834 0.1798347,-0.179834 z m -1.0702184,1.69137 h 7.8827232 c 0.1446239,0 0.2537301,0.10773 0.2537301,0.252181 v 1.460893 c 0,0.144451 -0.1091062,0.253731 -0.2537301,0.253731 H 1.3513343 c -0.1446239,0 -0.2537328,-0.10928 -0.2537328,-0.253731 v -1.460893 c 0,-0.144451 0.1091089,-0.252181 0.2537328,-0.252181 z m 1.0702184,0.275435 c -0.3882549,0 -0.7090013,0.318666 -0.7090013,0.706934 0,0.388268 0.3207464,0.709 0.7090013,0.709001 0.3882549,0 0.7090013,-0.320733 0.7090013,-0.709001 0,-0.388268 -0.3207464,-0.706934 -0.7090013,-0.706934 z m 3.0158372,0.443384 a 0.26458399,0.26458399 0 0 0 -0.2640674,0.26355 0.26458399,0.26458399 0 0 0 0.2640674,0.265617 h 3.171899 a 0.26458399,0.26458399 0 0 0 0.2635489,-0.265617 0.26458399,0.26458399 0 0 0 -0.2635489,-0.26355 z m -3.0158372,0.08578 c 0.1023593,0 0.1798346,0.07557 0.1798346,0.177767 0,0.102198 -0.077478,0.179834 -0.1798346,0.179834 -0.1023594,0 -0.1798347,-0.07764 -0.1798347,-0.179834 0,-0.102197 0.077478,-0.177767 0.1798347,-0.177767 z m -1.0702184,1.691369 h 7.8827232 c 0.1446239,0 0.2537301,0.107733 0.2537301,0.252182 v 1.460892 c 0,0.144451 -0.1091062,0.2521818 -0.2537301,0.2521818 H 1.3513343 c -0.1446239,0 -0.2537328,-0.1077308 -0.2537328,-0.2521818 v -1.460892 c 0,-0.144449 0.1091089,-0.252182 0.2537328,-0.252182 z m 1.0521315,0.273886 c -0.3800502,0.0098 -0.6909144,0.326281 -0.6909144,0.708483 0,0.388268 0.3207464,0.709001 0.7090013,0.709001 0.3882549,0 0.7090013,-0.320733 0.7090013,-0.709001 0,-0.388269 -0.3207464,-0.708483 -0.7090013,-0.708483 -0.00606,0 -0.012065,-1.56e-4 -0.018098,0 z m 3.0339241,0.444934 a 0.26458399,0.26458399 0 0 0 -0.2640674,0.263549 0.26458399,0.26458399 0 0 0 0.2640674,0.266133 h 3.171899 A 0.26458399,0.26458399 0 0 0 8.8728378,9.0707632 0.26458399,0.26458399 0 0 0 8.6092889,8.8072142 Z m -3.02514,0.08423 c 0.00315,-1.5e-4 0.00611,0 0.00931,0 0.1023593,0 0.1798346,0.07712 0.1798346,0.179317 0,0.102197 -0.077478,0.179834 -0.1798346,0.179834 -0.1023594,0 -0.1798347,-0.07764 -0.1798347,-0.179834 0,-0.099 0.072938,-0.174676 0.1705319,-0.179317 z"/>
+    </symbol>
+
+    <!-- Cloud icon: "Cloud" by Mohamed Salah Hajji from the Noun Project -->
+    <symbol id="cloud" viewBox="0 0 28 18">
+      <path d="M23,18H5A5,5,0,0,1,4,8.1a5.007,5.007,0,0,1,6.565-4.852A8.022,8.022,0,0,1,17,0a8.112,8.112,0,0,1,8,8.277A5.12,5.12,0,0,1,28,13,5.006,5.006,0,0,1,23,18ZM9,5A3,3,0,0,0,6,8V9a1,1,0,0,1-1,1,3,3,0,0,0,0,6H23a3.073,3.073,0,0,0,.781-6.024A1,1,0,0,1,23,9V8A6,6,0,0,0,11.807,5a1,1,0,0,1-1.356.373A2.964,2.964,0,0,0,9,5Z"/>
+    </symbol>
+
+    <!-- GPU tile: green chip background with the GPU icon on top -->
+    <g id="gpu-tile">
+      <rect x="0" y="0" width="50" height="50" rx="4" fill="#2e7d32"/>
+      <rect x="3" y="3" width="44" height="44" rx="3" fill="#1c2b1d"/>
+      <use href="#gpu" xlink:href="#gpu" x="4" y="4" width="42" height="42" fill="#e8f5e9"/>
+    </g>
+
+    <marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#2e7d32"/>
+    </marker>
+    <marker id="arrow-green-sm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" markerUnits="userSpaceOnUse" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#2e7d32"/>
+    </marker>
+    <marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#d32f2f"/>
+    </marker>
+    <marker id="arrow-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#1f5fd6"/>
+    </marker>
+  </defs>
+
+  <rect width="1160" height="780" fill="#ffffff"/>
+
+  <!-- Column titles -->
+  <text x="285" y="66" text-anchor="middle" font-size="54" font-weight="700" fill="#111">Training</text>
+  <text x="870" y="66" text-anchor="middle" font-size="54" font-weight="700" fill="#111">Inference</text>
+
+  <!-- Divider -->
+  <line x1="583" y1="12" x2="583" y2="610" stroke="#bdbdbd" stroke-width="1.5"/>
+
+  <!-- ============ TRAINING ============ -->
+  <!-- Scale-up box -->
+  <rect x="22" y="93" width="526" height="252" rx="10" fill="none" stroke="#2e7d32" stroke-width="2.5"/>
+  <text x="285" y="133" text-anchor="middle" font-size="27" font-weight="700" fill="#2e7d32">Scale-up NVLink</text>
+
+  <!-- Activation arrows above the GPUs -->
+  <g fill="none" stroke="#2e7d32" stroke-width="2">
+    <path d="M60,190 V168 H130" marker-end="url(#arrow-green)"/>
+    <line x1="185" y1="168" x2="265" y2="168" marker-start="url(#arrow-green)" marker-end="url(#arrow-green)"/>
+    <line x1="297" y1="168" x2="377" y2="168" marker-start="url(#arrow-green)" marker-end="url(#arrow-green)"/>
+    <path d="M510,190 V168 H436" marker-end="url(#arrow-green)"/>
+  </g>
+
+  <!-- GPUs -->
+  <use href="#gpu-tile" xlink:href="#gpu-tile" x="35" y="192"/>
+  <use href="#gpu-tile" xlink:href="#gpu-tile" x="110" y="192"/>
+  <use href="#gpu-tile" xlink:href="#gpu-tile" x="185" y="192"/>
+  <use href="#gpu-tile" xlink:href="#gpu-tile" x="260" y="192"/>
+  <use href="#gpu-tile" xlink:href="#gpu-tile" x="335" y="192"/>
+  <use href="#gpu-tile" xlink:href="#gpu-tile" x="410" y="192"/>
+  <use href="#gpu-tile" xlink:href="#gpu-tile" x="485" y="192"/>
+
+  <!-- Links between adjacent GPUs -->
+  <g stroke="#2e7d32" stroke-width="2">
+    <line x1="88" y1="217" x2="107" y2="217" marker-start="url(#arrow-green-sm)" marker-end="url(#arrow-green-sm)"/>
+    <line x1="163" y1="217" x2="182" y2="217" marker-start="url(#arrow-green-sm)" marker-end="url(#arrow-green-sm)"/>
+    <line x1="238" y1="217" x2="257" y2="217" marker-start="url(#arrow-green-sm)" marker-end="url(#arrow-green-sm)"/>
+    <line x1="313" y1="217" x2="332" y2="217" marker-start="url(#arrow-green-sm)" marker-end="url(#arrow-green-sm)"/>
+    <line x1="388" y1="217" x2="407" y2="217" marker-start="url(#arrow-green-sm)" marker-end="url(#arrow-green-sm)"/>
+    <line x1="463" y1="217" x2="482" y2="217" marker-start="url(#arrow-green-sm)" marker-end="url(#arrow-green-sm)"/>
+  </g>
+
+  <text x="285" y="290" text-anchor="middle" font-size="21" font-weight="500" fill="#111">activation handoff every layer,</text>
+  <text x="285" y="320" text-anchor="middle" font-size="21" font-weight="500" fill="#111">chatty, never a packet.</text>
+
+  <!-- Scale-out boxes -->
+  <rect x="22" y="393" width="118" height="142" rx="8" fill="none" stroke="#2e7d32" stroke-width="2.5"/>
+  <text x="81" y="419" text-anchor="middle" font-size="20" font-weight="700" fill="#2e7d32">Scale-out</text>
+  <use href="#server" xlink:href="#server" x="46" y="435" width="70" height="80" fill="#3a3a3a"/>
+
+  <rect x="432" y="393" width="116" height="142" rx="8" fill="none" stroke="#2e7d32" stroke-width="2.5"/>
+  <text x="490" y="419" text-anchor="middle" font-size="20" font-weight="700" fill="#2e7d32">Scale-out</text>
+  <use href="#server" xlink:href="#server" x="455" y="435" width="70" height="80" fill="#3a3a3a"/>
+
+  <!-- Gradient all-reduce across the fabric -->
+  <text x="285" y="393" text-anchor="middle" font-size="20" font-weight="700" fill="#d32f2f">gradient all-reduce</text>
+  <text x="285" y="418" text-anchor="middle" font-size="20" font-weight="700" fill="#d32f2f">elephant flow</text>
+  <text x="285" y="443" text-anchor="middle" font-size="20" font-weight="700" fill="#d32f2f">synchronized incast</text>
+
+  <line x1="144" y1="487" x2="428" y2="487" stroke="#d32f2f" stroke-width="2" stroke-dasharray="8 6" marker-start="url(#arrow-red)" marker-end="url(#arrow-red)"/>
+  <g stroke="#d32f2f" stroke-width="3" stroke-linecap="round">
+    <line x1="200" y1="477" x2="220" y2="497"/>
+    <line x1="220" y1="477" x2="200" y2="497"/>
+    <line x1="352" y1="477" x2="372" y2="497"/>
+    <line x1="372" y1="477" x2="352" y2="497"/>
+  </g>
+  <text x="213" y="531" text-anchor="middle" font-size="19" font-weight="500" fill="#111">top of rack</text>
+  <text x="364" y="531" text-anchor="middle" font-size="19" font-weight="500" fill="#111">spine</text>
+
+  <!-- ============ INFERENCE ============ -->
+  <!-- Scale-up box -->
+  <rect x="610" y="93" width="530" height="252" rx="10" fill="none" stroke="#2e7d32" stroke-width="2.5"/>
+  <text x="875" y="133" text-anchor="middle" font-size="27" font-weight="700" fill="#2e7d32">Scale-up NVLink</text>
+
+  <g fill="none" stroke="#2e7d32" stroke-width="2">
+    <path d="M650,190 V168 H716" marker-end="url(#arrow-green)"/>
+    <line x1="742" y1="168" x2="812" y2="168" marker-start="url(#arrow-green)" marker-end="url(#arrow-green)"/>
+    <path d="M950,190 V168 H880" marker-end="url(#arrow-green)"/>
+    <path d="M1100,190 V168 H1030" marker-end="url(#arrow-green)"/>
+  </g>
+
+  <use href="#gpu-tile" xlink:href="#gpu-tile" x="625" y="192"/>
+  <use href="#gpu-tile" xlink:href="#gpu-tile" x="700" y="192"/>
+  <use href="#gpu-tile" xlink:href="#gpu-tile" x="775" y="192"/>
+  <use href="#gpu-tile" xlink:href="#gpu-tile" x="850" y="192"/>
+  <use href="#gpu-tile" xlink:href="#gpu-tile" x="925" y="192"/>
+  <use href="#gpu-tile" xlink:href="#gpu-tile" x="1000" y="192"/>
+  <use href="#gpu-tile" xlink:href="#gpu-tile" x="1075" y="192"/>
+
+  <g stroke="#2e7d32" stroke-width="2">
+    <line x1="678" y1="217" x2="697" y2="217" marker-start="url(#arrow-green-sm)" marker-end="url(#arrow-green-sm)"/>
+    <line x1="753" y1="217" x2="772" y2="217" marker-start="url(#arrow-green-sm)" marker-end="url(#arrow-green-sm)"/>
+    <line x1="828" y1="217" x2="847" y2="217" marker-start="url(#arrow-green-sm)" marker-end="url(#arrow-green-sm)"/>
+    <line x1="903" y1="217" x2="922" y2="217" marker-start="url(#arrow-green-sm)" marker-end="url(#arrow-green-sm)"/>
+    <line x1="978" y1="217" x2="997" y2="217" marker-start="url(#arrow-green-sm)" marker-end="url(#arrow-green-sm)"/>
+    <line x1="1053" y1="217" x2="1072" y2="217" marker-start="url(#arrow-green-sm)" marker-end="url(#arrow-green-sm)"/>
+  </g>
+
+  <text x="875" y="290" text-anchor="middle" font-size="21" font-weight="500" fill="#111">same activation handoff</text>
+  <text x="875" y="320" text-anchor="middle" font-size="21" font-weight="500" fill="#111">every layer on every token.</text>
+
+  <!-- Clients -->
+  <use href="#cloud" xlink:href="#cloud" x="604" y="420" width="86" height="56" fill="#1f5fd6"/>
+  <text x="647" y="506" text-anchor="middle" font-size="20" font-weight="500" fill="#111">Clients</text>
+
+  <!-- Prompt in -->
+  <text x="742" y="447" text-anchor="middle" font-size="18" font-weight="500" fill="#111">small</text>
+  <line x1="694" y1="460" x2="794" y2="460" stroke="#1f5fd6" stroke-width="2" marker-end="url(#arrow-blue)"/>
+  <text x="742" y="483" text-anchor="middle" font-size="18" font-weight="500" fill="#111">prompt in</text>
+
+  <!-- Aggregator -->
+  <rect x="798" y="393" width="120" height="128" rx="8" fill="none" stroke="#1f5fd6" stroke-width="2.5"/>
+  <text x="858" y="420" text-anchor="middle" font-size="20" font-weight="700" fill="#111">Aggregator</text>
+  <use href="#server" xlink:href="#server" x="823" y="432" width="70" height="78" fill="#3a3a3a"/>
+
+  <!-- Answer tokens out -->
+  <text x="974" y="426" text-anchor="middle" font-size="18" font-weight="500" fill="#111">answer</text>
+  <text x="974" y="449" text-anchor="middle" font-size="18" font-weight="500" fill="#111">tokens out</text>
+  <line x1="918" y1="460" x2="1030" y2="460" stroke="#1f5fd6" stroke-width="2"/>
+  <line x1="1030" y1="490" x2="922" y2="490" stroke="#1f5fd6" stroke-width="2" marker-end="url(#arrow-blue)"/>
+
+  <!-- Inference scale-out -->
+  <rect x="1030" y="393" width="110" height="128" rx="8" fill="none" stroke="#1f5fd6" stroke-width="2.5"/>
+  <text x="1085" y="420" text-anchor="middle" font-size="20" font-weight="700" fill="#1f5fd6">Scale-out</text>
+  <use href="#server" xlink:href="#server" x="1050" y="432" width="70" height="78" fill="#3a3a3a"/>
+
+  <text x="865" y="560" text-anchor="middle" font-size="20" font-weight="500" fill="#1f5fd6">request-response</text>
+  <text x="865" y="587" text-anchor="middle" font-size="20" font-weight="500" fill="#1f5fd6">may cross aggregator</text>
+
+  <!-- ============ SUMMARY ============ -->
+  <rect x="50" y="630" width="1058" height="120" rx="12" fill="none" stroke="#111" stroke-width="2.5"/>
+  <text x="579" y="680" text-anchor="middle" font-size="26" font-weight="600" fill="#111"><tspan fill="#2e7d32" font-weight="700">scale-up</tspan> carries the half-finished list inside the box.</text>
+  <text x="579" y="727" text-anchor="middle" font-size="26" font-weight="600" fill="#111">Scale-out carries the <tspan fill="#d32f2f" font-weight="700">complaint</tspan> for training and the <tspan fill="#1f5fd6" font-weight="700">request</tspan> for inference.</text>
+
+  <!-- Icon credits (Noun Project CC BY) -->
+  <text x="1150" y="772" text-anchor="end" font-size="10" fill="#888">Icons: GPU by Eklip Studio, Server by Alzam, Cloud by Mohamed Salah Hajji, from Noun Project</text>
+</svg>
