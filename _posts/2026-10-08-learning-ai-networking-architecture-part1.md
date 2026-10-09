@@ -1,5 +1,5 @@
 ---
-title: "Learning Neural Network Infrastructure Architecture - Part 1"
+title: "Learning Neural Network Infrastructure - Part 1"
 tags: ["ai", "networking", "infiniband", "ethernet", "gpu"]
 ---
 
@@ -41,7 +41,7 @@ I suspect that, with the growth of AI, DeepMind's successes with protein folding
 
 #### _"If InfiniBand was so good at lossless low-latency networks, why create RDMA over Converged Ethernet (RoCE)?"_
 
-David Cohen et al. wrote a paper titled [Remote Direct Memory Access over Converged Enhanced Ethernet Fabric: Evaluating the Options](https://www.researchgate.net/publication/232624574_Remote_Direct_Memory_Access_over_the_Converged_Enhanced_Ethernet_Fabric_Evaluating_the_Options). It states that the industry wants inter-process communication, storage and LAN networking to converge onto a single physical fabric, avoiding the higher capital and operational costs of running a separate unique network for each. The ongoing work on lossless Ethernet (CEE/DCB) affords the opportunity to put RDMA over Ethernet. Prior attempts to add RDMA to the Ethernet world, like iWARP, which requires complex TCP software stacks, failed.
+In 2009, David Cohen et al. wrote a paper titled [Remote Direct Memory Access over Converged Enhanced Ethernet Fabric: Evaluating the Options](https://www.researchgate.net/publication/232624574_Remote_Direct_Memory_Access_over_the_Converged_Enhanced_Ethernet_Fabric_Evaluating_the_Options). It states that the industry wants inter-process communication, storage and LAN networking to converge onto a single physical fabric, avoiding the higher capital and operational costs of running a separate unique network for each. The ongoing work on lossless Ethernet (CEE/DCB) affords the opportunity to put RDMA over Ethernet. Prior attempts to add RDMA to the Ethernet world, like iWARP, which requires complex TCP software stacks, failed.
 
 #### _"If RoCE was proposed because of DCB, why was IEEE working on DCB in the first place?"_
 
