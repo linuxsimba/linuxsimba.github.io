@@ -11,9 +11,9 @@ In this blog post, I dig into the core concepts that define a RoCEv2 network for
 
 ## Core Fabric Design: The Split
 
-For AI workloads, generally require a losseless, non-blocking network. Meta built a network separate from their data and storage traffic just for this GPU-to-GPU traffic. AI training, which I believe drove the first large-scale AI networks, has little tolerance for tail latency at the synchronization barrier. When GPUs exchange their gradients, the information that tells each GPU how to adjust the model's weights, a single delayed GPU holds up the next training step for every other GPU. They sit idle, wasting both time and the money spent on power.
+AI workloads, generally require a lossless, non-blocking network. Meta, built a network separate from their data and storage traffic just for this GPU-to-GPU traffic. 
 
-With this split, came the terms frontend network and backend network, and backend networks were further divided into scale-up, scale-out and scale-across. I think frontend and backend, at least, came from the storage world, but I couldn't find a reference showing where the networking industry first adopted these terms.
+With this split, came the terms frontend network and backend network. A backend networks were further divided into scale-up, scale-out and scale-across networks. I think the terms frontend and backend, came from the storage world, but I couldn't find a reference showing where the networking industry first adopted these terms.
 
 ![Front-end vs back-end networks](/images/frontend-vs-backend-networks.svg)
 
