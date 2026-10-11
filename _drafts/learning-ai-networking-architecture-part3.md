@@ -11,7 +11,7 @@ In this post, I go through the physical and routing side of AI networks: the top
 
 ## L3 CLOS Topologies - Frontend + Backend
 
-In part two, I described the split between the frontend and backend networks, and spent most of my time on the backend. The frontend sounded simple. Connect the GPUs to the internet and storage and you are done.
+In [part two]({% post_url 2026-10-09-learning-ai-networking-architecture-part2 %}), I described the split between the frontend and backend networks, and spent most of my time on the backend. The frontend sounded simple. Connect the GPUs to the internet and storage and you are done.
 
 Tom Emmons from Arista changed my mind in a video titled [Arista Networking for AI: The Ethernet Backplane](https://www.youtube.com/watch?v=S5JwBHUgZss&t=1029s). He said the frontend "looks like a traditional data center. You just care about it a lot more, because you have billions of dollars of hardware behind it instead of millions." He also said that if you talk to anyone about AI networking, "the first thing they'll tell you is that it looks completely different from 6 months ago."
 
