@@ -4,34 +4,33 @@ tags: ["ai", "networking", "roce", "ethernet", "gpu"]
 ---
 
 
-This is part 2 of my series documenting my journey learning about neural network (AI) infrastructure. In [part one]({% post_url 2026-10-08-learning-ai-networking-architecture-part1 %}) I went through my understanding of the history of distributed computing architecture for AI workloads.
+This is part 2 of my series documenting my journey learning about neural network (AI) infrastructure. In [part one]({% post_url 2026-10-08-learning-ai-networking-architecture-part1 %}), I went through my understanding of the history of distributed computing architecture for AI workloads.
 
 In this blog post, I dig into AI training workflows and which operations of the workflow require networking.
 
 
 ## AI Workloads: Training vs Inference
 
-First let's really simplify what a model looks like. The first time I heard about an LLM, I kept hearing about weights, gradients, tensors, embeddings. So many terms. My head was spinning. 
+First, let's really simplify what a model looks like. The first time I heard about an LLM, I kept hearing about weights, gradients, tensors, embeddings. So many terms. My head was spinning. 
 
-I'm a simple math guy. I get basic matrix math and vectors. This explanation made the most sense to me. It explains an AI model in terms of a bunch of tables. 
+I'm a simple math guy. I get basic matrix math and vectors. The following explanation made the most sense to me. It explains an AI model in terms of a bunch of tables. 
 
-* *Entry*: Embedding. Turns input tokens into vectors. Other input types (modalities) like audio or images go through their own encoder but their data is also converted to vectors.
-* *Middle*: Transformer layers. Dozens of stacked layers, each with attention (mixes in context from the rest of the input) and feed-forward (transforms what attention gathered).
-* *Exit*: Output head. Turns the final vector into a probability for every token in the vocabulary, and the next token is picked from those.
+* *Entry Tables*: Embedding. Turns input tokens into vectors. Other input types (modalities) like audio or images go through their own encoder, but their data is also converted to vectors.
+* *Middle Tables*: Transformer layers. Dozens of stacked layers of weights (floating point numbers), each with attention (weights that let each token mix in context from the rest of the input) and feed-forward (transforms what attention gathered).
+* *Exit Tables*: Output head. Turns the final vector into a probability for every token in the vocabulary, and the next token is picked from those.
+
 
 Training is teaching the model. You feed it huge piles of data, check how wrong it is and nudge its weights, over and over, for weeks or months across thousands of GPUs.
 
 Inference is putting the trained model to work. The weights are frozen, nothing new is learned, and it just answers requests, like a router forwarding off a converged routing table.
 
-This post is going to focus on what I've learnt about AI networking for training neural networks.
-
 ## Core Fabric Design: The Split
 
-AI training workloads generally require a lossless, non-blocking network. 
+AI training workloads require a lossless, non-blocking network. 
 
 I think at the beginning of building AI networks at scale, the first need was to manage AI training. AI training has little tolerance for tail latency during the phases where GPUs exchange data amongst themselves. 
 
-At least for AI training, which is what I'm focusing on learning right now, GPU-to-GPU traffic is like a little baby that needs a lot of attention and tuning, and the industry decided to house this traffic on a different fabric separate from config, storage or monitoring traffic. I believe the AI networking industry borrowed the terms frontend and backend network from the storage world and then took it to the next level, further subdividing a backend network into scale-up, scale-out and scale-across fabrics.
+Managing GPU-to-GPU traffic is like managing a little baby that needs a lot of attention and tuning, and the industry decided to house this traffic on a separate fabric from config, storage or monitoring traffic. I believe the AI networking industry borrowed the terms frontend and backend network from the storage world and then took them to the next level, further subdividing a backend network into scale-up, scale-out and scale-across fabrics.
 
 
 ![Front-end vs back-end networks](/images/frontend-vs-backend-networks.svg)
@@ -39,10 +38,10 @@ At least for AI training, which is what I'm focusing on learning right now, GPU-
 
 This is what I understand so far about the different network or fabric definitions:
 
-* **Frontend network**: Handles data ingestion, host management, storage checkpoints, and job scheduling usually over lower-bandwidth switches than those on the backend network, completely isolated from GPU synchronization traffic. These networks can be lossy. So from an AI training perspective, downloading model info from storage, Kubernetes configs to start the training runs, or telemetry data for the monitoring systems are examples of traffic on this network.
+* **Frontend network**: Handles data ingestion, host management, storage checkpoints, and job scheduling, usually over lower-bandwidth switches than those on the backend network, completely isolated from GPU synchronization traffic. These networks can be lossy. So from an AI training perspective, downloading model info from storage, Kubernetes configs to start the training runs, or telemetry data for the monitoring systems are examples of traffic on this network.
 * **Backend network**: It's a set of networks combined to provide a lossless, non-blocking environment for GPU-to-GPU traffic. 
-    * _Scale Up_: Ultra-high-bandwidth intra-node interconnect like NVLink, connecting GPUs within a server or rack (e.g., NVL72). Shards of the model are sent between GPUs over this link. 
-    * _Scale Out_: Inter-node lossless, non-blocking fabric. It can use either InfiniBand or RoCEv2. For this post, moving forward I'll focus on RoCEv2 fabrics.
+    * _Scale Up_: Ultra-high-bandwidth intra-node interconnect like NVLink, connecting GPUs within a server or rack (e.g., NVL72). This is the fastest link between GPUs. Unfortunately it is limited and I believe expensive to provision. But according to <blah video>, there is a desire to scale these domains from the current 72 (2026 numbers) to 1024.
+    * _Scale Out_: Inter-node lossless, non-blocking fabric. It can use either InfiniBand or RoCEv2. For now, I'm focusing on RoCEv2 networks.
     * _Scale Across_: Multi-zone and inter-cluster network extending beyond individual AI Zones. InfiniBand can be extended with NVIDIA MetroX switches, but from what I've read, Ethernet technologies are more scalable and operationally easier to manage. I am having trouble finding meaningful technical details about scale-across deployments. I found papers on the theory behind extending AI networks between campuses, and announcements like [Microsoft's AI WAN linking its Fairwater datacenters](https://blogs.microsoft.com/blog/2025/11/12/infinite-scale-the-architecture-behind-the-azure-ai-superfactory/) and [NVIDIA's Spectrum-XGS Ethernet](https://nvidianews.nvidia.com/news/nvidia-introduces-spectrum-xgs-ethernet-to-connect-distributed-data-centers-into-giga-scale-ai-super-factories), but they only mention scale-across in passing. None of them explain how the connection is actually built: which switches are used, whether it runs over MPLS or something else, or what distances are involved. So the industry is clearly doing this, but isn't sharing the details publicly.
 
 
@@ -51,7 +50,7 @@ What is confusing me right now is what traffic goes across a scale-across networ
 
 ## AI Training Flow from a network perspective
 
-There are a few ways to train a neural network depending on its size, but I wanted to focus on what I think is the most elegant training flow I came across which is Fully Sharded Data Parallel (FSDP) training.
+There are a few ways to train a neural network depending on its size, but I wanted to focus on what I think is the most elegant training flow I came across: Fully Sharded Data Parallel (FSDP) training.
 
 Here is a diagram of what I've figured out so far.
 
@@ -75,7 +74,7 @@ Again, my focus for now is on training. From what I've read about inference, the
 
 I found several videos and references to tensor parallelism, data parallelism, model parallelism and pipeline parallelism.
 
-I wanted to understand exactly what these mean because again, it's confusing especially if you are not an AI researcher. So here is a table describing what each means, how they differ and how each impacts a scale-out network.
+I wanted to understand exactly what these mean because, again, it's confusing, especially if you are not an AI researcher. So here is a table describing what each means, how they differ and how each impacts a scale-out network.
 
 | Parallelism | Meaning (short) | Preferred Fabric | Traffic Character | Network Impact |
 |-------------|-----------------|------------------|-------------------|----------------|
@@ -83,5 +82,7 @@ I wanted to understand exactly what these mean because again, it's confusing esp
 | **Tensor Parallelism** | Split individual layers/tensors (e.g. matrix multiplies) across GPUs that work on pieces of the same operation. | Scale-up (NVLink) strongly preferred | Very high bandwidth, low latency, frequent intra-layer exchanges | Stays on NVLink when placed well; spills to scale-out kill performance |
 | **Pipeline Parallelism** | Split the model into sequential stages (groups of layers); pass activations between stages. | Point-to-point; scale-up or scale-out depending on placement | Smaller, streaming / micro-batch traffic | Sensitive to latency and jitter; cross-node placement creates scale-out flows |
 | **Model Parallelism** | Umbrella term for splitting the model itself (includes tensor and pipeline parallelism). | Depends on subtype | Depends on subtype | Impact is whatever the chosen subtype generates |
+
+
 
 In my next post, I will discuss the routing considerations for AI training workloads. Again, I really want to dig into inference and its network patterns later this month.
