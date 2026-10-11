@@ -43,6 +43,8 @@ I suspect that, with the growth of AI, DeepMind's successes with protein folding
 
 In 2009, David Cohen et al. wrote a paper titled [Remote Direct Memory Access over Converged Enhanced Ethernet Fabric: Evaluating the Options](https://www.researchgate.net/publication/232624574_Remote_Direct_Memory_Access_over_the_Converged_Enhanced_Ethernet_Fabric_Evaluating_the_Options). It states that the industry wants inter-process communication, storage and LAN networking to converge onto a single physical fabric, avoiding the higher capital and operational costs of running a separate unique network for each. The ongoing work on lossless Ethernet (CEE/DCB) affords the opportunity to put RDMA over Ethernet. Prior attempts to add RDMA to the Ethernet world, like iWARP, which requires complex TCP software stacks, failed.
 
+Another good reference to review is Broadcom Tomahawk 5: [Powering the Worl'ds Highest Performace AI/ML Cluster](https://youtu.be/A30nk8_e1WA?si=mOa6Pdnsm7og7zXL&t=228) that explains the advantages of Ethernet over Infiniband on slide 24. What I found interesting and worth of a deeper dive is that Ethernet supports hardware based link re-routing and dynamic load balancing in addition to other features. I don't know enough about Infiniband to offer any options on that slide but its the best comparison chart I've found showing InfiniBand vs Ethernet/IP (RoCEv2)
+
 #### _"If RoCE was proposed because of DCB, why was IEEE working on DCB in the first place?"_
 
 
