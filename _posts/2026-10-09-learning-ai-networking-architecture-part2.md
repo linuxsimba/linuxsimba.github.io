@@ -42,10 +42,11 @@ This is what I understand so far about the different network or fabric definitio
 * **Backend network**: It's a set of networks combined to provide a lossless, non-blocking environment for GPU-to-GPU traffic. 
     * _Scale Up_: Ultra-high-bandwidth intra-node interconnect like NVLink, connecting GPUs within a server or rack (e.g., NVL72). This is the fastest link between GPUs. Unfortunately it is limited and I believe expensive to provision. But according to <blah video>, there is a desire to scale these domains from the current 72 (2026 numbers) to 1024.
     * _Scale Out_: Inter-node lossless, non-blocking fabric. It can use either InfiniBand or RoCEv2. For now, I'm focusing on RoCEv2 networks.
-    * _Scale Across_: Multi-zone and inter-cluster network extending beyond individual AI Zones. InfiniBand can be extended with NVIDIA MetroX switches, but from what I've read, Ethernet technologies are more scalable and operationally easier to manage. I am having trouble finding meaningful technical details about scale-across deployments. I think I need to search for references related to SRv6, but I will keep searching and update the blog post.
+    * _Scale Across_: Multi-zone and inter-cluster network extending beyond individual AI Zones. InfiniBand can be extended with NVIDIA MetroX switches, but from what I've read, Ethernet technologies are more scalable and operationally easier to manage. Technical details about scale-across deployments are hard to find, but see below for what I've found so far.
 
+What was confusing me was what traffic goes across a scale-across network. I finally found someone asking that exact question in a video titled [Arista Networking for AI: The Ethernet Backplane](https://www.youtube.com/watch?v=S5JwBHUgZss&t=264s). Tom Emmens from Arista said yes, GPU-to-GPU traffic does go across it, and Meta has talked publicly about training across locations. But it's only the traffic that can handle the extra latency, usually the data parallel all-reduces. He also said you can't just bring up PyTorch and make it work. It takes a lot of full stack engineering. [Later in the talk](https://www.youtube.com/watch?v=S5JwBHUgZss&t=1847s), he said the network looks a lot like a traditional WAN, with deep buffer switches, encryption on anything leaving the building, and traffic engineering.
 
-What is confusing me right now is what traffic goes across a scale-across network. I will update this blog post when I figure that out.
+So I went looking for what Meta has said about scale-across networks, and I found a May 2026 paper from Meta and Harvard titled [ScaleAcross Explorer: Exploring Communication Optimization for Scale-Across AI Model Training](https://arxiv.org/abs/2605.24326). It confirms what Emmens said. Llama 3 was trained on 16K GPUs in a single building, but Llama 4 was trained on over 100K GPUs spread across multiple buildings. Meta puts data parallelism (FSDP) across the buildings and keeps the chattier tensor and expert parallel traffic inside an AI zone. What I found interesting is that they rely on deep buffer switches and actually turn off congestion control. This paper deserves its own post, so I'll dig into it later.
 
 
 ## AI Training Flow from a network perspective
@@ -68,7 +69,6 @@ I'm not talking about InfiniBand in any of these blog posts, as that's not an ar
 
 Anyways, back to AI training flows. What I learned is that certain collectives make up the bulk of the traffic on scale-out networks. NCCL makes this a little smarter by doing some operations over NVLink and only using the scale-out network when necessary.
 
-Again, my focus for now is on training. From what I've read about inference, there are differences, and I will focus on that soon.
 
 ### Parallelism Terminology
 
@@ -83,6 +83,3 @@ I wanted to understand exactly what these mean because, again, it's confusing, e
 | **Pipeline Parallelism** | Split the model into sequential stages (groups of layers); pass activations between stages. | Point-to-point; scale-up or scale-out depending on placement | Smaller, streaming / micro-batch traffic | Sensitive to latency and jitter; cross-node placement creates scale-out flows |
 | **Model Parallelism** | Umbrella term for splitting the model itself (includes tensor and pipeline parallelism). | Depends on subtype | Depends on subtype | Impact is whatever the chosen subtype generates |
 
-
-
-In my next post, I will discuss the routing considerations for AI training workloads. Again, I really want to dig into inference and its network patterns later this month.
