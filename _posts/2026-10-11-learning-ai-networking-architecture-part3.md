@@ -15,7 +15,7 @@ In [part two]({% post_url 2026-10-09-learning-ai-networking-architecture-part2 %
 
 What is  consistent though between frontend and backend network is the foundation of an AI network that is the L3 CLOS topology (leaf-spine). I suspect its the cost that has governed this decision. Ethernet/IP is a well known technology, you can find engineers to troubleshoot it and manage it, L3 CLOS deployments can be easily automated because both servers and switches are programmable using infrastracture as code tooling.
 
-Why L3 and not one big Layer 2 network? The best reference I found is [RFC 7938 - Use of BGP for Routing in Large-Scale Data Centers](https://datatracker.ietf.org/doc/html/rfc7938), written in 2016 by Petr Lapukhov et.al. The authors stated, that based on their experience The operational simplicity and network stability is achieved with a L3 CLOS with a small number of staff. 
+Why L3 and not one big Layer 2 network? The best reference I found is [RFC 7938 - Use of BGP for Routing in Large-Scale Data Centers](https://datatracker.ietf.org/doc/html/rfc7938), written in 2016 by Petr Lapukhov et.al. The authors stated, that based on their experience, the operational simplicity and network stability is achieved using L3 CLOS with a small number of staff. 
 
 ### IPv4 or IPv6?
 
