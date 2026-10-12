@@ -21,22 +21,24 @@ Why L3 and not one big Layer 2 network? The best reference I found is [RFC 7938 
 
 During Emmons' talk, someone in the audience asked: ["Is IPv6 required for back-end networks?"](https://www.youtube.com/watch?v=S5JwBHUgZss&t=1466s) I thought this was a great question.
 
-I think based on Emmons answer, it makes sense, at least to me, to use IPv6 for address simplicity. Especially now that you can use infrastructure as code and create non-overlapping address. 
+I think based on Emmons answer, it makes sense, at least to me, to use IPv6 for address simplicity. Especially now that you can use infrastructure as code and easily create non-overlapping addresses. 
 
-He also said you won't see IPv6 in scale-up networks. That led me down the next rabbit hole.
+He also said you won't see IPv6 in scale-up networks. My guess is that any additional payload info increases latency.
 
 
 ## Scale Up - Ethernet's Next Frontier?
 
-In part two, I described the scale-up network as NVLink, connecting GPUs inside a server or rack. Emmons said [Arista believes Ethernet is a strong competitor for the scale-up fabric](https://www.youtube.com/watch?v=S5JwBHUgZss&t=1219s). His reasons were Ethernet is cost-effective, there are multiple chip vendors to choose from.
+In part two, I described the scale-up network as NVLink, connecting GPUs inside a server or rack. Emmons said [Arista believes Ethernet is a strong competitor for the scale-up fabric](https://www.youtube.com/watch?v=S5JwBHUgZss&t=1219s). His reasons were Ethernet is cost-effective and from a supply chain perpective many vendors to pick from.
 
 But scale-up is hard for Ethernet.
 
-* **Bandwidth**: a GPU might have 400G of NIC bandwidth for scale-out, [but 3.6 Tb/s of scale-up bandwidth](https://www.nvidia.com/en-gb/data-center/nvlink/). That's 8 to 9 times as many ports.
+* **Bandwidth**: a GPU might have 400G of NIC bandwidth for scale-out, [but 3.6 Tb/s of scale-up bandwidth](https://www.nvidia.com/en-gb/data-center/nvlink/). That's 8 to 9 times more.
 * **Cost and Power**: Building a power efficient ethernet scale up network is a current challenge
 * **Small packets**: GPUs talk to each other in the scale-up network using memory load and store operations, which produce 256 byte cache line sized packets. Traditional Ethernet is not efficient at that size.
 
-But Arista will try which is good. Support for ESUN (Ethernet for Scale Up Networks) was announced last week (Oct 7 2026) which is a few days before the next OCP conference in California. Their [Etherlink SU-144](https://blogs.arista.com/blog/next-gen-scale-up-networking-for-ai-fabrics) puts up to 144 XPUs in a single-hop Ethernet scale-up domain, and up to 1,024 XPUs across racks. It sounds interesting, but what I noticed is that they don't publish per-XPU bandwidth, only aggregate numbers like "approximately 1.6 Pb/s per rack." My rough math, 1.6 Pb/s divided by 144 XPUs, comes to about 11 Tb/s per XPU, compared to the 1.8 TB/s (about 14.4 Tb/s) per GPU that NVIDIA publishes for NVLink. I didn't fully understand their announcement, so I guess I'll wait and see when independent people test it out and their numbers.
+But Arista continues to venture into scale-up networking. I need to investigate this, but I believe inference doesn't require as much GPU-to-GPU bandwidth during its operations as neural net training does. 
+
+So with Arista's October 7, 2026 announcement that it supports [ESUN (Ethernet for Scale-Up Networking)](https://blogs.arista.com/blog/next-gen-scale-up-networking-for-ai-fabrics), perhaps Arista will pitch Ethernet as the cost-effective way to build scale-up networks for AI inference?
 
 
 ## Network Depth - Why AI Fabrics Prefer 2 Tiers
