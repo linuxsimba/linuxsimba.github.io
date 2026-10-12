@@ -6,24 +6,24 @@ tags: ["ai", "networking", "ecmp", "clos", "optics", "broadcom"]
 
 This is part 3 of my series documenting my journey learning about neural network (AI) infrastructure. In [part two]({% post_url 2026-10-09-learning-ai-networking-architecture-part2 %}), I went through AI training workflows and which parts of the workflow hit the network.
 
-In this post, I go through the routing side of AI networks: with a focus on Equal-Cost Multi-Path (ECMP) routing and why AI network engineers care so much about ECMP. 
+In this post, I go through the routing side of AI networks, with a focus on Equal-Cost Multi-Path (ECMP) and why AI network engineers care so much about ECMP. 
 
 
 ## L3 CLOS Topologies - Frontend + Backend
 
-In [part two]({% post_url 2026-10-09-learning-ai-networking-architecture-part2 %}), I described the split between the frontend and backend networks, Tom Emmons from Arista in his 2025 presentation [Arista Networking for AI: The Ethernet Backplane](https://www.youtube.com/watch?v=S5JwBHUgZss&t=1029s) said something interesting about frontend networks. He said the frontend "looks like a traditional data center. You just care about it a lot more, because you have billions of dollars of hardware behind it instead of millions." With the rise of inference I believe frontend networks are going to start to matter just as much as backend networks.  So it seems like RAG , KV caches and Prefills may play a greater role in the AI networking design? I will  update this blog post as I learn more about this. 
+In [part two]({% post_url 2026-10-09-learning-ai-networking-architecture-part2 %}), I described the split between the frontend and backend networks. Tom Emmons from Arista in his 2025 presentation [Arista Networking for AI: The Ethernet Backplane](https://www.youtube.com/watch?v=S5JwBHUgZss&t=1029s) said something interesting about frontend networks. He said the frontend "looks like a traditional data center. You just care about it a lot more, because you have billions of dollars of hardware behind it instead of millions." With the rise of inference, I believe frontend networks are going to start to matter just as much as backend networks. So it seems like RAG, KV caches and prefill may play a greater role in the AI networking design? I will update this blog post as I learn more about this. 
 
-What is  consistent though between frontend and backend network is the foundation of an AI network that is the L3 CLOS topology (leaf-spine). I suspect its the cost that has governed this decision. Ethernet/IP is a well known technology, you can find engineers to troubleshoot it and manage it, L3 CLOS deployments can be easily automated because both servers and switches are programmable using infrastracture as code tooling.
+What is consistent, though, between the frontend and backend networks is the foundation of an AI network: the L3 CLOS topology (leaf-spine). I suspect it's the cost that has governed this decision. Ethernet/IP is a well-known technology, and you can find engineers to troubleshoot and manage it. L3 CLOS deployments can also be easily automated, because both servers and switches are programmable using infrastructure-as-code tooling.
 
-Why L3 and not one big Layer 2 network? The best reference I found is [RFC 7938 - Use of BGP for Routing in Large-Scale Data Centers](https://datatracker.ietf.org/doc/html/rfc7938), written in 2016 by Petr Lapukhov et.al. The authors stated, that based on their experience, the operational simplicity and network stability is achieved using L3 CLOS with a small number of staff. 
+Why L3 and not one big Layer 2 network? The best reference I found is [RFC 7938 - Use of BGP for Routing in Large-Scale Data Centers](https://datatracker.ietf.org/doc/html/rfc7938), written in 2016 by Petr Lapukhov et al. The authors stated that, based on their experience, the operational simplicity and network stability are achieved using L3 CLOS with a small number of staff.
 
 ### IPv4 or IPv6?
 
 During Emmons' talk, someone in the audience asked: ["Is IPv6 required for back-end networks?"](https://www.youtube.com/watch?v=S5JwBHUgZss&t=1466s) I thought this was a great question.
 
-I think based on Emmons answer, it makes sense, at least to me, to use IPv6 for address simplicity. Especially now that you can use infrastructure as code and easily create non-overlapping addresses. 
+I think based on Emmons' answer, it makes sense, at least to me, to use IPv6 for address simplicity, especially now that you can use infrastructure-as-code and easily create non-overlapping addresses.
 
-He also said you won't see IPv6 in scale-up networks. My guess is that any additional payload info increases latency.
+He also said you won't see IPv6 in scale-up networks. My guess is that any additional header info increases latency.
 
 
 ## Scale Up - Ethernet's Next Frontier?
@@ -34,11 +34,9 @@ But scale-up is hard for Ethernet.
 
 * **Bandwidth**: a GPU might have 400G of NIC bandwidth for scale-out, [but 3.6 Tb/s of scale-up bandwidth](https://www.nvidia.com/en-gb/data-center/nvlink/). That's 8 to 9 times more.
 * **Cost and Power**: Building a power efficient ethernet scale up network is a current challenge
-* **Small packets**: GPUs talk to each other in the scale-up network using memory load and store operations, which produce 256 byte cache line sized packets. Traditional Ethernet is not efficient at that size.
+* **Small packets**: GPUs talk to each other in the scale-up network using memory load and store operations, which produce 256 byte cache line sized packets. Traditional Ethernet is not good at managing this packet size.
 
-But Arista continues to venture into scale-up networking. I need to investigate this, but I believe inference doesn't require as much GPU-to-GPU bandwidth during its operations as neural net training does. 
-
-So with Arista's October 7, 2026 announcement that it supports [ESUN (Ethernet for Scale-Up Networking)](https://blogs.arista.com/blog/next-gen-scale-up-networking-for-ai-fabrics), perhaps Arista will pitch Ethernet as the cost-effective way to build scale-up networks for AI inference?
+But Arista continues to venture into scale-up networking.  Arista announced on October 7, 2026 that it supports [ESUN (Ethernet for Scale-Up Networking)](https://blogs.arista.com/blog/next-gen-scale-up-networking-for-ai-fabrics). Perhaps Arista will pitch Ethernet as the cost-effective way to build scale-up networks for AI inference? I believe AI Inteference doesn't need the high bandwidth that AI training does,  so scale-up Ethernet for AI inference may just work?
 
 
 ## Network Depth - Why AI Fabrics Prefer 2 Tiers
