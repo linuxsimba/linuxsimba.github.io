@@ -6,7 +6,7 @@ tags: ["ai", "networking", "ecmp", "clos", "optics", "broadcom"]
 
 This is part 3 of my series documenting my journey learning about neural network (AI) infrastructure. In [part two]({% post_url 2026-10-09-learning-ai-networking-architecture-part2 %}), I went through AI training workflows and which parts of the workflow hit the network.
 
-In this post, I go through the routing side of AI networks: with a focus on Equal-Cost Multi-Path (ECMP) routing and why AI network engineers care so much about ECMP. I also take a look at what Broadcom switch chips offer in 2026, since Broadcom is the main supplier of switch chips for commodity Ethernet switches. From what I've found, hyperscalers like Meta and Microsoft buy a lot of white-box switches and run their own software, like FBOSS and SONiC. Enterprises mostly buy branded switches, but many of those use Broadcom chips inside too.
+In this post, I go through the routing side of AI networks: with a focus on Equal-Cost Multi-Path (ECMP) routing and why AI network engineers care so much about ECMP. 
 
 
 ## L3 CLOS Topologies - Frontend + Backend
