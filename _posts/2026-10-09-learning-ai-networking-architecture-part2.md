@@ -83,3 +83,6 @@ I wanted to understand exactly what these mean because, again, it's confusing, e
 | **Pipeline Parallelism** | Split the model into sequential stages (groups of layers); pass activations between stages. | Point-to-point; scale-up or scale-out depending on placement | Smaller, streaming / micro-batch traffic | Sensitive to latency and jitter; cross-node placement creates scale-out flows |
 | **Model Parallelism** | Umbrella term for splitting the model itself (includes tensor and pipeline parallelism). | Depends on subtype | Depends on subtype | Impact is whatever the chosen subtype generates |
 
+
+
+Next up, [part three]({% post_url 2026-10-11-learning-ai-networking-architecture-part3 %}), where I go through L3 CLOS topologies, optics, ECMP and why AI training traffic gives it so much trouble.

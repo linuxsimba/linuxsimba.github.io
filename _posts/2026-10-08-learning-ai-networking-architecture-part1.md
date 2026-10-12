@@ -70,3 +70,6 @@ Meta's story is a good example. In a 2025 blog post titled [Meta's Infrastructur
 Rohan Mehta, a Senior Software Engineer at Microsoft, stated in a [SNIA video titled "Everything you Wanted to know about RDMA but were too proud to ask"](https://www.youtube.com/watch?v=6t041Lr5FCY&t=1s) that InfiniBand doesn't scale well. Deploying InfiniBand involves introducing new Layer 2, 3 and 4 stacks. Ethernet and IP, he said, are ubiquitous.
 
 
+
+
+Next up, [part two]({% post_url 2026-10-09-learning-ai-networking-architecture-part2 %}), where I dig into AI training workflows and which parts of the workflow use the network.
