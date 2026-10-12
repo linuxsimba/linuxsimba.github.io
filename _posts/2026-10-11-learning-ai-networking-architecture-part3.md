@@ -28,7 +28,7 @@ He also said you won't see IPv6 in scale-up networks. My guess is that any addit
 
 ## Scale Up - Ethernet's Next Frontier?
 
-In part two, I described the scale-up network as NVLink, connecting GPUs inside a server or rack. Emmons said [Arista believes Ethernet is a strong competitor for the scale-up fabric](https://www.youtube.com/watch?v=S5JwBHUgZss&t=1219s). His reasons were Ethernet is cost-effective and from a supply chain perpective many vendors to pick from.
+In part two, I described the scale-up network as NVLink, connecting GPUs inside a server or rack. Emmons said [Arista believes Ethernet is a strong competitor for the scale-up fabric](https://www.youtube.com/watch?v=S5JwBHUgZss&t=1219s). His reasons were Ethernet is cost-effective and from a supply chain perpective there many vendors to pick from.
 
 But scale-up is hard for Ethernet.
 
