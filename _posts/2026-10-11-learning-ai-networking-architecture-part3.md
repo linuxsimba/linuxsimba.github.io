@@ -74,7 +74,7 @@ And AI training has few flows. In the SIGCOMM talk, Gangidi said that out of the
 
 ### How the industry is fixing ECMP
 
-Here's how I understand the progression of solutions, from simplest to most involved.
+Here's how I understand the progression of various solutions regarding ECMP.
 
 #### 1. Make more flows
 
