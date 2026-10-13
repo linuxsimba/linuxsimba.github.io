@@ -54,7 +54,7 @@ From the videos, AI network architects prefer 2 tiers whenever possible. The rea
 * Every tier makes load balancing harder.
 * Every tier adds more congestion points for traffic to run into. AI scale-out networks, from what I've heard so far, still struggle with congestion management.
 
-The way to stay at 2 tiers is a switch with a high radix (more ports).
+A 2-tier switching topology seems to be a good compromise and appears to be the most prevalent scale-out topology.
 
 Meta's [SIGCOMM 2024 talk](https://www.youtube.com/watch?v=oDBMv_5rbQg&t=429s) by Adithya Gangidi shows the same thinking in practice. Meta's "AI Zone" is a 2-tier CLOS of 4,000 GPUs with full bisection bandwidth. 
 
